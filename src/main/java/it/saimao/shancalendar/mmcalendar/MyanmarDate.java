@@ -228,10 +228,9 @@ public class MyanmarDate implements Serializable, Cloneable, Comparable<MyanmarD
 	}
 
 	/**
-	 * 
 	 * @return month day [1 to 30]
 	 */
-	public int getMonthDay() {
+	public long getMonthDay() {
 		return monthDay;
 	}
 

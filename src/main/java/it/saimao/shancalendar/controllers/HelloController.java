@@ -1,19 +1,18 @@
 package it.saimao.shancalendar.controllers;
 
 import it.saimao.shancalendar.mmcalendar.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ResourceBundle;
-import java.util.function.Consumer;
 
 public class HelloController implements Initializable {
 
@@ -33,7 +32,7 @@ public class HelloController implements Initializable {
     private Button lbMonth;
 
     @FXML
-    private Label lbYear, lbDetail;
+    private Label lbYear, lbDetail, lbDesc;
 
     @FXML
     private Button btPrev, btNext;
@@ -57,11 +56,6 @@ public class HelloController implements Initializable {
 
         createCalendar();
 
-
-
-
-
-
     }
 
     private int monthLength;
@@ -70,104 +64,118 @@ public class HelloController implements Initializable {
         MyanmarDate myanmarDate = MyanmarDateConverter.convert(selectedDate.getYear(), selectedDate.getMonthValue(), selectedDate.getDayOfMonth());
         lbDetail.setText(
                 selectedDate.toString() + "\n" +
-                myanmarDate.format("S s k ၊ B y k ၊ M p f r ၊ nE ။")
+                        getFirstDayOfMonth().getMonth() + " - " + getFirstDayOfMonth().plusMonths(1).getMonth()
         );
         lbMonth.setText(myanmarDate.getMonthName());
-        lbYear.setText(myanmarDate.getShanYear());
-        System.out.println(myanmarDate.getMonthDay());
+        lbYear.setText("ပီႊတႆး - " + myanmarDate.getShanYear() + " ၼီႈ\nပီႊသႃႇသၼႃႇ - " + myanmarDate.getBuddhistEra() + " ပီႊ");
         monthLength = myanmarDate.getMonthLength();
+        lbDesc.setText(myanmarDate.format("S s k ၊ B y k ၊ M p f r nE"));
+
     }
 
     private void createCalendar() {
 
         clearCalendarView();
-
-//        MyanmarDate myanmarDate = MyanmarDateConverter.convert(currentDate.getYear(), currentDate.getMonthValue(), currentDate.getDayOfMonth());
-//        lbMonth.setText(myanmarDate.format("S s k ၊ B y k ၊ M p f r ၊ nE ။"));
-//        lbYear.setText(myanmarDate.getShanYear());
-//        System.out.println(myanmarDate.getMonthDay());
-
         selectedDate = getFirstDayOfMonth();
         setDateDetail();
 
-        long dayCounts = ChronoUnit.DAYS.between(LocalDate.of(1996, 1, 1), selectedDate);
+        long dayCounts = ChronoUnit.DAYS.between(LocalDate.of(1980, 1, 1), selectedDate);
         int wannWhat = (int) (dayCounts % 10);
-        System.out.println(wannWhat);
 
-        for (int i = 0; i < wannWhat; i ++) {
-            row1.getChildren().get(i).setVisible(false);
-        }
+
 
         int totalMonthDay = 0;
 
-        for (int i = wannWhat; i < 40; i ++) {
-            int index = i % 10;
-            LocalDate ld = null;
-            Button bt = null;
-            if (i / 10 == 0) {
-                // row 1
-                bt = (Button) row1.getChildren().get(index);
-                ld = getFirstDayOfMonth().plusDays(totalMonthDay);
-                MyanmarDate md = MyanmarDateConverter.convert(ld.getYear(), ld.getMonthValue(), ld.getDayOfMonth());
-                bt.setText(md.getMonthDay() + "");
-            } else if (i / 10 == 1) {
-                // row 2
-                if (totalMonthDay < monthLength) {
-                    bt = (Button) row2.getChildren().get(index);
-                    ld = getFirstDayOfMonth().plusDays(totalMonthDay);
-                    MyanmarDate md = MyanmarDateConverter.convert(ld.getYear(), ld.getMonthValue(), ld.getDayOfMonth());
-                    bt.setText(md.getMonthDay() + "");
-                }
-            } else if ( i / 10 == 2) {
-                // row 3
-                if (totalMonthDay < monthLength) {
-                    bt = (Button) row3.getChildren().get(index);
-                    ld = getFirstDayOfMonth().plusDays(totalMonthDay);
-                    MyanmarDate md = MyanmarDateConverter.convert(ld.getYear(), ld.getMonthValue(), ld.getDayOfMonth());
-                    bt.setText(md.getMonthDay() + "");
-                }
-            } else {
-                bt = (Button) row4.getChildren().get(index);
-                if (totalMonthDay < monthLength) {
-                    ld = getFirstDayOfMonth().plusDays(totalMonthDay);
-                    MyanmarDate md = MyanmarDateConverter.convert(ld.getYear(), ld.getMonthValue(), ld.getDayOfMonth());
-                    bt.setText(md.getMonthDay() + "");
-                } else {
-                    bt.setVisible(false);
-                }
-            }
+        for (int i = 0; i < 40; i++) {
 
-            totalMonthDay ++;
-            // Decorate today's date
-            if (bt != null) {
-                 bt.setUserData(ld);
-                 bt.setOnAction(this::clickDate);
-            }
-            if (ld != null && ld.isEqual(LocalDate.now())) {
-                bt.setStyle("-fx-background-color: #d4a808;");
-                selectedDate = LocalDate.now();
-                setDateDetail();
+            // Invisible cells that won't be used
+            if (i < wannWhat) {
+                row1.getChildren().get(i).setVisible(false);
             } else {
-                bt.setStyle("-fx-background-color: white;");
+                int index = i % 10;
+                VBox vBox;
+                if (i / 10 == 0) {
+                    // row 1
+                    vBox = (VBox) row1.getChildren().get(index);
+                } else if (i / 10 == 1) {
+                    // row 2
+                    vBox = (VBox) row2.getChildren().get(index);
+                } else if (i / 10 == 2) {
+                    // row 3
+                    vBox = (VBox) row3.getChildren().get(index);
+                } else {
+                    // row 4
+                    vBox = (VBox) row4.getChildren().get(index);
+                }
+
+                if (totalMonthDay >= monthLength) {
+                    vBox.setVisible(false);
+                }
+
+                if (vBox.isVisible()) {
+                    // Set Date Cell label
+                    LocalDate ld = getFirstDayOfMonth().plusDays(totalMonthDay);
+                    MyanmarDate md = MyanmarDateConverter.convert(ld.getYear(), ld.getMonthValue(), ld.getDayOfMonth());
+
+                    Label engDay = (Label) vBox.getChildren().get(0);
+                    engDay.setText(String.valueOf(ld.getDayOfMonth()));
+                    Label shanDay = (Label) vBox.getChildren().get(1);
+                    shanDay.setText(md.getMonthDay() + "");
+                    Label lukWann = (Label) vBox.getChildren().get(2);
+                    lukWann.setText(md.getWeekDay());
+                    vBox.setUserData(ld);
+                    vBox.setOnMouseClicked(this::clickDate);
+
+                    // Decoration
+                    if (ld.isEqual(LocalDate.now())) {
+                        selectedDate = LocalDate.now();
+                        selectDate(vBox);
+                    } else if (ld.isEqual(selectedDate)) {
+                        selectDate(vBox);
+                    }
+                    setDateDecoration(vBox);
+
+                }
+
+                totalMonthDay++;
             }
 
         }
     }
 
-    Button preSelectedDate = null;
-    private void clickDate(ActionEvent event) {
-        Button btn = (Button) event.getSource();
+    VBox preSelectedDate = null;
+
+    private void clickDate(MouseEvent event) {
+        VBox vb = (VBox) event.getSource();
+        selectDate(vb);
+    }
+
+    private void selectDate(VBox vb) {
         if (preSelectedDate != null) {
             preSelectedDate.setStyle("-fx-background-color: white;");
-            LocalDate prevDate = (LocalDate) preSelectedDate.getUserData();
-            if (prevDate != null && prevDate.isEqual(LocalDate.now())) {
-                preSelectedDate.setStyle("-fx-background-color: #d4a808;");
-            }
         }
-        selectedDate = (LocalDate) btn.getUserData();
-        btn.setStyle("-fx-background-color: cyan;");
-        preSelectedDate = btn;
+        selectedDate = (LocalDate) vb.getUserData();
+        vb.setStyle("-fx-background-color: cyan;");
+        preSelectedDate = vb;
         setDateDetail();
+        setDateDecoration(vb);
+
+    }
+
+    private void setDateDecoration(VBox vb) {
+
+        LocalDate ld = (LocalDate) vb.getUserData();
+        MyanmarDate md = MyanmarDateConverter.convert(ld.getYear(), ld.getMonthValue(), ld.getDayOfMonth());
+        Label shanDay = (Label) vb.getChildren().get(1);
+        if (md.getMoonPhraseInt() == 1) {
+            shanDay.setTextFill(Color.valueOf("#ffdf00"));
+        } else if (md.getMoonPhraseInt() == 3) {
+            // new moon
+            shanDay.setTextFill(Color.valueOf("#555"));
+        } else {
+            // normal day
+            shanDay.setTextFill(Color.valueOf("#007bff"));
+        }
     }
 
     private void clearCalendarView() {
@@ -192,9 +200,8 @@ public class HelloController implements Initializable {
 
 
     public LocalDate getFirstDayOfMonth() {
-        MyanmarDate myanmarDate = MyanmarDateConverter.convert(currentDate.getYear(), currentDate.getMonthValue(), currentDate.getDayOfMonth());
-        LocalDate localDate = currentDate.minusDays(myanmarDate.getMonthDay()).plusDays(currentDate.getDayOfMonth());
-        return localDate;
+        MyanmarDate myanmarDate = MyanmarDateConverter.convert(selectedDate.getYear(), selectedDate.getMonthValue(), selectedDate.getDayOfMonth());
+        return selectedDate.minusDays(myanmarDate.getMonthDay() - 1);
     }
 
 }

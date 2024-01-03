@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -9,88 +10,1076 @@
 <HBox alignment="CENTER" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.saimao.shancalendar.controllers.HelloController">
    <children>
       <Button fx:id="btPrev" mnemonicParsing="false" text="Prev" />
-      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="10.0" HBox.hgrow="ALWAYS">
+      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" HBox.hgrow="ALWAYS">
           <padding>
               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
           </padding>
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="lbMonth" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefWidth="200.0" styleClass="fs-big" text="လိူၼ်တႆး" />
-                  <Label fx:id="lbYear" alignment="CENTER" contentDisplay="CENTER" layoutX="210.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefWidth="100.0" styleClass="fs-big" text="ပီတႆး" />
-                  <Label fx:id="lbDetail" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" styleClass="fs-big" text="လိူၼ်တႆး" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="lbYear" alignment="CENTER" contentDisplay="CENTER" layoutX="210.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" text="ပီတႆး" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="fs-big" />
+                        <String fx:value="c-primary" />
+                     </styleClass></Label>
+                  <Button fx:id="lbMonth" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="200.0" text="လိူၼ်တႆး" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <styleClass>
+                        <String fx:value="bt-lurn-tai" />
+                        <String fx:value="c-success" />
+                     </styleClass></Button>
+                  <Label fx:id="lbDetail" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" text="လိူၼ်တႆး" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="fs-big" />
+                        <String fx:value="c-primary" />
+                     </styleClass></Label>
                </children>
             </HBox>
-            <HBox prefHeight="50.0" prefWidth="200.0" spacing="5.0">
+            <HBox prefHeight="50.0" prefWidth="200.0">
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="ၼိုင်ႈ" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="သွင်" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="62.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="သၢမ်" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="114.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="သီႇ" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="166.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="ႁႃႈ" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="218.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="ႁူၵ်း" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="270.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="ၸဵတ်း" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="322.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="ပႅတ်ႇ" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="374.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="ၵဝ်ႈ" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="426.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="သိပ်း" HBox.hgrow="ALWAYS" />
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="ၼိုင်ႈ" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="cell-title" />
+                        <String fx:value="fs-normal" />
+                     </styleClass></Button>
+                  <Button layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="သွင်" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="cell-title" />
+                        <String fx:value="fs-normal" />
+                     </styleClass></Button>
+                  <Button layoutX="62.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="သၢမ်" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="cell-title" />
+                        <String fx:value="fs-normal" />
+                     </styleClass></Button>
+                  <Button layoutX="114.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="သီႇ" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="cell-title" />
+                        <String fx:value="fs-normal" />
+                     </styleClass></Button>
+                  <Button layoutX="166.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="ႁႃႈ" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="cell-title" />
+                        <String fx:value="fs-normal" />
+                     </styleClass></Button>
+                  <Button layoutX="218.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="ႁူၵ်း" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="cell-title" />
+                        <String fx:value="fs-normal" />
+                     </styleClass></Button>
+                  <Button layoutX="270.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="ၸဵတ်း" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="cell-title" />
+                        <String fx:value="fs-normal" />
+                     </styleClass></Button>
+                  <Button layoutX="322.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="ပႅတ်ႇ" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="cell-title" />
+                        <String fx:value="fs-normal" />
+                     </styleClass></Button>
+                  <Button layoutX="374.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="ၵဝ်ႈ" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="cell-title" />
+                        <String fx:value="fs-normal" />
+                     </styleClass></Button>
+                  <Button layoutX="426.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="သိပ်း" HBox.hgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="cell-title" />
+                        <String fx:value="fs-normal" />
+                     </styleClass></Button>
                </children>
             </HBox>
-            <HBox fx:id="row1" layoutX="30.0" layoutY="80.0" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+            <HBox fx:id="row1" layoutX="30.0" layoutY="80.0" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="62.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="114.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="166.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="218.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="270.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="322.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="374.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="426.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="393.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="520.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="583.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="622.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="647.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="665.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="679.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="690.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
-            <HBox fx:id="row2" layoutX="30.0" layoutY="320.0" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+            <HBox fx:id="row2" layoutX="30.0" layoutY="345.0" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="62.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="114.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="166.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="218.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="270.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="322.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="374.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="426.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="393.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="520.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="583.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="622.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="647.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="665.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="679.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="690.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
-            <HBox fx:id="row3" layoutX="30.0" layoutY="380.0" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+            <HBox fx:id="row3" layoutX="30.0" layoutY="400.0" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="62.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="114.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="166.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="218.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="270.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="322.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="374.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="426.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="393.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="520.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="583.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="622.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="647.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="665.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="679.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="690.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
-            <HBox fx:id="row4" layoutX="30.0" layoutY="440.0" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+            <HBox fx:id="row4" layoutX="30.0" layoutY="455.0" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="62.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="114.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="166.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="218.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="270.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="322.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="374.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button layoutX="426.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="Button" HBox.hgrow="ALWAYS" />
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="393.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="520.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="583.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="622.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="647.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="665.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="679.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="690.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="12">
+                           <styleClass>
+                              <String fx:value="fs-small" />
+                              <String fx:value="c-success" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="၁၂" VBox.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="fs-x-big" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="20.0" prefHeight="25.0" text="ဢၢင်း">
+                           <styleClass>
+                              <String fx:value="fs-x-small" />
+                              <String fx:value="c-danger" />
+                              <String fx:value="fb" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
+            <Label fx:id="lbDesc" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" VBox.vgrow="ALWAYS">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <styleClass>
+                  <String fx:value="fs-big" />
+                  <String fx:value="fb" />
+                  <String fx:value="desc" />
+               </styleClass>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
          </children>
       </VBox>
       <Button fx:id="btNext" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Next" HBox.hgrow="ALWAYS" />

@@ -1,7 +1,75 @@
+@font-face {
+    font-family: 'NamTeng 2020';
+    src: url('../fonts/namteng.ttf');
+}
+
 .root {
--fx-background-color: #dddddd;
+    -fx-font-family: 'NamTeng 2020';
+    -fx-primary-color: #007bff;
+    -fx-success-color: #28a745;
+    -fx-danger-color: #c30010;
+    -fx-background-color: #ffcbcb;
+}
+
+.fs-x-big {
+    -fx-font-size: 30px;
 }
 
 .fs-big {
--fx-font-size: 18px;
+    -fx-font-size: 18px;
+}
+
+.fs-normal {
+    -fx-font-size: 16px;
+}
+
+.fs-small {
+    -fx-font-size: 14px;
+}
+
+.fs-x-small {
+    -fx-font-size: 12px;
+}
+
+.fb {
+    -fx-font-weight: bold;
+}
+
+.cell {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #999;
+    -fx-border-width: 0px 1px 1px 0px;
+    -fx-padding: 5px;
+}
+
+.cell-title {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+    -fx-background-radius: 0px;
+}
+
+.bt-lurn-tai {
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-font-size: 50px;
+}
+
+.c-primary {
+    -fx-text-fill: -fx-primary-color;
+}
+
+.c-danger {
+    -fx-text-fill: -fx-danger-color;
+}
+
+.c-success {
+    -fx-text-fill: -fx-success-color;
+}
+
+.desc {
+    -fx-background-color: -fx-success-color;
+    -fx-background-radius: 5px;
+    -fx-text-fill: white;
+
 }

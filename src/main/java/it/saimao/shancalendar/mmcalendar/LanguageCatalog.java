@@ -206,7 +206,7 @@ public class LanguageCatalog {
 		shan.put("waning", "လွင်ႊ");
 		shan.put("full moon", "မူၼ်း");
 		shan.put("new moon", "လပ်း");
-		shan.put("shan Year", "ပီတႆး");
+		shan.put("shan Year", "ပီႊတႆး");
 		shan.put("Ku", "ၼီႈ");
 		shan.put("Late", "လိုၼ်း");
 		shan.put("Second", "တု");
@@ -224,11 +224,11 @@ public class LanguageCatalog {
 		shan.put("Yatyaza", "\u101B\u1000\u103A\u101B\u102C\u1007\u102C");
 		shan.put("Afternoon Pyathada", "\u1019\u103D\u1014\u103A\u1038\u101C\u103D\u1032\u1015\u103C\u103F\u1012\u102B\u1038");
 		shan.put("Pyathada", "\u1015\u103C\u103F\u1012\u102B\u1038");
-		shan.put("New Year Day", "ပီမႂ်ႇၵမ်ႇၽႃႇ");
-		shan.put("Myanmar Year", "ပီမၢၼ်ႊ");
+		shan.put("New Year Day", "ပီႊမႂ်ႇၵမ်ႇၽႃႇ");
+		shan.put("Myanmar Year", "ပီႊမၢၼ်ႊ");
 		shan.put("Independence Day", "\u101C\u103D\u1010\u103A\u101C\u1015\u103A\u101B\u1031\u1038\u1014\u1031\u1037");
-		shan.put("Union Day", "\u1015\u103C\u100A\u103A\u1011\u1031\u102C\u1004\u103A\u1005\u102F\u1014\u1031\u1037");
-		shan.put("Peasants Day", "\u1010\u1031\u102C\u1004\u103A\u101E\u1030 \u101C\u101A\u103A\u101E\u1019\u102C\u1038\u1014\u1031\u1037");
+		shan.put("Union Day", "ပြည်ထောင်စုနေ့");
+		shan.put("Peasants Day", "တောင်သူ လယ်သမားနေ့");
 		shan.put("Resistance Day", "\u1010\u1031\u102C\u103A\u101C\u103E\u1014\u103A\u101B\u1031\u1038\u1014\u1031\u1037");
 		shan.put("Labour Day", "\u1021\u101C\u102F\u1015\u103A\u101E\u1019\u102C\u1038\u1014\u1031\u1037");
 		shan.put("Martyrs Day", "\u1021\u102C\u1007\u102C\u1014\u100A\u103A\u1014\u1031\u1037");
@@ -275,8 +275,8 @@ public class LanguageCatalog {
 		shan.put("Garudhamma Day", "\u1002\u101B\u102F\u1013\u1019\u1039\u1019\u1014\u1031\u1037");
 		shan.put("Metta Day", "\u1019\u1031\u1010\u1039\u1010\u102C\u1014\u1031\u1037");
 		shan.put("Taungpyone Pwe", "\u1010\u1031\u102C\u1004\u103A\u1015\u103C\u102F\u1014\u103A\u1038\u1015\u103D\u1032");
-		shan.put("Yadanagu Pwe", "\u101B\u1010\u1014\u102C\u1037\u1002\u1030\u1015\u103D\u1032");
-		shan.put("Authors Day", "\u1005\u102C\u1006\u102D\u102F\u1010\u1031\u102C\u103A\u1014\u1031\u1037");
+		shan.put("Yadanagu Pwe", "ရတနာ့ဂူပွဲ");
+		shan.put("Authors Day", "စာဆိုတော်နေ့");
 		shan.put("World Teachers Day", "\u1000\u1019\u1039\u1018\u102C\u1037\u1006\u101B\u102C\u1019\u103B\u102C\u1038\u1014\u1031\u1037");
 		shan.put("Holiday", "\u101B\u102F\u1036\u1038\u1015\u102D\u1010\u103A\u101B\u1000\u103A");
 		shan.put("Chinese New Year", "ပီမႂ်ႇၶေႇ");
@@ -287,16 +287,16 @@ public class LanguageCatalog {
 		shan.put("North", "ၽၢႆႇႁွင်ႇ");
 		shan.put("East", "ၽၢႆႇဝၼ်းဢွၵ်ႇ");
 		shan.put("South", "ၽၢႆႇၸၢၼ်း");
-		shan.put("Binga", "\u1018\u1004\u103A\u1039\u1002");
-		shan.put("Atun", "\u1021\u1011\u103D\u1014\u103A\u1038");
-		shan.put("Yaza",  "\u101B\u102C\u1007");
-		shan.put("Adipati", "\u1021\u1013\u102D\u1015\u1010\u102D");
-		shan.put("Marana", "\u1019\u101B\u100F");
-		shan.put("Thike", "\u101E\u102D\u102F\u1000\u103A");
-		shan.put("Puti", "\u1015\u102F\u1010\u102D");
-		shan.put("Orc", "\u1018\u102E\u101C\u1030\u1038");
-		shan.put("Elf", "\u1014\u1010\u103A");
-		shan.put("Human", "\u101C\u1030");
+		shan.put("Binga", "ဘင်္ဂ");
+		shan.put("Atun", "အထွန်း");
+		shan.put("Yaza",  "ရာဇ");
+		shan.put("Adipati", "အဓိပတိ");
+		shan.put("Marana", "မရဏ");
+		shan.put("Thike", "သိုက်");
+		shan.put("Puti", "ပုတိ");
+		shan.put("Orc", "ဘီလူး");
+		shan.put("Elf", "နတ်");
+		shan.put("Human", "လူ");
 
 		// English
 		english.put("0", "0");
