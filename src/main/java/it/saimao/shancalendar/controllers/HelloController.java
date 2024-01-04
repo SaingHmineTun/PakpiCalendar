@@ -11,10 +11,12 @@ import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
+
+    @FXML
+    private HBox row0;
 
     @FXML
     private HBox row1;
@@ -51,11 +53,19 @@ public class HelloController implements Initializable {
                         .setLanguage(Language.SHAN)
                         .build());
 
-        currentDate = LocalDate.now();
+        currentDate = LocalDate.of(2020, 1, 25);
         selectedDate = currentDate;
 
+        createCalendarHeader();
         createCalendar();
 
+    }
+
+    private void createCalendarHeader() {
+        for (int i = 0; i < 10; i ++) {
+            Button btHeader = (Button) row0.getChildren().get(i);
+            btHeader.setText(ShanDate.weekDays10[i]);
+        }
     }
 
     private int monthLength;
@@ -66,12 +76,30 @@ public class HelloController implements Initializable {
                 selectedDate.toString() + "\n" +
                         getFirstDayOfMonth().getMonth() + " - " + getFirstDayOfMonth().plusMonths(1).getMonth()
         );
-        lbMonth.setText(myanmarDate.getMonthName());
-        lbYear.setText("ပီႊတႆး - " + myanmarDate.getShanYear() + " ၼီႈ\nပီႊသႃႇသၼႃႇ - " + myanmarDate.getBuddhistEra() + " ပီႊ");
+        lbMonth.setText(myanmarDate.getShanMonth() + "");
+        lbYear.setText("ပီႊတႆး - " + myanmarDate.getShanYear() + " ၼီႈ\nသႃႇသၼႃႇ - " + myanmarDate.getBuddhistEra() + " ဝႃႇ");
         monthLength = myanmarDate.getMonthLength();
-        lbDesc.setText(myanmarDate.format("S s k ၊ B y k ၊ M p f r nE"));
+        lbDesc.setText(
+                myanmarDate.format("S s k ၊ B y k ၊ M p f r nE") + "\n" +
+                        "ဝၼ်းတႆး - " + ShanDate.getWannTai(selectedDate.toEpochDay()) +
+                        shanDayDesc(myanmarDate)
+        );
+
 
     }
+
+    private String shanDayDesc(MyanmarDate myanmarDate) {
+        StringBuilder sb = new StringBuilder();
+        if (!ShanDate.getWannTun(myanmarDate).isEmpty()) {
+            sb.append(" ၊ ဝၼ်းထုၼ်း");
+        }
+        if (!ShanDate.getWannPyaat(myanmarDate).isEmpty()) {
+            sb.append(" ၊ ဝၼ်းပျၢတ်ႈ");
+        }
+        sb.append(" ၊ ႁူဝ်ၼၵႃး ").append(ShanDate.getHoNagaa(myanmarDate));
+        return sb.toString();
+    }
+
 
     private void createCalendar() {
 
@@ -79,10 +107,8 @@ public class HelloController implements Initializable {
         selectedDate = getFirstDayOfMonth();
         setDateDetail();
 
-        long dayCounts = ChronoUnit.DAYS.between(LocalDate.of(1980, 1, 1), selectedDate);
-        int wannWhat = (int) (dayCounts % 10);
-
-
+//        long dayCounts = ChronoUnit.DAYS.between(LocalDate.of(1980, 1, 2), selectedDate);
+        int wannWhat = (int) (LocalDate.ofEpochDay(3).toEpochDay() % 10);
 
         int totalMonthDay = 0;
 
@@ -117,12 +143,15 @@ public class HelloController implements Initializable {
                     LocalDate ld = getFirstDayOfMonth().plusDays(totalMonthDay);
                     MyanmarDate md = MyanmarDateConverter.convert(ld.getYear(), ld.getMonthValue(), ld.getDayOfMonth());
 
-                    Label engDay = (Label) vBox.getChildren().get(0);
+                    HBox hb = (HBox) vBox.getChildren().get(0);
+                    Label engDay = (Label) hb.getChildren().get(1);
+                    Label lukWann = (Label) hb.getChildren().get(0);
+                    lukWann.setText(md.getWeekDay());
                     engDay.setText(String.valueOf(ld.getDayOfMonth()));
                     Label shanDay = (Label) vBox.getChildren().get(1);
                     shanDay.setText(md.getMonthDay() + "");
-                    Label lukWann = (Label) vBox.getChildren().get(2);
-                    lukWann.setText(md.getWeekDay());
+                    Label week12Day = (Label) vBox.getChildren().get(2);
+                    week12Day.setText(ShanDate.getWeekDays12(ld.toEpochDay()));
                     vBox.setUserData(ld);
                     vBox.setOnMouseClicked(this::clickDate);
 

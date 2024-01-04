@@ -79,7 +79,7 @@ public class MyanmarDate implements Serializable, Cloneable, Comparable<MyanmarD
 	int moonPhase;
 
 	/**
-	 * wd: week day [0=sat, 1=sun, ..., 6=fri]
+	 * wd: week day [0=sat, 1=sun, 2=mon, 3=tues, 4=wed, 5=thurs, 6=fri, 7=rahu]
 	 */
 	int weekDay;
 
@@ -414,4 +414,11 @@ public class MyanmarDate implements Serializable, Cloneable, Comparable<MyanmarD
 			return NumberToStringUtil.convert(myear + 733, new LanguageCatalog());
 		return NumberToStringUtil.convert(myear + 732, new LanguageCatalog());
 	}
+
+	public int getShanMonth() {
+		int shanMonth = mmonth + 4;
+		if (shanMonth > 12) shanMonth = shanMonth - 12;
+		return shanMonth;
+	}
+
 }

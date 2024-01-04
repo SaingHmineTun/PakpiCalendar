@@ -190,14 +190,14 @@ public class LanguageCatalog {
 		shan.put("Second Waso", "\u1012\u102F\u101D\u102B\u1006\u102D\u102F");
 		shan.put("Tagu", "လိူၼ်ႁႃႈ");
 		shan.put("Late Tagu", "နှောင်းတန်ခူး");
-		shan.put("Kason", "လိူၼ်ႁူၵ်");
+		shan.put("Kason", "လိူၼ်ႁူၵ်း");
 		shan.put("Late Kason", "\u1014\u103E\u1031\u102C\u1004\u103A\u1038\u1000\u1006\u102F\u1014\u103A");
-		shan.put("Nayon", "လိူၼ်ၸဵတ်");
+		shan.put("Nayon", "လိူၼ်ၸဵတ်း");
 		shan.put("Waso", "လိူၼ်ပႅတ်ႇ");
 		shan.put("Wagaung", "လိူၼ်ၵဝ်ႈ");
-		shan.put("Tawthalin", "လိူၼ်သိပ်");
-		shan.put("Thadingyut", "လိူၼ်သိပ်ဢဵတ်");
-		shan.put("Tazaungmon", "လိူၼ်သိပ်သွင်");
+		shan.put("Tawthalin", "လိူၼ်သိပ်း");
+		shan.put("Thadingyut", "လိူၼ်သိပ်းဢဵတ်း");
+		shan.put("Tazaungmon", "လိူၼ်သိပ်းသွင်");
 		shan.put("Nadaw", "လိူၼ်ၸဵင်");
 		shan.put("Pyatho", "လိူၼ်ၵမ်");
 		shan.put("Tabodwe", "လိူၼ်သၢမ်");
@@ -212,7 +212,7 @@ public class LanguageCatalog {
 		shan.put("Second", "တု");
 		shan.put("Sunday", "ဢႃးတိတ်ႉ");
 		shan.put("Monday", "ၸၼ်");
-		shan.put("Tuesday", "ဢၢင်းၵၢင်း");
+		shan.put("Tuesday", "ဢင်းၵၢၼ်း");
 		shan.put("Wednesday", "ပုတ်ႉ");
 		shan.put("Thursday", "ၽတ်း");
 		shan.put("Friday", "သုၵ်း");
