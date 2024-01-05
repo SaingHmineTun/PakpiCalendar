@@ -144,6 +144,24 @@ public class ShanDate {
         return "";
     }
 
+    public static boolean isWannNao(MyanmarDate md) {
+        boolean isWannNao = false;
+        if (md.getFortnightDayInt() == 1 && md.getWeekDayInt() == 1) isWannNao = true;
+        if (md.getFortnightDayInt() == 4 && md.getWeekDayInt() == 2) isWannNao = true;
+        if (md.getFortnightDayInt() == 6 && md.getWeekDayInt() == 3) isWannNao = true;
+        if (md.getFortnightDayInt() == 9 && md.getWeekDayInt() == 4) isWannNao = true;
+        if (md.getFortnightDayInt() == 8 && md.getWeekDayInt() == 5) isWannNao = true;
+        if (md.getFortnightDayInt() == 7 && md.getWeekDayInt() == 6) isWannNao = true;
+        if (md.getFortnightDayInt() == 8 && md.getWeekDayInt() == 0) isWannNao = true;
+        // TODO - Can have error in calculating Wann Nao!
+        return isWannNao;
+    }
+
+    public static String getWannNao(MyanmarDate md) {
+        if (isWannNao(md)) return "ဝၼ်းၼဝ်ႈ";
+        return "";
+    }
+
     public static String getHoNagaa(MyanmarDate myanmarDate) {
         int shanMonth = myanmarDate.getShanMonth();
         if (shanMonth >= 1 && shanMonth <= 3) return "ဝၢႆႇ တၢင်းၸၢၼ်း";

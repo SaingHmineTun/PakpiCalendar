@@ -108,6 +108,9 @@ public class HelloController implements Initializable {
         if (ShanDate.isMweLone(myanmarDate)) {
             sb.append(" ၊ ").append(ShanDate.getMweLone(myanmarDate));
         }
+        if (ShanDate.isWannNao(myanmarDate)) {
+            sb.append(" ၊ ").append(ShanDate.getWannNao(myanmarDate));
+        }
         sb.append(" ၊ ႁူဝ်ၼၵႃး ").append(ShanDate.getHoNagaa(myanmarDate));
         return sb.toString();
     }
