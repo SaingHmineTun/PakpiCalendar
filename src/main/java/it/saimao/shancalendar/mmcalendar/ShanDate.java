@@ -21,7 +21,7 @@ public class ShanDate {
         return getMePee(epochDay) + getLukPee(epochDay);
     }
 
-    public static String getWannTun(MyanmarDate md) {
+    public static boolean isWannTun(MyanmarDate md) {
         boolean isWannTun = false;
         int shanMonth = md.getShanMonth();
         if (shanMonth == 5 || shanMonth == 1) {
@@ -47,11 +47,15 @@ public class ShanDate {
                 isWannTun = true;
             }
         }
-        if (isWannTun) return "ဝၼ်းထုၼ်း";
+        return isWannTun;
+    }
+
+    public static String getWannTun(MyanmarDate myanmarDate) {
+        if (isWannPyaat(myanmarDate)) return "ဝၼ်းထုၼ်း";
         return "";
     }
 
-    public static String getWannPyaat(MyanmarDate myanmarDate) {
+    public static boolean isWannPyaat(MyanmarDate myanmarDate) {
         boolean isWannPyaat = false;
         int shanMonth = myanmarDate.getShanMonth();
         if (shanMonth == 6 || shanMonth == 10 || shanMonth == 2) {
@@ -67,7 +71,64 @@ public class ShanDate {
             if (myanmarDate.getWeekDayInt() == 3 || myanmarDate.getWeekDayInt() == 7)
                 isWannPyaat = true;
         }
-        if (isWannPyaat) return "ဝၼ်းပျၢတ်ႈ";
+        return isWannPyaat;
+    }
+
+    public static String getWannPyaat(MyanmarDate myanmarDate) {
+        if (isWannPyaat(myanmarDate)) return "ဝၼ်းပျၢတ်ႈ";
+        return "";
+    }
+
+    // ဝၼ်းၸူမ်
+    public static boolean isWannJum(MyanmarDate md) {
+        int shanMonth = md.getShanMonth();
+        boolean isWannJum = false;
+        if (shanMonth == 1 || shanMonth == 8) {
+            if (md.getWeekDayInt() == 2) isWannJum = true;
+        } else if (shanMonth == 2 || shanMonth == 9 || shanMonth == 11) {
+            if (md.getWeekDayInt() == 3) isWannJum = true;
+        } else if (shanMonth == 3 || shanMonth == 10) {
+            if (md.getWeekDayInt() == 4) isWannJum = true;
+        } else if (shanMonth == 4) {
+            if (md.getWeekDayInt() == 5) isWannJum = true;
+        } else if (shanMonth == 5 || shanMonth == 12) {
+            if (md.getWeekDayInt() == 6) isWannJum = true;
+        } else if (shanMonth == 6) {
+            if (md.getWeekDayInt() == 0) isWannJum = true;
+        } else if (shanMonth == 7) {
+            if (md.getWeekDayInt() == 1) isWannJum = true;
+        }
+        return isWannJum;
+    }
+
+    public static String getWannJum(MyanmarDate md) {
+        if (isWannJum(md)) return "ဝၼ်းၸူမ်";
+        return "";
+    }
+
+    public static boolean isWannPhoo(MyanmarDate md) {
+        int shanMonth = md.getShanMonth();
+        boolean isWannPhoo = false;
+        if (shanMonth == 1 || shanMonth == 8) {
+            if (md.getWeekDayInt() == 6) isWannPhoo = true;
+        } else if (shanMonth == 2) {
+            if (md.getWeekDayInt() == 0) isWannPhoo = true;
+        } else if (shanMonth == 3) {
+            if (md.getWeekDayInt() == 1) isWannPhoo = true;
+        } else if (shanMonth == 4 || shanMonth == 9) {
+            if (md.getWeekDayInt() == 2) isWannPhoo = true;
+        } else if (shanMonth == 5 || shanMonth == 10) {
+            if (md.getWeekDayInt() == 3) isWannPhoo = true;
+        } else if (shanMonth == 6 || shanMonth == 11) {
+            if (md.getWeekDayInt() == 4) isWannPhoo = true;
+        } else if (shanMonth == 7 || shanMonth == 12) {
+            if (md.getWeekDayInt() == 1) isWannPhoo = true;
+        }
+        return isWannPhoo;
+    }
+
+    public static String getWannPhoo(MyanmarDate md) {
+        if (isWannPhoo(md)) return "ဝၼ်းၽူး";
         return "";
     }
 

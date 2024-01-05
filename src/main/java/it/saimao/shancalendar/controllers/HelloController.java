@@ -99,6 +99,12 @@ public class HelloController implements Initializable {
         if (!ShanDate.getWannPyaat(myanmarDate).isEmpty()) {
             sb.append(" ၊ ဝၼ်းပျၢတ်ႈ");
         }
+        if (ShanDate.isWannJum(myanmarDate)) {
+            sb.append(" ၊ ").append(ShanDate.getWannJum(myanmarDate));
+        }
+        if (ShanDate.isWannPhoo(myanmarDate)) {
+            sb.append(" ၊ ").append(ShanDate.getWannPhoo(myanmarDate));
+        }
         sb.append(" ၊ ႁူဝ်ၼၵႃး ").append(ShanDate.getHoNagaa(myanmarDate));
         return sb.toString();
     }
