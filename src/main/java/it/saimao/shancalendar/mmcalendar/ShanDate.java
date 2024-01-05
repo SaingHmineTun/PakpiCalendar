@@ -132,6 +132,18 @@ public class ShanDate {
         return "";
     }
 
+
+    public static boolean isMweLone(MyanmarDate md) {
+        int x = md.getFortnightDayInt();
+        int y = md.getWeekDayInt() == 0 ? 7 : md.getWeekDayInt();
+        return x + y == 13;
+    }
+
+    public static String getMweLone(MyanmarDate md) {
+        if (isMweLone(md)) return "မူၺ်ႉလူင်";
+        return "";
+    }
+
     public static String getHoNagaa(MyanmarDate myanmarDate) {
         int shanMonth = myanmarDate.getShanMonth();
         if (shanMonth >= 1 && shanMonth <= 3) return "ဝၢႆႇ တၢင်းၸၢၼ်း";
