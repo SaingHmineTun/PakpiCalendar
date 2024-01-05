@@ -2,19 +2,23 @@ package it.saimao.shancalendar.mmcalendar;
 
 public class ShanDate {
 
-    public static final String[] weekDays10 = {"ၵၢပ်ႇ", "လပ်း", "ႁၢႆး", "မိူင်း", "ပိုၵ်း", "ၵတ်း", "ၶုတ်း", "ႁုင်ႉ", "တဝ်ႇ", "ၵႃႇ"};
-    public static final String[] weekDays12 = {"ၸႂ်ႉ", "ပဝ်ႉ", "ယီး", "မဝ်ႉ", "သီ", "သႂ်ႉ", "သီင", "မူတ်ႉ", "သၼ်", "ႁဝ်ႉ", "မဵတ်ႉ", "ၵႂ်ႉ"};
+    public static final String[] mePee = {"ၵၢပ်ႇ", "လပ်း", "ႁၢႆး", "မိူင်း", "ပိုၵ်း", "ၵတ်း", "ၶုတ်း", "ႁုင်ႉ", "တဝ်ႇ", "ၵႃႇ"};
+    public static final String[] lukPee = {"ၸႂ်ႉ", "ပဝ်ႉ", "ယီး", "မဝ်ႉ", "သီ", "သႂ်ႉ", "သီင", "မူတ်ႉ", "သၼ်", "ႁဝ်ႉ", "မဵတ်ႉ", "ၵႂ်ႉ"};
 
-    public static String getWeekDays12(long epochDay) {
-        return ShanDate.weekDays12[(int) (epochDay + 5) % 12];
+    public static String getLukPee(long epochDay) {
+        return ShanDate.lukPee[(int) (epochDay + 5) % 12];
     }
 
-    public static String getWeekDays10(long epochDay) {
-        return ShanDate.weekDays10[(int) ((epochDay + 7) % 10)];
+    public static String getMePee(long epochDay) {
+        return ShanDate.mePee[getWeekDays10Int(epochDay)];
     }
 
-    public static String getWannTai(long epochDay) {
-        return getWeekDays10(epochDay) + getWeekDays12(epochDay);
+    public static int getWeekDays10Int(long epochDay) {
+        return (int) ((epochDay + 7) % 10);
+    }
+
+    public static String getWannTai60(long epochDay) {
+        return getMePee(epochDay) + getLukPee(epochDay);
     }
 
     public static String getWannTun(MyanmarDate md) {
@@ -74,6 +78,27 @@ public class ShanDate {
         if (shanMonth >= 7 && shanMonth <= 9) return "ဝၢႆႇ တၢင်းႁွင်ႇ";
         if (shanMonth >= 10 && shanMonth <= 12) return "ဝၢႆႇ တၢင်းဢွၵ်ႇ";
         return "";
+    }
+
+    private static final String[] wannMwe = {
+            "ႁိူၼ်း", "ၼႃး", "မေႃႈႁႆ", "လိၼ်", "ၼမ်ႉ", "ၵဵင်း", "ၶုၼ်", "ထဝ်ႈၵႄႇ", "မႆႉ", "လုၵ်ႈဢွၼ်ႇ",
+            "မၢဝ်ႇသၢဝ်", "ရႁၢၼ်း", "ၵႃႈ", "သင်ႇၶႃႇ", "ၽီ", "ၶႅၵ်ႇ", "ထဝ်ႈၵႄႇ", "လိၼ်", "မေႃႈႁႆ", "မႆႉ",
+            "မၢဝ်ႇသၢဝ်", "တဝ်ႊၾႆး", "ႁိူၼ်း", "ရႁၢၼ်း", "ၼမ်ႉ", "ၶဝ်ႈ", "တူဝ်သီႇတိၼ်", "တၢင်း", "ၶုၼ်", "ၶႃႈၵူၼ်း"
+    };
+
+    private static final String[] wannPheeKin = {
+            "ၽီ", "ၵူၼ်း", "ၵႆႇ", "မႃ", "မႃႉ", "မူ", "ဝူဝ်း", "ၵႂၢႆး", "ၽီ", "ၵူၼ်း",
+            "ၵႆႇ", "ပဵတ်း", "မူ", "မႃ", "ဝူဝ်း", "ၽီ", "ၵူၼ်း", "ၵႆႇ", "မႃ", "မႃႉ",
+            "မူ", "ဝူဝ်း", "ၵႂၢႆး", "ၽီ", "ၵူၼ်း", "ၵႆႇ", "ပဵတ်း", "မူ", "မႃ", "ဝူဝ်း"
+    };
+
+    public static String getWannMwe(MyanmarDate myanmarDate) {
+        return "မူၺ်ႉ" + wannMwe[(int) myanmarDate.getMonthDay() - 1];
+
+    }
+
+    public static String getWannPheeKin(MyanmarDate myanmarDate) {
+        return "ၽီၵိၼ်" + wannPheeKin[(int) myanmarDate.getMonthDay() - 1];
     }
 
 }

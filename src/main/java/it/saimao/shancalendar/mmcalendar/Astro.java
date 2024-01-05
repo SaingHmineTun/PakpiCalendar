@@ -14,31 +14,31 @@ import java.io.Serializable;
 public class Astro implements Serializable, Cloneable {
 
 	private static final long serialVersionUID = 704868696259464344L;
-	
-	int sabbath;
-	int sabbatheve;
-	int yatyaza;
-	int pyathada;
-	int thamanyo;
-	int amyeittasote;
-	int warameittugyi;
-	int warameittunge;
-	int yatpote;
-	int thamaphyu;
-	int nagapor;
-	int yatyotema;
-	int mahayatkyan;
-	int shanyat;
+
+	int sabbath; // ဥပုသ်နေ့
+	int sabbatheve; // အဖိတ်နေ့
+	int yatyaza; // ရက်ရာဇာ
+	int pyathada; // ပြဿဒါး
+	int thamanyo; // ဿမညို
+	int amyeittasote; // အမြိတ်တဆုတ်
+	int warameittugyi; // ဝါရမိတ် ဒုကြီး
+	int warameittunge; // ဝါရမိတ် ဒုငယ်
+	int yatpote; // ရက်ပုပ်
+	int thamaphyu; // ဿမဖြူ
+	int nagapor; // နဂါးပေါ်
+	int yatyotema; // ရက်ယုတ်မာ
+	int mahayatkyan; // မဟာရက်ကြမ်း
+	int shanyat; // ရှမ်းရက်
 	/* 0 = west, 1 = north, 2 = east, 3 = south */
-	int nagahle;
+	int nagahle; // နဂါးလှည့်
 	/* 0 = Binga, 1 = Atun, 2 = Yaza, 3 = Adipati, 4 = Marana, 5 = Thike, 6 = Puti */
-	int mahabote;
+	int mahabote; // မဟာဘုတ်
 	/* 0 = orc, 1 = elf, 2 = human */
-	int nakhat;
+	int nakhat; // နက္ခတ်
 	//{"ပုဿနှစ်","မာခနှစ်","ဖ္လကိုန်သံဝစ္ဆိုဝ်ရနှစ်","စယ်နှစ်",
 			//"ပိသျက်နှစ်","စိဿနှစ်","အာသတ်နှစ်","သရဝန်နှစ်",
 			//"ဘဒ္ဒြသံဝစ္ဆုံရ်နှစ်","အာသိန်နှစ်","ကြတိုက်နှစ်","မြိက္ကသိုဝ်နှစ်"}
-	int yearName;
+	int yearName; // နှစ်
 
 	protected Astro() {
 	}	
@@ -360,18 +360,20 @@ public class Astro implements Serializable, Cloneable {
 		}
 
 		if (isShanyat()) {
-			stringBuilder.append(" " + languageCatalog.getLanguage().getComma() + " ");
+			stringBuilder.append(" ").append(languageCatalog.getLanguage().getComma()).append(" ");
 			stringBuilder.append(getShanyat(languageCatalog));
 		}
 
 
-		stringBuilder.append("\u1014\u1002\u102B\u1038\u1001\u1031\u102B\u1004\u103A\u1038" + getNagahle(languageCatalog) + "\u101E\u102D\u102F\u1037\u101C\u103E\u100A\u103A\u1037\u101E\u100A\u103A\u104B");
-		stringBuilder.append(" " + languageCatalog.getLanguage().getComma() + " ");
-		stringBuilder.append(getMahabote(languageCatalog) + "\u1016\u103D\u102C\u1038");
-		stringBuilder.append(" " + languageCatalog.getLanguage().getComma() + " ");
-		stringBuilder.append(getNakhat(languageCatalog) + "\u1014\u1000\u1039\u1001\u1010\u103A");
+		stringBuilder.append("၊ ႁူဝ်ၼၵႃး ဝၢႆႇ").append(getNagahle(languageCatalog));
+//		stringBuilder.append("နဂါးခေါင်း" + getNagahle(languageCatalog) + "သို့လှည့်သည်။");
+		stringBuilder.append(" ").append(languageCatalog.getLanguage().getComma()).append(" ");
+//		stringBuilder.append(getMahabote(languageCatalog) + "ဖွား");
+		stringBuilder.append(getMahabote(languageCatalog)).append("ဖွား");
+		stringBuilder.append(" ").append(languageCatalog.getLanguage().getComma()).append(" ");
+		stringBuilder.append(getNakhat(languageCatalog)).append("နက္ခတ်");
 
-		stringBuilder.append(" " + languageCatalog.getLanguage().getComma() + " ");
+		stringBuilder.append(" ").append(languageCatalog.getLanguage().getComma()).append(" ");
 		stringBuilder.append(getYearName());
 		
 		return stringBuilder.toString();

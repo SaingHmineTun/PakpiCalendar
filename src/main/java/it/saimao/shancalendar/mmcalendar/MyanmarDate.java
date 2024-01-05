@@ -73,7 +73,7 @@ public class MyanmarDate implements Serializable, Cloneable, Comparable<MyanmarD
 	int fortnightDay;
 
 	/**
-	 * 
+	 * 					la sann					la sote
 	 * mp :moon phase [0=waxing, 1=full moon, 2=waning, 3=new moon],
 	 */
 	int moonPhase;

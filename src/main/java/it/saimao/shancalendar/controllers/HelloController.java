@@ -53,7 +53,7 @@ public class HelloController implements Initializable {
                         .setLanguage(Language.SHAN)
                         .build());
 
-        currentDate = LocalDate.of(2020, 1, 25);
+        currentDate = LocalDate.of(2015, 12, 25);
         selectedDate = currentDate;
 
         createCalendarHeader();
@@ -64,7 +64,7 @@ public class HelloController implements Initializable {
     private void createCalendarHeader() {
         for (int i = 0; i < 10; i ++) {
             Button btHeader = (Button) row0.getChildren().get(i);
-            btHeader.setText(ShanDate.weekDays10[i]);
+            btHeader.setText(ShanDate.mePee[i]);
         }
     }
 
@@ -81,7 +81,10 @@ public class HelloController implements Initializable {
         monthLength = myanmarDate.getMonthLength();
         lbDesc.setText(
                 myanmarDate.format("S s k ၊ B y k ၊ M p f r nE") + "\n" +
-                        "ဝၼ်းတႆး - " + ShanDate.getWannTai(selectedDate.toEpochDay()) +
+                        AstroConverter.convert(myanmarDate).toString() + "\n" +
+                        "ဝၼ်းတႆး - " + ShanDate.getWannTai60(selectedDate.toEpochDay()) +
+                        " ၊ " + ShanDate.getWannMwe(myanmarDate) +
+                        " ၊ " + ShanDate.getWannPheeKin(myanmarDate) +
                         shanDayDesc(myanmarDate)
         );
 
@@ -107,15 +110,15 @@ public class HelloController implements Initializable {
         selectedDate = getFirstDayOfMonth();
         setDateDetail();
 
-//        long dayCounts = ChronoUnit.DAYS.between(LocalDate.of(1980, 1, 2), selectedDate);
-        int wannWhat = (int) (LocalDate.ofEpochDay(3).toEpochDay() % 10);
+        int dayToHide = ShanDate.getWeekDays10Int(selectedDate.toEpochDay());
+
 
         int totalMonthDay = 0;
 
         for (int i = 0; i < 40; i++) {
 
             // Invisible cells that won't be used
-            if (i < wannWhat) {
+            if (i < dayToHide) {
                 row1.getChildren().get(i).setVisible(false);
             } else {
                 int index = i % 10;
@@ -151,7 +154,7 @@ public class HelloController implements Initializable {
                     Label shanDay = (Label) vBox.getChildren().get(1);
                     shanDay.setText(md.getMonthDay() + "");
                     Label week12Day = (Label) vBox.getChildren().get(2);
-                    week12Day.setText(ShanDate.getWeekDays12(ld.toEpochDay()));
+                    week12Day.setText(ShanDate.getLukPee(ld.toEpochDay()));
                     vBox.setUserData(ld);
                     vBox.setOnMouseClicked(this::clickDate);
 
