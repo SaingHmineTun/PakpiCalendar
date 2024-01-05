@@ -81,38 +81,14 @@ public class HelloController implements Initializable {
         monthLength = myanmarDate.getMonthLength();
         lbDesc.setText(
                 myanmarDate.format("S s k ၊ B y k ၊ M p f r nE") + "\n" +
-                        AstroConverter.convert(myanmarDate).toString() + "\n" +
+//                        AstroConverter.convert(myanmarDate).toString() + "\n" +
                         "ဝၼ်းတႆး - " + ShanDate.getWannTai60(selectedDate.toEpochDay()) +
                         " ၊ " + ShanDate.getWannMwe(myanmarDate) +
                         " ၊ " + ShanDate.getWannPheeKin(myanmarDate) +
-                        shanDayDesc(myanmarDate)
+                        ShanDate.toString(selectedDate, myanmarDate)
         );
 
 
-    }
-
-    private String shanDayDesc(MyanmarDate myanmarDate) {
-        StringBuilder sb = new StringBuilder();
-        if (!ShanDate.getWannTun(myanmarDate).isEmpty()) {
-            sb.append(" ၊ ဝၼ်းထုၼ်း");
-        }
-        if (!ShanDate.getWannPyaat(myanmarDate).isEmpty()) {
-            sb.append(" ၊ ဝၼ်းပျၢတ်ႈ");
-        }
-        if (ShanDate.isWannJum(myanmarDate)) {
-            sb.append(" ၊ ").append(ShanDate.getWannJum(myanmarDate));
-        }
-        if (ShanDate.isWannPhoo(myanmarDate)) {
-            sb.append(" ၊ ").append(ShanDate.getWannPhoo(myanmarDate));
-        }
-        if (ShanDate.isMweLone(myanmarDate)) {
-            sb.append(" ၊ ").append(ShanDate.getMweLone(myanmarDate));
-        }
-        if (ShanDate.isWannNao(myanmarDate)) {
-            sb.append(" ၊ ").append(ShanDate.getWannNao(myanmarDate));
-        }
-        sb.append(" ၊ ႁူဝ်ၼၵႃး ").append(ShanDate.getHoNagaa(myanmarDate));
-        return sb.toString();
     }
 
 
@@ -122,7 +98,7 @@ public class HelloController implements Initializable {
         selectedDate = getFirstDayOfMonth();
         setDateDetail();
 
-        int dayToHide = ShanDate.getWeekDays10Int(selectedDate.toEpochDay());
+        int dayToHide = ShanDate.getMePeeInt(selectedDate.toEpochDay());
 
 
         int totalMonthDay = 0;
