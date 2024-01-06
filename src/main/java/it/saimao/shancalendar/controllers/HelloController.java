@@ -4,6 +4,7 @@ import it.saimao.shancalendar.mmcalendar.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -38,16 +39,14 @@ public class HelloController implements Initializable {
 
     @FXML
     private Button btPrev, btNext;
-    LocalDate currentDate, selectedDate;
-    MyanmarDate selectedMyanmarDate;
 
+    @FXML
+    private DatePicker dpSelected;
+    LocalDate selectedDate;
+    MyanmarDate selectedMyanmarDate;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        btNext.setOnAction(event -> gotoNextMonth());
-        btPrev.setOnAction(event -> gotoPrevMonth());
-
 
         Config.initDefault(
                 new Config.Builder()
@@ -55,34 +54,36 @@ public class HelloController implements Initializable {
                         .setLanguage(Language.SHAN)
                         .build());
 
-        currentDate = LocalDate.of(2001, 10, 2);
-        selectedDate = currentDate;
+        btNext.setOnAction(event -> gotoNextMonth());
+        btPrev.setOnAction(event -> gotoPrevMonth());
+
+        dpSelected.setOnHidden(event -> gotoSelectedDate());
+        selectedDate = LocalDate.now();
 
         createCalendarHeader();
         createCalendar();
-
     }
 
     private void createCalendarHeader() {
-        for (int i = 0; i < 10; i ++) {
+        for (int i = 0; i < 10; i++) {
             Button btHeader = (Button) row0.getChildren().get(i);
             btHeader.setText(ShanDate.mePee[i]);
         }
     }
 
-    private int monthLength;
-
     private void setDateDetail() {
-        selectedMyanmarDate = MyanmarDateConverter.convert(selectedDate.getYear(), selectedDate.getMonthValue(), selectedDate.getDayOfMonth());
+        dpSelected.setValue(selectedDate);
         lbDetail.setText(
-                selectedDate.toString() + "\n" +
-                        getFirstDayOfMonth().getMonth() + " - " + getFirstDayOfMonth().plusMonths(1).getMonth()
+                getFirstDayOfMonth().getMonth() + " - " + getFirstDayOfMonth().plusMonths(1).getMonth()
         );
-        lbMonth.setText(selectedMyanmarDate.getShanMonth() + "");
-        lbYear.setText("ပီႊတႆး - " + selectedMyanmarDate.getShanYear() + " ၼီႈ၊ ပီႊ" + ShanDate.getPeeMurngKhe(selectedDate.getYear()) + "\nသႃႇသၼႃႇ - " + selectedMyanmarDate.getBuddhistEra() + " ဝႃႇ");
-        monthLength = selectedMyanmarDate.getMonthLength();
+        lbMonth.setText(selectedMyanmarDate.getMonthName());
+        lbYear.setText("ပီႊတႆး - " + selectedMyanmarDate.getShanYear() + " ၼီႈ" +
+                "\nသႃႇသၼႃႇ - " + selectedMyanmarDate.getBuddhistEra() + " ဝႃႇ");
         lbDesc.setText(
                 selectedMyanmarDate.format("S s k ၊ B y k ၊ M p f r nE") + "\n" +
+                        "ပီႊတႆး - " + selectedMyanmarDate.getShanYear() + " ၼီႈ" +
+                        "၊ ပီႊထမ်း - " + ShanDate.getPeeHtam(selectedDate.getYear()) +
+                        "၊ ပီႊမိူင်း - " + ShanDate.getPeeMurng(selectedMyanmarDate.getShanYearInt()) + "\n" +
 //                        AstroConverter.convert(myanmarDate).toString() + "\n" +
                         "ဝၼ်းတႆး - " + ShanDate.getWannTai60(selectedDate.toEpochDay()) +
                         " ၊ " + ShanDate.getWannMwe(selectedMyanmarDate) +
@@ -97,16 +98,14 @@ public class HelloController implements Initializable {
     private void createCalendar() {
 
         clearCalendarView();
-        selectedDate = getFirstDayOfMonth();
-        setDateDetail();
 
-        int dayToHide = ShanDate.getMePeeInt(selectedDate.toEpochDay());
-
-
+        LocalDate firstDayOfMonth = getFirstDayOfMonth();
+        MyanmarDate firstDayOfMonthMM = MyanmarDateConverter.convert(firstDayOfMonth.getYear(), firstDayOfMonth.getMonthValue(), firstDayOfMonth.getDayOfMonth());
+        int monthLength = firstDayOfMonthMM.getMonthLength();
+        int dayToHide = ShanDate.getMePeeInt(firstDayOfMonth.toEpochDay());
         int totalMonthDay = 0;
 
         for (int i = 0; i < 40; i++) {
-
             // Invisible cells that won't be used
             if (i < dayToHide) {
                 row1.getChildren().get(i).setVisible(false);
@@ -132,31 +131,44 @@ public class HelloController implements Initializable {
                 }
 
                 if (vBox.isVisible()) {
-                    // Set Date Cell label
+                    // Set Date Cell Data
                     LocalDate ld = getFirstDayOfMonth().plusDays(totalMonthDay);
                     MyanmarDate md = MyanmarDateConverter.convert(ld.getYear(), ld.getMonthValue(), ld.getDayOfMonth());
 
                     HBox hb = (HBox) vBox.getChildren().get(0);
+                    // English Day - ဝၼ်းဢၢင်းၵိတ်ႈ
                     Label engDay = (Label) hb.getChildren().get(1);
+                    engDay.setText(String.valueOf(ld.getDayOfMonth()));
+                    // Luk Wann - လုၵ်ႈဝၼ်း ( ၸၼ်, ဢင်းၵၢၼ်း )
                     Label lukWann = (Label) hb.getChildren().get(0);
                     lukWann.setText(md.getWeekDay());
-                    engDay.setText(String.valueOf(ld.getDayOfMonth()));
+                    // Shan Day - ဝၼ်းတႆး
                     Label shanDay = (Label) vBox.getChildren().get(1);
-                    shanDay.setText(md.getMonthDay() + "");
-                    Label week12Day = (Label) vBox.getChildren().get(2);
-                    week12Day.setText(ShanDate.getLukPee(ld.toEpochDay()));
+                    shanDay.setText(md.getMonthDay(LanguageCatalog.getInstance()));
+                    // Wann Luk Pee - ဝၼ်းလုၵ်ႈပီႊ (ၸႂ်ႉ၊ ပဝ်ႉ၊ ယီး)
+                    Label wannLukPee = (Label) vBox.getChildren().get(2);
+                    wannLukPee.setText(ShanDate.getLukPee(ld.toEpochDay()));
                     vBox.setUserData(ld);
-                    vBox.setOnMouseClicked(this::clickDate);
+                    vBox.setOnMouseClicked(this::selectDate);
 
-                    // Decoration
+                    // Decorate Cell
                     if (ld.isEqual(LocalDate.now())) {
-                        selectedDate = LocalDate.now();
                         selectDate(vBox);
-                    } else if (ld.isEqual(selectedDate)) {
+                    } else if (ld.isEqual(firstDayOfMonth)) {
                         selectDate(vBox);
                     }
-                    setDateDecoration(vBox);
 
+                    // Decorate cell label
+                    if (md.getMoonPhraseInt() == 1) {
+                        // full moon
+                        shanDay.setTextFill(Color.valueOf("#ffdf00"));
+                    } else if (md.getMoonPhraseInt() == 3) {
+                        // new moon
+                        shanDay.setTextFill(Color.valueOf("#555"));
+                    } else {
+                        // normal day
+                        shanDay.setTextFill(Color.valueOf("#007bff"));
+                    }
                 }
 
                 totalMonthDay++;
@@ -167,37 +179,34 @@ public class HelloController implements Initializable {
 
     VBox preSelectedDate = null;
 
-    private void clickDate(MouseEvent event) {
+    private void selectDate(MouseEvent event) {
         VBox vb = (VBox) event.getSource();
         selectDate(vb);
     }
 
     private void selectDate(VBox vb) {
-        if (preSelectedDate != null) {
-            preSelectedDate.setStyle("-fx-background-color: white;");
-        }
         selectedDate = (LocalDate) vb.getUserData();
-        vb.setStyle("-fx-background-color: cyan;");
-        preSelectedDate = vb;
+        selectedMyanmarDate = MyanmarDateConverter.convert(selectedDate.getYear(), selectedDate.getMonthValue(), selectedDate.getDayOfMonth());
+        setSelectedCellBackground(vb);
         setDateDetail();
-        setDateDecoration(vb);
 
     }
 
-    private void setDateDecoration(VBox vb) {
-
-        LocalDate ld = (LocalDate) vb.getUserData();
-        MyanmarDate md = MyanmarDateConverter.convert(ld.getYear(), ld.getMonthValue(), ld.getDayOfMonth());
-        Label shanDay = (Label) vb.getChildren().get(1);
-        if (md.getMoonPhraseInt() == 1) {
-            shanDay.setTextFill(Color.valueOf("#ffdf00"));
-        } else if (md.getMoonPhraseInt() == 3) {
-            // new moon
-            shanDay.setTextFill(Color.valueOf("#555"));
-        } else {
-            // normal day
-            shanDay.setTextFill(Color.valueOf("#007bff"));
+    private void setSelectedCellBackground(VBox vb) {
+        /*
+        If already had other cells selected,
+        de-select it.
+         */
+        if (preSelectedDate != null) {
+            // If today's cell, decorate it with success color
+            LocalDate localDate = (LocalDate) preSelectedDate.getUserData();
+            if (localDate.isEqual(LocalDate.now()))
+                preSelectedDate.setStyle("-fx-background-color: #73beeb");
+            else
+                preSelectedDate.setStyle("-fx-background-color: white");
         }
+        vb.setStyle("-fx-background-color: #abd4a4;");
+        preSelectedDate = vb;
     }
 
     private void clearCalendarView() {
@@ -209,12 +218,7 @@ public class HelloController implements Initializable {
 
 
     private void gotoPrevMonth() {
-        if (selectedDate.isEqual(LocalDate.now())) {
-            selectedDate = selectedDate.minusDays(selectedMyanmarDate.getMonthDay());
-        } else {
-            selectedDate = selectedDate.minusDays(1);
-        }
-
+        selectedDate = selectedDate.minusDays(selectedMyanmarDate.getMonthDay());
         createCalendar();
     }
 
@@ -228,9 +232,15 @@ public class HelloController implements Initializable {
     }
 
 
+    private void gotoSelectedDate() {
+        if (!dpSelected.getValue().isEqual(selectedDate)) {
+            selectedDate = dpSelected.getValue();
+            createCalendar();
+        }
+    }
+
     public LocalDate getFirstDayOfMonth() {
         MyanmarDate myanmarDate = MyanmarDateConverter.convert(selectedDate.getYear(), selectedDate.getMonthValue(), selectedDate.getDayOfMonth());
         return selectedDate.minusDays(myanmarDate.getMonthDay() - 1);
     }
-
 }

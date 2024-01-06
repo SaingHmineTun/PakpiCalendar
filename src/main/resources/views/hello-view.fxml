@@ -3,6 +3,7 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -22,7 +23,7 @@
                         <String fx:value="fs-big" />
                         <String fx:value="c-primary" />
                      </styleClass></Label>
-                  <Button fx:id="lbMonth" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="200.0" text="လိူၼ်တႆး" HBox.hgrow="ALWAYS">
+                  <Button fx:id="lbMonth" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="လိူၼ်တႆး" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -30,11 +31,17 @@
                         <String fx:value="bt-lurn-tai" />
                         <String fx:value="c-success" />
                      </styleClass></Button>
-                  <Label fx:id="lbDetail" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" text="လိူၼ်တႆး" HBox.hgrow="ALWAYS">
-                     <styleClass>
-                        <String fx:value="fs-big" />
-                        <String fx:value="c-primary" />
-                     </styleClass></Label>
+                  <VBox alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lbDetail" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" text="လိူၼ်တႆး">
+                           <styleClass>
+                              <String fx:value="fs-big" />
+                              <String fx:value="c-primary" />
+                           </styleClass>
+                        </Label>
+                        <DatePicker fx:id="dpSelected" editable="false" />
+                     </children>
+                  </VBox>
                </children>
             </HBox>
             <HBox fx:id="row0" prefHeight="50.0" prefWidth="200.0">
@@ -1467,7 +1474,7 @@
                   </VBox>
                </children>
             </HBox>
-            <Label fx:id="lbDesc" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" VBox.vgrow="ALWAYS">
+            <Label fx:id="lbDesc" alignment="CENTER" contentDisplay="CENTER" lineSpacing="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" VBox.vgrow="ALWAYS">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>

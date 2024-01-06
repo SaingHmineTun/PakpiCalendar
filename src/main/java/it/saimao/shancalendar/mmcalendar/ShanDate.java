@@ -409,14 +409,17 @@ public class ShanDate {
         return mingMePee + mingLukPee + "(" + lukPeeDef[--lukPeeInt] + ")";
     }
 
-    // မိင်ႈပီႊတႆး
+    // ပီႊထမ်း
     // 1996 - ၼူ
     // 1992 - လိင်း
     // 2001 - ငူး
-    public static String getPeeMurngKhe(int engYear) {
-        int remainder = (engYear % 12) - 4;
-        if (remainder < 0) remainder = 12 + remainder;
-        return lukPeeDef[remainder];
+    public static String getPeeHtam(int engYear) {
+        int lukPeeRemainder = (engYear % 12) - 4;
+        if (lukPeeRemainder < 0) lukPeeRemainder = 12 + lukPeeRemainder;
+        int mePeeRemain = (engYear % 10) - 4;
+        if (mePeeRemain < 0) mePeeRemain = 10 + mePeeRemain;
+        String peeHtam = mePee[mePeeRemain] + lukPee[lukPeeRemainder] + "(" + lukPeeDef[lukPeeRemainder] + ")";
+        return peeHtam;
     }
 
     private static String getLukPeeByInt(int lukPeeInt) {

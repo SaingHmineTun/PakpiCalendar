@@ -14,9 +14,9 @@ class ShanDateTest {
 
     @Test
     void getPeeMurngKhe() {
-        assertEquals("ၼူ", ShanDate.getPeeMurngKhe(1960));
-        assertEquals("ၼူ", ShanDate.getPeeMurngKhe(1996));
-        assertEquals("ငူး", ShanDate.getPeeMurngKhe(2001));
-        assertEquals("လိင်း", ShanDate.getPeeMurngKhe(1992));
+        assertEquals("ၼူ", ShanDate.getPeeHtam(1960));
+        assertEquals("ၼူ", ShanDate.getPeeHtam(1996));
+        assertEquals("ငူး", ShanDate.getPeeHtam(2001));
+        assertEquals("လိင်း", ShanDate.getPeeHtam(1992));
     }
 }

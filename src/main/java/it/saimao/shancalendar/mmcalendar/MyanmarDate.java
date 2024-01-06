@@ -234,6 +234,10 @@ public class MyanmarDate implements Serializable, Cloneable, Comparable<MyanmarD
 		return monthDay;
 	}
 
+	public String getMonthDay(LanguageCatalog languageCatalog) {
+		return NumberToStringUtil.convert(monthDay, languageCatalog);
+	}
+
 	/**
 	 * 
 	 * @return month type [1 = hnaung, 0 = Oo]
