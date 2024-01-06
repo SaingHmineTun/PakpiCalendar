@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/saimao/shancalendar/mmcalendar/ShanDateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/saimao/shancalendar/mmcalendar/ShanDateTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/LanguageCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/LanguageCatalog.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +72,7 @@
       <recent name="it.saimao.shancalendar.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ShanDateTest">
+  <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Zulu\zulu-20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -152,9 +153,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.ShanDateTest" />
         <item itemvalue="JUnit.ShanDateTest.testPeeHtam" />
-        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.ShanDateTest.getPeeMurngKhe" />
         <item itemvalue="JUnit.ShanDateTest.getPeeMurng" />
       </list>
@@ -321,7 +322,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704536574562</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Improve PeeHtam and PeeMurng correctness.&#10;Added corresponding test files for them.">
+      <option name="closed" value="true" />
+      <created>1704537458428</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1704537458428</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -339,15 +348,20 @@
     <MESSAGE value="Implemented PeeMurng" />
     <MESSAGE value="Implemented PeeMurn(Tai) and PeeMurn(Khe)." />
     <MESSAGE value="Implemented PeeHtam and PeeMurng" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented PeeHtam and PeeMurng" />
+    <MESSAGE value="Improve PeeHtam and PeeMurng correctness.&#10;Added corresponding test files for them." />
+    <option name="LAST_COMMIT_MESSAGE" value="Improve PeeHtam and PeeMurng correctness.&#10;Added corresponding test files for them." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java</url>
-          <line>199</line>
-          <option name="timeStamp" value="18" />
+          <line>196</line>
+          <properties class="it.saimao.shancalendar.controllers.HelloController" method="setSelectedCellBackground">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

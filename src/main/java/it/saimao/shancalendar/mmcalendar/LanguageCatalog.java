@@ -186,12 +186,12 @@ public class LanguageCatalog {
 		shan.put("October", "\u1021\u1031\u102C\u1000\u103A\u1010\u102D\u102F\u1018\u102C");
 		shan.put("November", "\u1014\u102D\u102F\u101D\u1004\u103A\u1018\u102C");
 		shan.put("December", "\u1012\u102E\u1007\u1004\u103A\u1018\u102C");
-		shan.put("First Waso", "\u1015\u101D\u102B\u1006\u102D\u102F");
-		shan.put("Second Waso", "\u1012\u102F\u101D\u102B\u1006\u102D\u102F");
+		shan.put("First Waso", "ပလိူၼ်ပႅတ်ႇ");
+		shan.put("Second Waso", "ၻုလိူၼ်ပႅတ်ႇ");
 		shan.put("Tagu", "လိူၼ်ႁႃႈ");
 		shan.put("Late Tagu", "နှောင်းတန်ခူး");
 		shan.put("Kason", "လိူၼ်ႁူၵ်း");
-		shan.put("Late Kason", "\u1014\u103E\u1031\u102C\u1004\u103A\u1038\u1000\u1006\u102F\u1014\u103A");
+		shan.put("Late Kason", "လိုၼ်းလိူၼ်ႁူၵ်း");
 		shan.put("Nayon", "လိူၼ်ၸဵတ်း");
 		shan.put("Waso", "လိူၼ်ပႅတ်ႇ");
 		shan.put("Wagaung", "လိူၼ်ၵဝ်ႈ");
@@ -224,9 +224,9 @@ public class LanguageCatalog {
 		shan.put("Yatyaza", "ဝၼ်းထုၼ်း");
 		shan.put("Afternoon Pyathada", "\u1019\u103D\u1014\u103A\u1038\u101C\u103D\u1032\u1015\u103C\u103F\u1012\u102B\u1038");
 		shan.put("Pyathada", "ဝၼ်းပျၢတ်ႈ");
-		shan.put("New Year Day", "ပီႊမႂ်ႇၵမ်ႇၽႃႇ");
-		shan.put("Myanmar Year", "ပီႊမၢၼ်ႊ");
-		shan.put("Independence Day", "\u101C\u103D\u1010\u103A\u101C\u1015\u103A\u101B\u1031\u1038\u1014\u1031\u1037");
+		shan.put("New Year Day", "ပီႊမႂ်ႇလူၵ်ႈ");
+		shan.put("Myanmar Year", "ပီႊၵေႃးၸႃႇ");
+		shan.put("Independence Day", "ဝၼ်းလွတ်ႈလႅဝ်းသၢဝ်းၶေႃ");
 		shan.put("Union Day", "ပြည်ထောင်စုနေ့");
 		shan.put("Peasants Day", "တောင်သူ လယ်သမားနေ့");
 		shan.put("Resistance Day", "တော်လှန်ရေးနေ့");

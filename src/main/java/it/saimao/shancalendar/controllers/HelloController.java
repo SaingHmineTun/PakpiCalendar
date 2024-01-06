@@ -132,7 +132,7 @@ public class HelloController implements Initializable {
 
                 if (vBox.isVisible()) {
                     // Set Date Cell Data
-                    LocalDate ld = getFirstDayOfMonth().plusDays(totalMonthDay);
+                    LocalDate ld = firstDayOfMonth.plusDays(totalMonthDay);
                     MyanmarDate md = MyanmarDateConverter.convert(ld.getYear(), ld.getMonthValue(), ld.getDayOfMonth());
 
                     HBox hb = (HBox) vBox.getChildren().get(0);
@@ -151,11 +151,13 @@ public class HelloController implements Initializable {
                     vBox.setUserData(ld);
                     vBox.setOnMouseClicked(this::selectDate);
 
-                    // Decorate Cell
+                    // Decorate Cell : Selecting cell
                     if (ld.isEqual(LocalDate.now())) {
                         selectDate(vBox);
                     } else if (ld.isEqual(firstDayOfMonth)) {
                         selectDate(vBox);
+                    } else {
+                        vBox.setStyle("-fx-background-color: white");
                     }
 
                     // Decorate cell label
@@ -177,7 +179,7 @@ public class HelloController implements Initializable {
         }
     }
 
-    VBox preSelectedDate = null;
+    VBox prevSelectedDate = null;
 
     private void selectDate(MouseEvent event) {
         VBox vb = (VBox) event.getSource();
@@ -197,18 +199,16 @@ public class HelloController implements Initializable {
         If already had other cells selected,
         de-select it.
          */
-        if (preSelectedDate != null) {
-            // If today's cell, decorate it with success color
-
+        if (prevSelectedDate != null) {
             // TODO - Today's date is always decorated
-            LocalDate localDate = (LocalDate) preSelectedDate.getUserData();
+            LocalDate localDate = (LocalDate) prevSelectedDate.getUserData();
             if (localDate.isEqual(LocalDate.now()))
-                preSelectedDate.setStyle("-fx-background-color: #73beeb");
+                prevSelectedDate.setStyle("-fx-background-color: #73beeb");
             else
-                preSelectedDate.setStyle("-fx-background-color: white");
+                prevSelectedDate.setStyle("-fx-background-color: white");
         }
         vb.setStyle("-fx-background-color: #abd4a4;");
-        preSelectedDate = vb;
+        prevSelectedDate = vb;
     }
 
     private void clearCalendarView() {
