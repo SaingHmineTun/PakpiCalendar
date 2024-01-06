@@ -39,7 +39,7 @@
                               <String fx:value="c-primary" />
                            </styleClass>
                         </Label>
-                        <DatePicker fx:id="dpSelected" editable="false" />
+                        <DatePicker fx:id="dpSelected" editable="false" promptText="Select Date" styleClass="fs-small" />
                      </children>
                   </VBox>
                </children>

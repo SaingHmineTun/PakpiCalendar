@@ -42,7 +42,7 @@ public class HelloController implements Initializable {
 
     @FXML
     private DatePicker dpSelected;
-    LocalDate selectedDate;
+    LocalDate selectedDate, dpDate;
     MyanmarDate selectedMyanmarDate;
 
     @Override
@@ -154,6 +154,9 @@ public class HelloController implements Initializable {
                     // Decorate Cell : Selecting cell
                     if (ld.isEqual(LocalDate.now())) {
                         selectDate(vBox);
+                    } else if (dpDate != null && ld.isEqual(dpDate)) {
+                        selectDate(vBox);
+                        dpDate = null;
                     } else if (ld.isEqual(firstDayOfMonth)) {
                         selectDate(vBox);
                     } else {
@@ -237,6 +240,7 @@ public class HelloController implements Initializable {
     private void gotoSelectedDate() {
         if (!dpSelected.getValue().isEqual(selectedDate)) {
             selectedDate = dpSelected.getValue();
+            dpDate = selectedDate;
             createCalendar();
         }
     }
