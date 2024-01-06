@@ -208,14 +208,21 @@ public class HelloController implements Initializable {
 
 
     private void gotoPrevMonth() {
-        selectedDate = selectedDate.minusDays(selectedMyanmarDate.getMonthLength());
+        if (selectedDate.isEqual(LocalDate.now())) {
+            selectedDate = selectedDate.minusDays(selectedMyanmarDate.getMonthDay());
+        } else {
+            selectedDate = selectedDate.minusDays(1);
+        }
+
         createCalendar();
     }
 
     private void gotoNextMonth() {
-        System.out.println("Before : " + selectedDate);
-        selectedDate = selectedDate.plusDays(selectedMyanmarDate.getMonthLength());
-        System.out.println("After : " + selectedDate);
+        if (selectedDate.equals(LocalDate.now())) {
+            selectedDate = selectedDate.plusDays(selectedMyanmarDate.getMonthLength() - selectedMyanmarDate.getMonthDay()).plusDays(1);
+        } else {
+            selectedDate = selectedDate.plusDays(selectedMyanmarDate.getMonthLength());
+        }
         createCalendar();
     }
 
