@@ -39,6 +39,7 @@ public class HelloController implements Initializable {
     @FXML
     private Button btPrev, btNext;
     LocalDate currentDate, selectedDate;
+    MyanmarDate selectedMyanmarDate;
 
 
     @Override
@@ -53,7 +54,7 @@ public class HelloController implements Initializable {
                         .setLanguage(Language.SHAN)
                         .build());
 
-        currentDate = LocalDate.of(2015, 12, 25);
+        currentDate = LocalDate.now();
         selectedDate = currentDate;
 
         createCalendarHeader();
@@ -71,21 +72,21 @@ public class HelloController implements Initializable {
     private int monthLength;
 
     private void setDateDetail() {
-        MyanmarDate myanmarDate = MyanmarDateConverter.convert(selectedDate.getYear(), selectedDate.getMonthValue(), selectedDate.getDayOfMonth());
+        selectedMyanmarDate = MyanmarDateConverter.convert(selectedDate.getYear(), selectedDate.getMonthValue(), selectedDate.getDayOfMonth());
         lbDetail.setText(
                 selectedDate.toString() + "\n" +
                         getFirstDayOfMonth().getMonth() + " - " + getFirstDayOfMonth().plusMonths(1).getMonth()
         );
-        lbMonth.setText(myanmarDate.getShanMonth() + "");
-        lbYear.setText("ပီႊတႆး - " + myanmarDate.getShanYear() + " ၼီႈ\nသႃႇသၼႃႇ - " + myanmarDate.getBuddhistEra() + " ဝႃႇ");
-        monthLength = myanmarDate.getMonthLength();
+        lbMonth.setText(selectedMyanmarDate.getShanMonth() + "");
+        lbYear.setText("ပီႊတႆး - " + selectedMyanmarDate.getShanYear() + " ၼီႈ\nသႃႇသၼႃႇ - " + selectedMyanmarDate.getBuddhistEra() + " ဝႃႇ");
+        monthLength = selectedMyanmarDate.getMonthLength();
         lbDesc.setText(
-                myanmarDate.format("S s k ၊ B y k ၊ M p f r nE") + "\n" +
+                selectedMyanmarDate.format("S s k ၊ B y k ၊ M p f r nE") + "\n" +
 //                        AstroConverter.convert(myanmarDate).toString() + "\n" +
                         "ဝၼ်းတႆး - " + ShanDate.getWannTai60(selectedDate.toEpochDay()) +
-                        " ၊ " + ShanDate.getWannMwe(myanmarDate) +
-                        " ၊ " + ShanDate.getWannPheeKin(myanmarDate) +
-                        ShanDate.toString(selectedDate, myanmarDate)
+                        " ၊ " + ShanDate.getWannMwe(selectedMyanmarDate) +
+                        " ၊ " + ShanDate.getWannPheeKin(selectedMyanmarDate) +
+                        ShanDate.toString(selectedDate, selectedMyanmarDate)
         );
 
 
@@ -207,14 +208,14 @@ public class HelloController implements Initializable {
 
 
     private void gotoPrevMonth() {
-        currentDate = currentDate.minusMonths(1);
-        selectedDate = currentDate;
+        selectedDate = selectedDate.minusDays(selectedMyanmarDate.getMonthLength());
         createCalendar();
     }
 
     private void gotoNextMonth() {
-        currentDate = currentDate.plusMonths(1);
-        selectedDate = currentDate;
+        System.out.println("Before : " + selectedDate);
+        selectedDate = selectedDate.plusDays(selectedMyanmarDate.getMonthLength());
+        System.out.println("After : " + selectedDate);
         createCalendar();
     }
 

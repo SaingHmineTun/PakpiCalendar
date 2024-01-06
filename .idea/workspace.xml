@@ -7,7 +7,6 @@
     <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/ShanDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/ShanDate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704424288461</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Implemented all features requested by C Tai.">
+      <option name="closed" value="true" />
+      <created>1704467041694</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1704467041694</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -158,19 +165,20 @@
     <MESSAGE value="Implemented WannJum (ဝၼ်းၸူမ်), WannPhoo (ဝၼ်းၽူး)" />
     <MESSAGE value="Implemented MweLone (မူၺ်ႉလူင်)" />
     <MESSAGE value="Implemented WannNao (ဝၼ်းၼဝ်ႈ)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented WannNao (ဝၼ်းၼဝ်ႈ)" />
+    <MESSAGE value="Implemented all features requested by C Tai." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented all features requested by C Tai." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java</url>
-          <line>193</line>
+          <line>194</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java</url>
-          <line>190</line>
+          <line>191</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
