@@ -209,7 +209,6 @@ public class HelloController implements Initializable {
         de-select it.
          */
         if (prevSelectedDate != null) {
-            // TODO - Today's date is always decorated
             LocalDate localDate = (LocalDate) prevSelectedDate.getUserData();
             if (localDate.isEqual(LocalDate.now()))
                 prevSelectedDate.setStyle("-fx-background-color: #9BA5C9");
