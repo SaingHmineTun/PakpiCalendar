@@ -398,6 +398,7 @@ public class ShanDate {
         return sb.toString();
     }
 
+    // လၵ်းၼီႈပီႊမိူင်း ( ဢမ်ႇၸႂ်ပီႊၶေႇ )
     public static String getPeeMurng(int shanYear) {
         int year = shanYear - 3;
         int mePeeInt = year % 10; // မိင်ႈမႄႈပီႊ - ဢဝ်တူဝ်လိုၼ်း
@@ -405,6 +406,12 @@ public class ShanDate {
         int lukPeeInt = year % 12;
         String mingLukPee = getLukPeeByInt(lukPeeInt);
         return mingMePee + mingLukPee + "(" + lukPeeDef[--lukPeeInt] + ")";
+    }
+
+    public static String getPeeMurngKhe(int engYear) {
+        int remainder = (engYear % 12) - 4;
+        if (remainder < 0) remainder = 12 + remainder;
+        return lukPeeDef[remainder];
     }
 
     private static String getLukPeeByInt(int lukPeeInt) {

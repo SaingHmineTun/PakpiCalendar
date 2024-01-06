@@ -48,13 +48,14 @@ public class HelloController implements Initializable {
         btNext.setOnAction(event -> gotoNextMonth());
         btPrev.setOnAction(event -> gotoPrevMonth());
 
+
         Config.initDefault(
                 new Config.Builder()
                         .setCalendarType(CalendarType.ENGLISH)
                         .setLanguage(Language.SHAN)
                         .build());
 
-        currentDate = LocalDate.now();
+        currentDate = LocalDate.of(2001, 10, 2);
         selectedDate = currentDate;
 
         createCalendarHeader();
@@ -78,7 +79,7 @@ public class HelloController implements Initializable {
                         getFirstDayOfMonth().getMonth() + " - " + getFirstDayOfMonth().plusMonths(1).getMonth()
         );
         lbMonth.setText(selectedMyanmarDate.getShanMonth() + "");
-        lbYear.setText("ပီႊတႆး - " + selectedMyanmarDate.getShanYear() + " ၼီႈ\nသႃႇသၼႃႇ - " + selectedMyanmarDate.getBuddhistEra() + " ဝႃႇ");
+        lbYear.setText("ပီႊတႆး - " + selectedMyanmarDate.getShanYear() + " ၼီႈ၊ ပီႊ" + ShanDate.getPeeMurngKhe(selectedDate.getYear()) + "\nသႃႇသၼႃႇ - " + selectedMyanmarDate.getBuddhistEra() + " ဝႃႇ");
         monthLength = selectedMyanmarDate.getMonthLength();
         lbDesc.setText(
                 selectedMyanmarDate.format("S s k ၊ B y k ၊ M p f r nE") + "\n" +
