@@ -8,7 +8,7 @@
     -fx-primary-color: #007bff;
     -fx-success-color: #28a745;
     -fx-danger-color: #c30010;
-    -fx-background-color: #ffcbcb;
+    -fx-background-color: rgb(250, 208, 170);
 }
 
 .fs-x-big {
@@ -52,7 +52,7 @@
     -fx-background-color: transparent;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
-    -fx-font-size: 40px;
+    -fx-font-size: 50px;
 }
 
 .c-primary {
@@ -65,6 +65,10 @@
 
 .c-success {
     -fx-text-fill: -fx-success-color;
+}
+
+.c-shan-day {
+    -fx-text-fill: rgb(1, 8, 115);
 }
 
 .desc {

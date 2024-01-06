@@ -7,6 +7,7 @@
     <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/views/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -347,7 +348,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704539818464</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Implemented &quot;Select Date by DatePicker.&quot;&#10;Implemented by adding dpDate global variable.">
+      <option name="closed" value="true" />
+      <created>1704542074848</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1704542074848</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -367,14 +376,15 @@
     <MESSAGE value="Implemented PeeHtam and PeeMurng" />
     <MESSAGE value="Improve PeeHtam and PeeMurng correctness.&#10;Added corresponding test files for them." />
     <MESSAGE value="Fixed : Today date decoration keep showing in every month!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed : Today date decoration keep showing in every month!" />
+    <MESSAGE value="Implemented &quot;Select Date by DatePicker.&quot;&#10;Implemented by adding dpDate global variable." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented &quot;Select Date by DatePicker.&quot;&#10;Implemented by adding dpDate global variable." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java</url>
-          <line>199</line>
+          <line>205</line>
           <properties class="it.saimao.shancalendar.controllers.HelloController" method="setSelectedCellBackground">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -383,7 +393,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java</url>
-          <line>154</line>
+          <line>157</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>

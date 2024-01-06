@@ -68,6 +68,9 @@ public class HelloController implements Initializable {
         for (int i = 0; i < 10; i++) {
             Button btHeader = (Button) row0.getChildren().get(i);
             btHeader.setText(ShanDate.mePee[i]);
+//            if (i % 5 == 0) {
+//                btHeader.setStyle("-fx-background-color: #c30010;");
+//            }
         }
     }
 
@@ -159,20 +162,23 @@ public class HelloController implements Initializable {
                         dpDate = null;
                     } else if (ld.isEqual(firstDayOfMonth)) {
                         selectDate(vBox);
-                    } else {
+                    } else if (ShanDate.getMePeeInt(ld.toEpochDay()) % 5 == 0) {
+                        vBox.setStyle("-fx-background-color: #d0b6b6");
+                    }
+                    else {
                         vBox.setStyle("-fx-background-color: white");
                     }
 
                     // Decorate cell label
                     if (md.getMoonPhraseInt() == 1) {
                         // full moon
-                        shanDay.setTextFill(Color.valueOf("#ffdf00"));
+                        shanDay.setTextFill(Color.rgb(255, 79, 29));
                     } else if (md.getMoonPhraseInt() == 3) {
                         // new moon
-                        shanDay.setTextFill(Color.valueOf("#555"));
+                        shanDay.setTextFill(Color.rgb(68, 62, 103));
                     } else {
                         // normal day
-                        shanDay.setTextFill(Color.valueOf("#007bff"));
+                        shanDay.setTextFill(Color.rgb(13, 164, 164));
                     }
                 }
 
@@ -206,7 +212,10 @@ public class HelloController implements Initializable {
             // TODO - Today's date is always decorated
             LocalDate localDate = (LocalDate) prevSelectedDate.getUserData();
             if (localDate.isEqual(LocalDate.now()))
-                prevSelectedDate.setStyle("-fx-background-color: #73beeb");
+                prevSelectedDate.setStyle("-fx-background-color: #9BA5C9");
+            else if (ShanDate.getMePeeInt(localDate.toEpochDay()) % 5 == 0) {
+                prevSelectedDate.setStyle("-fx-background-color: #d0b6b6");
+            }
             else
                 prevSelectedDate.setStyle("-fx-background-color: white");
         }

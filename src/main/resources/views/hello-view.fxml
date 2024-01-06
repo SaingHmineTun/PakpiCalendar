@@ -18,12 +18,12 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label fx:id="lbYear" alignment="CENTER" contentDisplay="CENTER" layoutX="210.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" text="ပီတႆး" HBox.hgrow="ALWAYS">
+                  <Label fx:id="lbYear" alignment="CENTER" contentDisplay="CENTER" layoutX="210.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" text="ပီတႆး" HBox.hgrow="ALWAYS">
                      <styleClass>
                         <String fx:value="fs-big" />
                         <String fx:value="c-primary" />
                      </styleClass></Label>
-                  <Button fx:id="lbMonth" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="လိူၼ်တႆး" HBox.hgrow="ALWAYS">
+                  <Button fx:id="lbMonth" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="လိူၼ်တႆး" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -31,7 +31,7 @@
                         <String fx:value="bt-lurn-tai" />
                         <String fx:value="c-success" />
                      </styleClass></Button>
-                  <VBox alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
+                  <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefWidth="500.0" spacing="10.0" HBox.hgrow="ALWAYS">
                      <children>
                         <Label fx:id="lbDetail" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" text="လိူၼ်တႆး">
                            <styleClass>
