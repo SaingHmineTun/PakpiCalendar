@@ -7,6 +7,8 @@ public class ShanDate {
     public static final String[] mePee = {"ၵၢပ်ႇ", "လပ်း", "ႁၢႆး", "မိူင်း", "ပိုၵ်း", "ၵတ်း", "ၶုတ်း", "ႁုင်ႉ", "တဝ်ႇ", "ၵႃႇ"};
     public static final String[] lukPee = {"ၸႂ်ႉ", "ပဝ်ႉ", "ယီး", "မဝ်ႉ", "သီ", "သႂ်ႉ", "သီင", "မူတ်ႉ", "သၼ်", "ႁဝ်ႉ", "မဵတ်ႉ", "ၵႂ်ႉ"};
 
+    public static final String[] lukPeeDef = {"ၼူ", "ၵႂၢႆး", "သိူဝ်", "ပၢင်တၢႆး", "ငိူၵ်ႈ", "ငူး", "မႃႉ", "ပႄႉ", "လိင်း", "ၵႆႇ", "မႃ", "မူ"};
+
     public static String getLukPee(long epochDay) {
         return ShanDate.lukPee[getLukPeeInt(epochDay)];
     }
@@ -394,6 +396,23 @@ public class ShanDate {
         sb.append(" ၊ ႁူဝ်ၼၵႃး ").append(ShanDate.getHoNagaa(md));
 
         return sb.toString();
+    }
+
+    public static String getPeeMurng(int shanYear) {
+        int year = shanYear - 3;
+        int mePeeInt = year % 10; // မိင်ႈမႄႈပီႊ - ဢဝ်တူဝ်လိုၼ်း
+        String mingMePee = getMePeeByInt(mePeeInt);
+        int lukPeeInt = year % 12;
+        String mingLukPee = getLukPeeByInt(lukPeeInt);
+        return mingMePee + mingLukPee + "(" + lukPeeDef[--lukPeeInt] + ")";
+    }
+
+    private static String getLukPeeByInt(int lukPeeInt) {
+        return lukPee[--lukPeeInt];
+    }
+
+    private static String getMePeeByInt(int mePeeInt) {
+        return mePee[--mePeeInt];
     }
 
 

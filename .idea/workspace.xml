@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/utils/WannTai60Def.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/wann_tai_60.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/it/saimao/shancalendar/utils/WannTai60DefTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/it/saimao/shancalendar/mmcalendar/ShanDateTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/MyanmarDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/MyanmarDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/ShanDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/ShanDate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,10 +70,11 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="it.saimao.shancalendar.mmcalendar" />
       <recent name="it.saimao.shancalendar.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.WannTai60DefTest">
+  <component name="RunManager" selected="JUnit.ShanDateTest.getPeeMurng">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Zulu\zulu-20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -84,6 +86,22 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShanDateTest.getPeeMurng" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shancalendar" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.saimao.shancalendar.mmcalendar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.saimao.shancalendar.mmcalendar" />
+      <option name="MAIN_CLASS_NAME" value="it.saimao.shancalendar.mmcalendar.ShanDateTest" />
+      <option name="METHOD_NAME" value="getPeeMurng" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -121,6 +139,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ShanDateTest.getPeeMurng" />
         <item itemvalue="JUnit.WannTai60DefTest" />
         <item itemvalue="JUnit.WannTai60DefTest.testGetWannTai60DefByName" />
         <item itemvalue="Application.HelloApplication" />
@@ -232,7 +251,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704508016792</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added : WannTai60Def and it's corresponding test file!">
+      <option name="closed" value="true" />
+      <created>1704512039988</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1704512039988</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added : WannTai60Def and it's corresponding test file!">
+      <option name="closed" value="true" />
+      <created>1704512114510</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1704512114511</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -246,7 +281,8 @@
     <MESSAGE value="Implemented all features requested by C Tai." />
     <MESSAGE value="Fixed bug in next and prev month!" />
     <MESSAGE value="Fixed : Do not display Shan year correctly!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed : Do not display Shan year correctly!" />
+    <MESSAGE value="Added : WannTai60Def and it's corresponding test file!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added : WannTai60Def and it's corresponding test file!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -260,6 +296,15 @@
           <url>file://$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java</url>
           <line>191</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/ShanDate.java</url>
+          <line>400</line>
+          <properties class="it.saimao.shancalendar.mmcalendar.ShanDate" method="getPeeMurng">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

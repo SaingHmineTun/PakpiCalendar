@@ -413,6 +413,10 @@ public class MyanmarDate implements Serializable, Cloneable, Comparable<MyanmarD
 		return NumberToStringUtil.convert(myear + 732, new LanguageCatalog());
 	}
 
+	public int getShanYearInt() {
+		return Integer.parseInt(getShanYear());
+	}
+
 	public int getShanMonth() {
 		int shanMonth = mmonth + 4;
 		if (shanMonth > 12) shanMonth = shanMonth - 12;
