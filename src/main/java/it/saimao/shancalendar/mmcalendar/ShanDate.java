@@ -399,6 +399,7 @@ public class ShanDate {
     }
 
     // လၵ်းၼီႈပီႊမိူင်း ( ဢမ်ႇၸႂ်ပီႊၶေႇ )
+    // 2109 - ၵတ်းသႂ်ႉ(ငူး)
     public static String getPeeMurng(int shanYear) {
         int year = shanYear - 3;
         int mePeeInt = year % 10; // မိင်ႈမႄႈပီႊ - ဢဝ်တူဝ်လိုၼ်း
@@ -408,6 +409,10 @@ public class ShanDate {
         return mingMePee + mingLukPee + "(" + lukPeeDef[--lukPeeInt] + ")";
     }
 
+    // မိင်ႈပီႊတႆး
+    // 1996 - ၼူ
+    // 1992 - လိင်း
+    // 2001 - ငူး
     public static String getPeeMurngKhe(int engYear) {
         int remainder = (engYear % 12) - 4;
         if (remainder < 0) remainder = 12 + remainder;
