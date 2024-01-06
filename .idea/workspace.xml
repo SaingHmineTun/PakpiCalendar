@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/MyanmarDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/MyanmarDate.java" afterDir="false" />
-    </list>
+    <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -163,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704506511350</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed : Do not display Shan year correctly!">
+      <option name="closed" value="true" />
+      <created>1704507884151</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1704507884151</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -176,7 +180,8 @@
     <MESSAGE value="Implemented WannNao (ဝၼ်းၼဝ်ႈ)" />
     <MESSAGE value="Implemented all features requested by C Tai." />
     <MESSAGE value="Fixed bug in next and prev month!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug in next and prev month!" />
+    <MESSAGE value="Fixed : Do not display Shan year correctly!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed : Do not display Shan year correctly!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

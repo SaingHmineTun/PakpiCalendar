@@ -410,7 +410,6 @@ public class MyanmarDate implements Serializable, Cloneable, Comparable<MyanmarD
 
 	// TODO : Need additional computation because Myanmar and Shan do not share the same month as new year
 	public String getShanYear() {
-		System.out.println("myanmar month " + mmonth);
 		if (mmonth > 8 || mmonth == 1)
 			return NumberToStringUtil.convert(myear + 733, new LanguageCatalog());
 		return NumberToStringUtil.convert(myear + 732, new LanguageCatalog());
