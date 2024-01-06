@@ -199,6 +199,8 @@ public class HelloController implements Initializable {
          */
         if (preSelectedDate != null) {
             // If today's cell, decorate it with success color
+
+            // TODO - Today's date is always decorated
             LocalDate localDate = (LocalDate) preSelectedDate.getUserData();
             if (localDate.isEqual(LocalDate.now()))
                 preSelectedDate.setStyle("-fx-background-color: #73beeb");
