@@ -80,15 +80,15 @@ public class HelloController implements Initializable {
                 getFirstDayOfMonth().getMonth() + " - " + getFirstDayOfMonth().plusMonths(1).getMonth()
         );
         lbMonth.setText(selectedMyanmarDate.getMonthName());
-        lbYear.setText(  "ပီႊတႆး - " + selectedMyanmarDate.getShanYear() + " ၼီႈ" +
-                "\nပီႊထမ်း - " + ShanDate.getPeeHtam(selectedDate.getYear()) +
-                "\nပီႊမိူင်း - " + ShanDate.getPeeMurng(selectedMyanmarDate.getShanYearInt()));
-//                     );
+        lbYear.setText(
+                "ပီႊတႆး - " + selectedMyanmarDate.getShanYear() + " ၼီႈ" +
+                        "\nပီႊမိူင်း - " + ShanDate.getPeeMurng(selectedMyanmarDate.getShanYearInt()) +
+                        "\nပီႊထမ်း - " + ShanDate.getPeeHtam(selectedDate.getYear())
+        );
         lbDesc.setText(
                 selectedMyanmarDate.format("S s k\nB y k\nM p f r nE") + "\n" +
                         "ဝၼ်းတႆး - " + ShanDate.getWannTai60(selectedDate.toEpochDay()) +
-                        "\n" + ShanDate.getWannMwe(selectedMyanmarDate) +
-                        " ၊ " + ShanDate.getWannPheeKin(selectedMyanmarDate) +
+                        "\n" +
                         ShanDate.toString(selectedDate, selectedMyanmarDate)
         );
 
@@ -162,8 +162,7 @@ public class HelloController implements Initializable {
                         selectDate(vBox);
                     } else if (ShanDate.getMePeeInt(ld.toEpochDay()) % 5 == 0) {
                         vBox.setStyle("-fx-background-color: #d0b6b6");
-                    }
-                    else {
+                    } else {
                         vBox.setStyle("-fx-background-color: white");
                     }
 
@@ -212,8 +211,7 @@ public class HelloController implements Initializable {
                 prevSelectedDate.setStyle("-fx-background-color: #9BA5C9");
             else if (ShanDate.getMePeeInt(localDate.toEpochDay()) % 5 == 0) {
                 prevSelectedDate.setStyle("-fx-background-color: #d0b6b6");
-            }
-            else
+            } else
                 prevSelectedDate.setStyle("-fx-background-color: white");
         }
         vb.setStyle("-fx-background-color: #abd4a4;");

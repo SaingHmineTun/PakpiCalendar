@@ -195,7 +195,7 @@ public class ShanDate {
 
     }
 
-    public static String getWannPheeKin(MyanmarDate myanmarDate) {
+    public static String getPheeKin(MyanmarDate myanmarDate) {
         return "ၽီၵိၼ်" + wannPheeKin[(int) myanmarDate.getMonthDay() - 1];
     }
 
@@ -648,11 +648,12 @@ public class ShanDate {
         if (isSayHip(ld, md)) sb.append(" ၊ ").append("သေႁိပ်ႈ");
         if (isSayJom(ld, md)) sb.append(" ၊ ").append("သေၸွမ်း");
         if (isSayYam(ld, md)) sb.append(" ၊ ").append("သေယမ်");
-
         if (isJomTinSur(ld, md)) sb.append(" ၊ ").append("ၸူမ်တိၼ်သိူဝ်");
+        sb.append(" ၊ ").append(getPheeKin(md));
+        sb.append(" ၊ ").append(getWannMwe(md));
         if (isMweKhom(ld, md)) sb.append(" ၊ ").append("မူၺ်ႉၶွမ်ႈ");
-        if (isMweKharLurng(ld, md)) sb.append(" ၊ ").append("မူၺ်ႉၶႃႈလိူင် - ၵမ်ပူၵ်းသဝ်");
-        if (isMweKharLurng2(ld, md)) sb.append(" ၊ ").append("မူၺ်ႉၶႃႈလိူင် - ၵမ်ယူတ်းၶႃး");
+        if (isMweKharLurng(ld, md)) sb.append(" ၊ ").append("မူၺ်ႉၶႃးလိူင်");
+        if (isMweKharLurng2(ld, md)) sb.append(" ၊ ").append("မူၺ်ႉၶႃးလိူင်");
         if (isMweKaoKong(ld, md)) sb.append(" ၊ ").append("မူၺ်ႉၵဝ်ႈၵွင်");
         if (ShanDate.isMweLone(md)) {
             sb.append(" ၊ ").append("မူၺ်ႉလူင်");
@@ -672,9 +673,11 @@ public class ShanDate {
         if (ShanDate.isWannNao(md)) {
             sb.append(" ၊ ").append("ဝၼ်းၼဝ်ႈ");
         }
+        if (ShanDate.isWannHarmWannKyan(ld, md)) sb.append(" ၊ ").append("ဝၼ်းႁၢမ်း");
         if (ShanDate.isWannYut(md)) sb.append(" ၊ ").append("ဝၼ်းယုတ်ႈ");
         if (ShanDate.isWannKyamLone(md)) sb.append(" ၊ ").append("ဝၼ်းၵျၢမ်းလူင်");
         sb.append("\nႁူဝ်ၼၵႃး ").append(ShanDate.getHoNagaa(md));
+
 
         return sb.toString();
     }
@@ -687,7 +690,7 @@ public class ShanDate {
         String mingMePee = getMePeeByInt(mePeeInt);
         int lukPeeInt = year % 12;
         String mingLukPee = getLukPeeByInt(lukPeeInt);
-        return mingMePee + mingLukPee + "(" + lukPeeDef[--lukPeeInt] + ")";
+        return mingMePee + mingLukPee + "(မိင်ႈ" + lukPeeDef[--lukPeeInt] + ")";
     }
 
     // ပီႊထမ်း
@@ -699,7 +702,7 @@ public class ShanDate {
         if (lukPeeRemainder < 0) lukPeeRemainder = 12 + lukPeeRemainder;
         int mePeeRemain = (engYear % 10) - 4;
         if (mePeeRemain < 0) mePeeRemain = 10 + mePeeRemain;
-        String peeHtam = mePee[mePeeRemain] + lukPee[lukPeeRemainder] + "(" + lukPeeDef[lukPeeRemainder] + ")";
+        String peeHtam = mePee[mePeeRemain] + lukPee[lukPeeRemainder] + "(မိင်ႈ" + lukPeeDef[lukPeeRemainder] + ")";
         return peeHtam;
     }
 
