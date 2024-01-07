@@ -80,16 +80,14 @@ public class HelloController implements Initializable {
                 getFirstDayOfMonth().getMonth() + " - " + getFirstDayOfMonth().plusMonths(1).getMonth()
         );
         lbMonth.setText(selectedMyanmarDate.getMonthName());
-        lbYear.setText("ပီႊတႆး - " + selectedMyanmarDate.getShanYear() + " ၼီႈ" +
-                "\nသႃႇသၼႃႇ - " + selectedMyanmarDate.getBuddhistEra() + " ဝႃႇ");
+        lbYear.setText(  "ပီႊတႆး - " + selectedMyanmarDate.getShanYear() + " ၼီႈ" +
+                "\nပီႊထမ်း - " + ShanDate.getPeeHtam(selectedDate.getYear()) +
+                "\nပီႊမိူင်း - " + ShanDate.getPeeMurng(selectedMyanmarDate.getShanYearInt()));
+//                     );
         lbDesc.setText(
-                selectedMyanmarDate.format("S s k ၊ B y k ၊ M p f r nE") + "\n" +
-                        "ပီႊတႆး - " + selectedMyanmarDate.getShanYear() + " ၼီႈ" +
-                        "၊ ပီႊထမ်း - " + ShanDate.getPeeHtam(selectedDate.getYear()) +
-                        "၊ ပီႊမိူင်း - " + ShanDate.getPeeMurng(selectedMyanmarDate.getShanYearInt()) + "\n" +
-//                        AstroConverter.convert(myanmarDate).toString() + "\n" +
+                selectedMyanmarDate.format("S s k\nB y k\nM p f r nE") + "\n" +
                         "ဝၼ်းတႆး - " + ShanDate.getWannTai60(selectedDate.toEpochDay()) +
-                        " ၊ " + ShanDate.getWannMwe(selectedMyanmarDate) +
+                        "\n" + ShanDate.getWannMwe(selectedMyanmarDate) +
                         " ၊ " + ShanDate.getWannPheeKin(selectedMyanmarDate) +
                         ShanDate.toString(selectedDate, selectedMyanmarDate)
         );

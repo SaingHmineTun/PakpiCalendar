@@ -161,7 +161,6 @@ public class ShanDate {
         if (md.getFortnightDayInt() == 8 && md.getWeekDayInt() == 5) isWannNao = true;
         if (md.getFortnightDayInt() == 7 && md.getWeekDayInt() == 6) isWannNao = true;
         if (md.getFortnightDayInt() == 8 && md.getWeekDayInt() == 0) isWannNao = true;
-        // TODO - Can have error in calculating Wann Nao!
         return isWannNao;
     }
 
@@ -199,6 +198,8 @@ public class ShanDate {
     public static String getWannPheeKin(MyanmarDate myanmarDate) {
         return "ၽီၵိၼ်" + wannPheeKin[(int) myanmarDate.getMonthDay() - 1];
     }
+
+    /***************************** ဝၼ်းတႆးလီဢိၵ်ႇၸႃႉ ႁေႃးၸွမ်းမႄႈပီႈ ****************************/
 
     // သေတင်ႈ
     public static boolean isSayTang(LocalDate ld, MyanmarDate md) {
@@ -252,52 +253,227 @@ public class ShanDate {
         return isSayYam;
     }
 
-    // ၸူမ်တိၼ်သိူဝ်
+    // ဝၼ်းႁၢမ်းဝၼ်းၵႅၼ်
+    public static boolean isWannHarmWannKyan(LocalDate ld, MyanmarDate md) {
+        boolean isWannHarm = false;
+        int shanMonth = md.getShanMonth();
+        int mePee = getMePeeInt(ld.toEpochDay());
+        if ((shanMonth == 1 || shanMonth == 6 || shanMonth == 11) && getMePeeInt(ld.toEpochDay()) == 4) isWannHarm = true;
+        else if ((shanMonth == 2 || shanMonth == 7 || shanMonth == 12) && mePee == 2) isWannHarm = true;
+        else if ((shanMonth == 3 || shanMonth == 8) && mePee == 5) isWannHarm = true;
+        else if ((shanMonth == 4 || shanMonth == 9) && mePee == 8) isWannHarm = true;
+        else if ((shanMonth == 5 ||shanMonth == 10) && mePee == 6) isWannHarm = true;
+        return isWannHarm;
+    }
+
+    /************** ဝၼ်းတႆးလီဢိၵ်ႇၸႃႉ ႁေႃးၸွမ်းလုၵ်ႈပီႈ ******************/
+
+    // ၸူမ်တိၼ်သိူဝ် - ၵမ်ၵႂႃႇတိုၵ်ႉ
     public static boolean isJomTinSur(LocalDate ld, MyanmarDate md) {
         boolean isJomTinSur = false;
-        int shanMonth = md.getShanMonth();
-        if ((shanMonth == 1 || shanMonth == 5 || shanMonth == 9) && getLukPeeInt(ld.toEpochDay()) == 0)
+        int shanMonth = md.getShanMonth();        int lukPee = getLukPeeInt(ld.toEpochDay());
+
+        if ((shanMonth == 1 || shanMonth == 5 || shanMonth == 9) && lukPee == 0)
             isJomTinSur = true;
-        else if ((shanMonth == 2 || shanMonth == 6 || shanMonth == 10) && getLukPeeInt(ld.toEpochDay()) == 1)
+        else if ((shanMonth == 2 || shanMonth == 6 || shanMonth == 10) && lukPee == 1)
             isJomTinSur = true;
-        else if ((shanMonth == 3 || shanMonth == 7 || shanMonth == 11) && getLukPeeInt(ld.toEpochDay()) == 6)
+        else if ((shanMonth == 3 || shanMonth == 7 || shanMonth == 11) && lukPee == 6)
             isJomTinSur = true;
-        else if ((shanMonth == 4 || shanMonth == 8 || shanMonth == 12) && getLukPeeInt(ld.toEpochDay()) == 9)
+        else if ((shanMonth == 4 || shanMonth == 8 || shanMonth == 12) && lukPee == 9)
             isJomTinSur = true;
         return isJomTinSur;
+    }
+
+    // ၵမ်သိုဝ်ႉၶၢႆဢမ်ႇလီ
+    public static boolean isKamSiuKhai(LocalDate ld, MyanmarDate md) {
+        boolean isKamSiuKhai = false;
+        int shanMonth = md.getShanMonth();
+        int lukPee = getLukPeeInt(ld.toEpochDay());
+        if (shanMonth == 1 && lukPee == 2)
+            isKamSiuKhai = true;
+        else if (shanMonth == 2 && lukPee == 4)
+            isKamSiuKhai = true;
+        else if ((shanMonth == 3 || shanMonth == 12) && lukPee == 1)
+            isKamSiuKhai = true;
+        else if (shanMonth == 4 && lukPee == 3)
+            isKamSiuKhai = true;
+        else if (shanMonth == 5 && lukPee == 0)
+            isKamSiuKhai = true;
+        else if ((shanMonth == 6 || shanMonth == 9) && lukPee == 8)
+            isKamSiuKhai = true;
+        else if ((shanMonth == 7 || shanMonth == 8 || shanMonth == 10) && lukPee == 7)
+            isKamSiuKhai = true;
+        else if (shanMonth == 11 && lukPee == 6)
+            isKamSiuKhai = true;
+        return isKamSiuKhai;
+    }
+
+    // ၵမ်ယဵပ်ႉၶူဝ်းလဵင်းၼုင်ႈ
+    public static boolean isKamYeipKho(LocalDate ld, MyanmarDate md) {
+        boolean isKamYeipKho = false;
+        int shanMonth = md.getShanMonth();
+        int lukPee = getLukPeeInt(ld.toEpochDay());
+        if (shanMonth == 1 && lukPee == 1)
+            isKamYeipKho = true;
+        else if ((shanMonth == 2 || shanMonth == 6 || shanMonth == 11) && lukPee == 3)
+            isKamYeipKho = true;
+        else if (shanMonth == 3 && lukPee == 8)
+            isKamYeipKho = true;
+        else if ((shanMonth == 4 || shanMonth == 10) && lukPee == 4)
+            isKamYeipKho = true;
+        else if ((shanMonth == 5 || shanMonth == 12) && lukPee == 2)
+            isKamYeipKho = true;
+        else if (shanMonth == 7 && lukPee == 7)
+            isKamYeipKho = true;
+        else if (shanMonth == 8 && lukPee == 6)
+            isKamYeipKho = true;
+        else if (shanMonth == 9 && lukPee == 5)
+            isKamYeipKho = true;
+        return isKamYeipKho;
+    }
+
+    // ဝၼ်းမူၺ်ႉ - ၵမ်ၵူပ်ႉၵူႈသွမ်ႉမိင်ႈ
+    public static boolean isWannMwe(LocalDate ld, MyanmarDate md) {
+        boolean isWannMwe = false;
+        int shanMonth = md.getShanMonth();
+        int lukPee = getLukPeeInt(ld.toEpochDay());
+        if (shanMonth == 1 && lukPee == 2)
+            isWannMwe = true;
+        else if (shanMonth == 2 && lukPee == 4)
+            isWannMwe = true;
+        else if ((shanMonth == 3 || shanMonth == 6) && lukPee == 6)
+            isWannMwe = true;
+        else if ((shanMonth == 4 || shanMonth == 8) && lukPee == 8)
+            isWannMwe = true;
+        else if ((shanMonth == 5 || shanMonth == 11) && lukPee == 11)
+            isWannMwe = true;
+        else if ((shanMonth == 7 || shanMonth == 10) && lukPee == 3)
+            isWannMwe = true;
+        else if (shanMonth == 9 && lukPee == 5)
+            isWannMwe = true;
+        else if (shanMonth == 12 && lukPee == 0)
+            isWannMwe = true;
+        return isWannMwe;
+    }
+
+
+    // ၵမ်ၶဵၼ်ႇႁွၵ်ႇလၢပ်ႇ
+    public static boolean isKamKhenHogLep(LocalDate ld, MyanmarDate md) {
+        boolean isKamKhenHopLep = false;
+        int shanMonth = md.getShanMonth();
+        int lukPee = getLukPeeInt(ld.toEpochDay());
+        if ((shanMonth == 1 || shanMonth == 5 || shanMonth == 9) && lukPee == 11)
+            isKamKhenHopLep = true;
+        else if ((shanMonth == 2 || shanMonth == 6 || shanMonth == 10) && lukPee == 2)
+            isKamKhenHopLep = true;
+        else if ((shanMonth == 3 || shanMonth == 7 || shanMonth == 11) && lukPee == 5)
+            isKamKhenHopLep = true;
+        else if ((shanMonth == 4 || shanMonth == 8 || shanMonth == 12) && lukPee == 8)
+            isKamKhenHopLep = true;
+        return isKamKhenHopLep;
+    }
+
+    // ၵမ်ဝၢၼ်ႇၵႃႈ
+    public static boolean isKamWaanKaa(LocalDate ld, MyanmarDate md) {
+        boolean isKamWaanKaa = false;
+        int shanMonth = md.getShanMonth();
+        int lukPee = getLukPeeInt(ld.toEpochDay());
+        if ((shanMonth == 1 || shanMonth == 5 || shanMonth == 9) && lukPee == 3)
+            isKamWaanKaa = true;
+        else if ((shanMonth == 2 || shanMonth == 6 || shanMonth == 10) && lukPee == 6)
+            isKamWaanKaa = true;
+        else if ((shanMonth == 3 || shanMonth == 7 || shanMonth == 11) && lukPee == 9)
+            isKamWaanKaa = true;
+        else if ((shanMonth == 4 || shanMonth == 8 || shanMonth == 12) && lukPee == 0)
+            isKamWaanKaa = true;
+        return isKamWaanKaa;
     }
 
     // မူၺ်ႉၶွမ်ႉ
     public static boolean isMweKhom(LocalDate ld, MyanmarDate md) {
         boolean isMweKhom = false;
-        int shanMonth = md.getShanMonth();
-        if ((shanMonth == 1 || shanMonth == 5 || shanMonth == 9) && getLukPeeInt(ld.toEpochDay()) == 0)
+        int shanMonth = md.getShanMonth();        int lukPee = getLukPeeInt(ld.toEpochDay());
+
+        if ((shanMonth == 1 || shanMonth == 5 || shanMonth == 9) && lukPee == 0)
             isMweKhom = true;
-        else if ((shanMonth == 2 || shanMonth == 6 || shanMonth == 10) && getLukPeeInt(ld.toEpochDay()) == 1)
+        else if ((shanMonth == 2 || shanMonth == 6 || shanMonth == 10) && lukPee == 1)
             isMweKhom = true;
-        else if ((shanMonth == 3 || shanMonth == 7 || shanMonth == 11) && getLukPeeInt(ld.toEpochDay()) == 4)
+        else if ((shanMonth == 3 || shanMonth == 7 || shanMonth == 11) && lukPee == 4)
             isMweKhom = true;
-        else if ((shanMonth == 4 || shanMonth == 8 || shanMonth == 12) && getLukPeeInt(ld.toEpochDay()) == 3)
+        else if ((shanMonth == 4 || shanMonth == 8 || shanMonth == 12) && lukPee == 3)
             isMweKhom = true;
         return isMweKhom;
+    }
+
+    // ၵမ်ဢဝ်ၽူဝ်မေး
+    public static boolean KamAoPhoMay(LocalDate ld, MyanmarDate md) {
+        boolean isKamAoPhoMay = false;
+        int shanMonth = md.getShanMonth();
+        int lukPee = getLukPeeInt(ld.toEpochDay());
+        if ((shanMonth == 1 || shanMonth == 5 || shanMonth == 9) && lukPee == 5)
+            isKamAoPhoMay = true;
+        else if ((shanMonth == 2 || shanMonth == 6 || shanMonth == 10) && lukPee == 9)
+            isKamAoPhoMay = true;
+        else if ((shanMonth == 3 || shanMonth == 7 || shanMonth == 11) && lukPee == 0)
+            isKamAoPhoMay = true;
+        else if ((shanMonth == 4 || shanMonth == 8 || shanMonth == 12) && lukPee == 3)
+            isKamAoPhoMay = true;
+        return isKamAoPhoMay;
+    }
+
+    // ဝၼ်းလီႁဵတ်ႉႁႆႊၼႃး
+    public static boolean isWannLeeHeitHaiNaa(LocalDate ld, MyanmarDate md) {
+        boolean isWannLeeHeitHaiNaa = false;
+        int shanMonth = md.getShanMonth();
+        int lukPee = getLukPeeInt(ld.toEpochDay());
+        if ((shanMonth == 1 || shanMonth == 5 || shanMonth == 9) && lukPee == 10)
+            isWannLeeHeitHaiNaa = true;
+        else if ((shanMonth == 2 || shanMonth == 6 || shanMonth == 10) && lukPee == 1)
+            isWannLeeHeitHaiNaa = true;
+        else if ((shanMonth == 3 || shanMonth == 7 || shanMonth == 11) && lukPee == 4)
+            isWannLeeHeitHaiNaa = true;
+        else if ((shanMonth == 4 || shanMonth == 8 || shanMonth == 12) && lukPee == 7)
+            isWannLeeHeitHaiNaa = true;
+        return isWannLeeHeitHaiNaa;
+    }
+
+    // ဢမ်ႇလီႁဵတ်ႉလွၵ်းႁႆႊၼႃး
+    public static boolean isUmLeeHeitHaiNaa(LocalDate ld, MyanmarDate md) {
+        boolean isUmLeeHeitHaiNaa = false;
+        int shanMonth = md.getShanMonth();
+        int lukPee = getLukPeeInt(ld.toEpochDay());
+        if ((shanMonth == 1) && lukPee == 1) isUmLeeHeitHaiNaa = true;
+        else if ((shanMonth == 2) && lukPee == 2) isUmLeeHeitHaiNaa = true;
+        else if ((shanMonth == 3) && lukPee == 3) isUmLeeHeitHaiNaa = true;
+        else if ((shanMonth == 4) && lukPee == 4) isUmLeeHeitHaiNaa = true;
+        else if ((shanMonth == 5) && lukPee == 5) isUmLeeHeitHaiNaa = true;
+        else if ((shanMonth == 6) && lukPee == 6) isUmLeeHeitHaiNaa = true;
+        else if ((shanMonth == 7) && lukPee == 7) isUmLeeHeitHaiNaa = true;
+        else if ((shanMonth == 8) && lukPee == 8) isUmLeeHeitHaiNaa = true;
+        else if ((shanMonth == 9) && lukPee == 9) isUmLeeHeitHaiNaa = true;
+        else if ((shanMonth == 10) && lukPee == 10) isUmLeeHeitHaiNaa = true;
+        else if ((shanMonth == 11) && lukPee == 11) isUmLeeHeitHaiNaa = true;
+        else if ((shanMonth == 12) && lukPee == 0) isUmLeeHeitHaiNaa = true;
+        return isUmLeeHeitHaiNaa;
     }
 
     // မူၺ်ႉၶႃးလိူင် - ၵမ်ပူၵ်းသဝ်
     public static boolean isMweKharLurng(LocalDate ld, MyanmarDate md) {
         boolean isMweKharLurng = false;
-        int shanMonth = md.getShanMonth();
-        if ((shanMonth == 1) && getLukPeeInt(ld.toEpochDay()) == 2) isMweKharLurng = true;
-        else if ((shanMonth == 2) && getLukPeeInt(ld.toEpochDay()) == 3) isMweKharLurng = true;
-        else if ((shanMonth == 3) && getLukPeeInt(ld.toEpochDay()) == 4) isMweKharLurng = true;
-        else if ((shanMonth == 4) && getLukPeeInt(ld.toEpochDay()) == 5) isMweKharLurng = true;
-        else if ((shanMonth == 5) && getLukPeeInt(ld.toEpochDay()) == 6) isMweKharLurng = true;
-        else if ((shanMonth == 6) && getLukPeeInt(ld.toEpochDay()) == 7) isMweKharLurng = true;
-        else if ((shanMonth == 7) && getLukPeeInt(ld.toEpochDay()) == 8) isMweKharLurng = true;
-        else if ((shanMonth == 8) && getLukPeeInt(ld.toEpochDay()) == 9) isMweKharLurng = true;
-        else if ((shanMonth == 9) && getLukPeeInt(ld.toEpochDay()) == 10) isMweKharLurng = true;
-        else if ((shanMonth == 10) && getLukPeeInt(ld.toEpochDay()) == 11) isMweKharLurng = true;
-        else if ((shanMonth == 11) && getLukPeeInt(ld.toEpochDay()) == 0) isMweKharLurng = true;
-        else if ((shanMonth == 12) && getLukPeeInt(ld.toEpochDay()) == 1) isMweKharLurng = true;
+        int shanMonth = md.getShanMonth();        int lukPee = getLukPeeInt(ld.toEpochDay());
+
+        if ((shanMonth == 1) && lukPee == 2) isMweKharLurng = true;
+        else if ((shanMonth == 2) && lukPee == 3) isMweKharLurng = true;
+        else if ((shanMonth == 3) && lukPee == 4) isMweKharLurng = true;
+        else if ((shanMonth == 4) && lukPee == 5) isMweKharLurng = true;
+        else if ((shanMonth == 5) && lukPee == 6) isMweKharLurng = true;
+        else if ((shanMonth == 6) && lukPee == 7) isMweKharLurng = true;
+        else if ((shanMonth == 7) && lukPee == 8) isMweKharLurng = true;
+        else if ((shanMonth == 8) && lukPee == 9) isMweKharLurng = true;
+        else if ((shanMonth == 9) && lukPee == 10) isMweKharLurng = true;
+        else if ((shanMonth == 10) && lukPee == 11) isMweKharLurng = true;
+        else if ((shanMonth == 11) && lukPee == 0) isMweKharLurng = true;
+        else if ((shanMonth == 12) && lukPee == 1) isMweKharLurng = true;
         return isMweKharLurng;
     }
 
@@ -305,35 +481,140 @@ public class ShanDate {
     public static boolean isMweKharLurng2(LocalDate ld, MyanmarDate md) {
         boolean isMweKharLurng = false;
         int shanMonth = md.getShanMonth();
-        if ((shanMonth == 1) && getLukPeeInt(ld.toEpochDay()) == 4) isMweKharLurng = true;
-        else if ((shanMonth == 2) && getLukPeeInt(ld.toEpochDay()) == 5) isMweKharLurng = true;
-        else if ((shanMonth == 3) && getLukPeeInt(ld.toEpochDay()) == 6) isMweKharLurng = true;
-        else if ((shanMonth == 4) && getLukPeeInt(ld.toEpochDay()) == 7) isMweKharLurng = true;
-        else if ((shanMonth == 5) && getLukPeeInt(ld.toEpochDay()) == 8) isMweKharLurng = true;
-        else if ((shanMonth == 6) && getLukPeeInt(ld.toEpochDay()) == 9) isMweKharLurng = true;
-        else if ((shanMonth == 7) && getLukPeeInt(ld.toEpochDay()) == 10) isMweKharLurng = true;
-        else if ((shanMonth == 8) && getLukPeeInt(ld.toEpochDay()) == 11) isMweKharLurng = true;
-        else if ((shanMonth == 9) && getLukPeeInt(ld.toEpochDay()) == 0) isMweKharLurng = true;
-        else if ((shanMonth == 10) && getLukPeeInt(ld.toEpochDay()) == 1) isMweKharLurng = true;
-        else if ((shanMonth == 11) && getLukPeeInt(ld.toEpochDay()) == 2) isMweKharLurng = true;
-        else if ((shanMonth == 12) && getLukPeeInt(ld.toEpochDay()) == 3) isMweKharLurng = true;
+        int lukPee = getLukPeeInt(ld.toEpochDay());
+        if ((shanMonth == 1) && lukPee == 4) isMweKharLurng = true;
+        else if ((shanMonth == 2) && lukPee == 5) isMweKharLurng = true;
+        else if ((shanMonth == 3) && lukPee == 6) isMweKharLurng = true;
+        else if ((shanMonth == 4) && lukPee == 7) isMweKharLurng = true;
+        else if ((shanMonth == 5) && lukPee == 8) isMweKharLurng = true;
+        else if ((shanMonth == 6) && lukPee == 9) isMweKharLurng = true;
+        else if ((shanMonth == 7) && lukPee == 10) isMweKharLurng = true;
+        else if ((shanMonth == 8) && lukPee == 11) isMweKharLurng = true;
+        else if ((shanMonth == 9) && lukPee == 0) isMweKharLurng = true;
+        else if ((shanMonth == 10) && lukPee == 1) isMweKharLurng = true;
+        else if ((shanMonth == 11) && lukPee == 2) isMweKharLurng = true;
+        else if ((shanMonth == 12) && lukPee == 3) isMweKharLurng = true;
         return isMweKharLurng;
+    }
+    
+    // ၵမ်ၵၢႆႇၶူဝ်လႆ
+    public static boolean isKamKaaiKhoLai(LocalDate ld, MyanmarDate md) {
+        boolean isKamKaaiKhoLai = false;
+        int shanMonth = md.getShanMonth();
+        int lukPee = getLukPeeInt(ld.toEpochDay());
+        if ((shanMonth == 1) && lukPee == 8) isKamKaaiKhoLai = true;
+        else if ((shanMonth == 2) && lukPee == 9) isKamKaaiKhoLai = true;
+        else if ((shanMonth == 3) && lukPee == 10) isKamKaaiKhoLai = true;
+        else if ((shanMonth == 4) && lukPee == 11) isKamKaaiKhoLai = true;
+        else if ((shanMonth == 5) && lukPee == 0) isKamKaaiKhoLai = true;
+        else if ((shanMonth == 6) && lukPee == 1) isKamKaaiKhoLai = true;
+        else if ((shanMonth == 7) && lukPee == 2) isKamKaaiKhoLai = true;
+        else if ((shanMonth == 8) && lukPee == 3) isKamKaaiKhoLai = true;
+        else if ((shanMonth == 9) && lukPee == 4) isKamKaaiKhoLai = true;
+        else if ((shanMonth == 10) && lukPee == 5) isKamKaaiKhoLai = true;
+        else if ((shanMonth == 11) && lukPee == 6) isKamKaaiKhoLai = true;
+        else if ((shanMonth == 12) && lukPee == 7) isKamKaaiKhoLai = true;
+        return isKamKaaiKhoLai;
+    }
+
+    // ႁိူဝ်ႇလႆ - ၵမ်ႁဵတ်းႁိူၼ်း
+    public static boolean isHoeLai(LocalDate ld, MyanmarDate md) {
+        boolean isHoeLai = false;
+        int shanMonth = md.getShanMonth();
+        int lukPee = getLukPeeInt(ld.toEpochDay());
+        if ((shanMonth == 1) && lukPee == 7) isHoeLai = true;
+        else if ((shanMonth == 2) && lukPee == 8) isHoeLai = true;
+        else if ((shanMonth == 3) && lukPee == 9) isHoeLai = true;
+        else if ((shanMonth == 4) && lukPee == 10) isHoeLai = true;
+        else if ((shanMonth == 5) && lukPee == 11) isHoeLai = true;
+        else if ((shanMonth == 6) && lukPee == 0) isHoeLai = true;
+        else if ((shanMonth == 7) && lukPee == 1) isHoeLai = true;
+        else if ((shanMonth == 8) && lukPee == 2) isHoeLai = true;
+        else if ((shanMonth == 9) && lukPee == 3) isHoeLai = true;
+        else if ((shanMonth == 10) && lukPee == 4) isHoeLai = true;
+        else if ((shanMonth == 11) && lukPee == 5) isHoeLai = true;
+        else if ((shanMonth == 12) && lukPee == 6) isHoeLai = true;
+        return isHoeLai;
+    }
+
+    // ဝၼ်းႁဝ်ၶၢႆ - ၵမ်ႁပ်ႉၸိူဝ်ႉ
+    public static boolean isWannHaoKhaai(LocalDate ld, MyanmarDate md) {
+        boolean isWannHaoKhaai = false;
+        int shanMonth = md.getShanMonth();
+        int lukPee = getLukPeeInt(ld.toEpochDay());
+        if ((shanMonth == 1) && lukPee == 0) isWannHaoKhaai = true;
+        else if ((shanMonth == 2) && lukPee == 11) isWannHaoKhaai = true;
+        else if ((shanMonth == 3) && lukPee == 10) isWannHaoKhaai = true;
+        else if ((shanMonth == 4) && lukPee == 9) isWannHaoKhaai = true;
+        else if ((shanMonth == 5) && lukPee == 8) isWannHaoKhaai = true;
+        else if ((shanMonth == 6) && lukPee == 7) isWannHaoKhaai = true;
+        else if ((shanMonth == 7) && lukPee == 6) isWannHaoKhaai = true;
+        else if ((shanMonth == 8) && lukPee == 5) isWannHaoKhaai = true;
+        else if ((shanMonth == 9) && lukPee == 4) isWannHaoKhaai = true;
+        else if ((shanMonth == 10) && lukPee == 3) isWannHaoKhaai = true;
+        else if ((shanMonth == 11) && lukPee == 2) isWannHaoKhaai = true;
+        else if ((shanMonth == 12) && lukPee == 1) isWannHaoKhaai = true;
+        return isWannHaoKhaai;
+    }
+
+    // ဝၼ်းႁဝ်တၢႆ - ၵမ်သိုဝ်ႉဝူဝ်းၵႂၢႆး
+    public static boolean isWannHaoTaai(LocalDate ld, MyanmarDate md) {
+        boolean isWannHaoTaai = false;
+        int shanMonth = md.getShanMonth();
+        int lukPee = getLukPeeInt(ld.toEpochDay());
+        if ((shanMonth == 1) && lukPee == 1) isWannHaoTaai = true;
+        else if ((shanMonth == 2) && lukPee == 0) isWannHaoTaai = true;
+        else if ((shanMonth == 3) && lukPee == 11) isWannHaoTaai = true;
+        else if ((shanMonth == 4) && lukPee == 10) isWannHaoTaai = true;
+        else if ((shanMonth == 5) && lukPee == 9) isWannHaoTaai = true;
+        else if ((shanMonth == 6) && lukPee == 8) isWannHaoTaai = true;
+        else if ((shanMonth == 7) && lukPee == 7) isWannHaoTaai = true;
+        else if ((shanMonth == 8) && lukPee == 6) isWannHaoTaai = true;
+        else if ((shanMonth == 9) && lukPee == 5) isWannHaoTaai = true;
+        else if ((shanMonth == 10) && lukPee == 4) isWannHaoTaai = true;
+        else if ((shanMonth == 11) && lukPee == 3) isWannHaoTaai = true;
+        else if ((shanMonth == 12) && lukPee == 2) isWannHaoTaai = true;
+        return isWannHaoTaai;
+    }
+
+    // တုမ်မူၺ်ႉ - ၵမ်ၶူတ်ႉလိၼ်
+    public static boolean isTumMway(LocalDate ld, MyanmarDate md) {
+        boolean isTumMway = false;
+        int shanMonth = md.getShanMonth();
+        int lukPee = getLukPeeInt(ld.toEpochDay());
+        if ((shanMonth == 1) && lukPee == 1) isTumMway = true;
+        else if ((shanMonth == 2) && lukPee == 0) isTumMway = true;
+        else if ((shanMonth == 3) && lukPee == 11) isTumMway = true;
+        else if ((shanMonth == 4) && lukPee == 10) isTumMway = true;
+        else if ((shanMonth == 5) && lukPee == 9) isTumMway = true;
+        else if ((shanMonth == 6) && lukPee == 8) isTumMway = true;
+        else if ((shanMonth == 7) && lukPee == 7) isTumMway = true;
+        else if ((shanMonth == 8) && lukPee == 6) isTumMway = true;
+        else if ((shanMonth == 9) && lukPee == 5) isTumMway = true;
+        else if ((shanMonth == 10) && lukPee == 4) isTumMway = true;
+        else if ((shanMonth == 11) && lukPee == 3) isTumMway = true;
+        else if ((shanMonth == 12) && lukPee == 2) isTumMway = true;
+        return isTumMway;
     }
 
     // မူၺ်ႉၵဝ်ႈၵွင်
     public static boolean isMweKaoKong(LocalDate ld, MyanmarDate md) {
         boolean isMweKaoKong = false;
         int shanMonth = md.getShanMonth();
-        if ((shanMonth == 1 || shanMonth == 5) && getLukPeeInt(ld.toEpochDay()) == 0) isMweKaoKong = true;
-        else if ((shanMonth == 2 || shanMonth == 7) && getLukPeeInt(ld.toEpochDay()) == 11) isMweKaoKong = true;
-        else if ((shanMonth == 3 || shanMonth == 12) && getLukPeeInt(ld.toEpochDay()) == 7) isMweKaoKong = true;
-        else if ((shanMonth == 4 || shanMonth == 9 || shanMonth == 10) && getLukPeeInt(ld.toEpochDay()) == 2)
+        int lukPee = getLukPeeInt(ld.toEpochDay());
+        if ((shanMonth == 1 || shanMonth == 5) && lukPee == 0) isMweKaoKong = true;
+        else if ((shanMonth == 2 || shanMonth == 7) && lukPee == 11) isMweKaoKong = true;
+        else if ((shanMonth == 3 || shanMonth == 12) && lukPee == 7) isMweKaoKong = true;
+        else if ((shanMonth == 4 || shanMonth == 9 || shanMonth == 10) && lukPee == 2)
             isMweKaoKong = true;
-        else if ((shanMonth == 6 || shanMonth == 8) && getLukPeeInt(ld.toEpochDay()) == 10) isMweKaoKong = true;
-        else if ((shanMonth == 11) && getLukPeeInt(ld.toEpochDay()) == 6) isMweKaoKong = true;
+        else if ((shanMonth == 6 || shanMonth == 8) && lukPee == 10) isMweKaoKong = true;
+        else if ((shanMonth == 11) && lukPee == 6) isMweKaoKong = true;
         return isMweKaoKong;
     }
 
+
+
+    // ဝၼ်းၵျၢမ်းလူင်
     public static boolean isWannKyamLone(MyanmarDate md) {
         boolean isWannKyamLone = false;
         int shanMonth = md.getShanMonth();
@@ -393,7 +674,7 @@ public class ShanDate {
         }
         if (ShanDate.isWannYut(md)) sb.append(" ၊ ").append("ဝၼ်းယုတ်ႈ");
         if (ShanDate.isWannKyamLone(md)) sb.append(" ၊ ").append("ဝၼ်းၵျၢမ်းလူင်");
-        sb.append(" ၊ ႁူဝ်ၼၵႃး ").append(ShanDate.getHoNagaa(md));
+        sb.append("\nႁူဝ်ၼၵႃး ").append(ShanDate.getHoNagaa(md));
 
         return sb.toString();
     }
