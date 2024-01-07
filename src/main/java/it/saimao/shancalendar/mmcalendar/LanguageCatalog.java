@@ -219,6 +219,7 @@ public class LanguageCatalog {
 		shan.put("Saturday", "သဝ်");
 		shan.put("Nay", "ဝၼ်း");
 		shan.put("Yat", "ဝၼ်း");
+		shan.put("Yat2", "ၶမ်ႈ");
 		shan.put("Sabbath Eve", "ဝၼ်းၽိတ်း");
 		shan.put("Sabbath", "ဝၼ်းသိၼ်");
 		shan.put("Yatyaza", "ဝၼ်းထုၼ်း");

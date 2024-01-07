@@ -85,14 +85,22 @@ public class HelloController implements Initializable {
                         "\nပီႊမိူင်း - " + ShanDate.getPeeMurng(selectedMyanmarDate.getShanYearInt()) +
                         "\nပီႊထမ်း - " + ShanDate.getPeeHtam(selectedDate.getYear())
         );
-        lbDesc.setText(
-                selectedMyanmarDate.format("S s k\nB y k\nM p f r nE") + "\n" +
-                        "ဝၼ်းတႆး - " + ShanDate.getWannTai60(selectedDate.toEpochDay()) +
-                        "\n" +
-                        ShanDate.toString(selectedDate, selectedMyanmarDate)
-        );
+        lbDesc.setText(description());
 
 
+    }
+
+    private String description() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(HolidayCalculator.toString(selectedMyanmarDate));
+        sb.append(selectedMyanmarDate.getMonthName()).append(" ");
+        sb.append(selectedMyanmarDate.getMoonPhase()).append(" ");
+        sb.append(selectedMyanmarDate.getFortnightDay()).append(" ");
+        sb.append(selectedMyanmarDate.getMoonPhraseInt() == 0 ? " ဝၼ်း" : "").append(selectedMyanmarDate.getMoonPhraseInt() == 2 ? " ၶမ်ႈ" : "").append("၊ ");
+        sb.append("ဝၼ်း").append(ShanDate.getWannTai60(selectedDate.toEpochDay())).append("၊ ");
+        sb.append("ဝၼ်း").append(selectedMyanmarDate.getWeekDay()).append("။\n");
+        sb.append(ShanDate.toString(selectedDate, selectedMyanmarDate));
+        return sb.toString();
     }
 
 

@@ -644,40 +644,47 @@ public class ShanDate {
 
     public static String toString(LocalDate ld, MyanmarDate md) {
         StringBuilder sb = new StringBuilder();
-        if (isSayTang(ld, md)) sb.append(" ၊ ").append("သေတင်ႈ");
-        if (isSayHip(ld, md)) sb.append(" ၊ ").append("သေႁိပ်ႈ");
-        if (isSayJom(ld, md)) sb.append(" ၊ ").append("သေၸွမ်း");
-        if (isSayYam(ld, md)) sb.append(" ၊ ").append("သေယမ်");
-        if (isJomTinSur(ld, md)) sb.append(" ၊ ").append("ၸူမ်တိၼ်သိူဝ်");
-        sb.append(" ၊ ").append(getPheeKin(md));
-        sb.append(" ၊ ").append(getWannMwe(md));
-        if (isMweKhom(ld, md)) sb.append(" ၊ ").append("မူၺ်ႉၶွမ်ႈ");
-        if (isMweKharLurng(ld, md)) sb.append(" ၊ ").append("မူၺ်ႉၶႃးလိူင်");
-        if (isMweKharLurng2(ld, md)) sb.append(" ၊ ").append("မူၺ်ႉၶႃးလိူင်");
-        if (isMweKaoKong(ld, md)) sb.append(" ၊ ").append("မူၺ်ႉၵဝ်ႈၵွင်");
-        if (ShanDate.isMweLone(md)) {
-            sb.append(" ၊ ").append("မူၺ်ႉလူင်");
-        }
-        if (!ShanDate.getWannTun(md).isEmpty()) {
-            sb.append(" ၊ ဝၼ်းထုၼ်း");
-        }
+        if (isSayTang(ld, md)) sb.append("သေတင်ႈ").append("၊ ");
+        if (isSayHip(ld, md)) sb.append("သေႁိပ်ႈ").append("၊ ");
+        if (isSayJom(ld, md)) sb.append("သေၸွမ်း").append("၊ ");
+        if (isSayYam(ld, md)) sb.append("သေယမ်").append("၊ ");
+        if (isJomTinSur(ld, md)) sb.append("ၸူမ်တိၼ်သိူဝ်").append("၊ ");
+        sb.append(getPheeKin(md)).append("၊ ");
+        sb.append(getWannMwe(md)).append("၊ ");
+        if (isMweKhom(ld, md)) sb.append("မူၺ်ႉၶွမ်ႈ").append("၊ ");
+        if (isMweKharLurng(ld, md)) sb.append("မူၺ်ႉၶႃးလိူင်").append("၊ ");
+        if (isMweKharLurng2(ld, md)) sb.append("မူၺ်ႉၶႃးလိူင်").append("၊ ");
+        if (isMweKaoKong(ld, md)) sb.append("မူၺ်ႉၵဝ်ႈၵွင်").append("၊ ");
+        if (ShanDate.isMweLone(md))
+            sb.append("မူၺ်ႉလူင်").append("၊ ");
+
+        if (!ShanDate.getWannTun(md).isEmpty())
+            sb.append("ဝၼ်းထုၼ်း").append("၊ ");
         if (!ShanDate.getWannPyaat(md).isEmpty()) {
-            sb.append(" ၊ ဝၼ်းပျၢတ်ႈ");
+            sb.append("ဝၼ်းပျၢတ်ႈ").append("၊ ");
         }
         if (ShanDate.isWannJum(md)) {
-            sb.append(" ၊ ").append("ဝၼ်းၸူမ်");
+            sb.append("ဝၼ်းၸူမ်").append("၊ ");
         }
         if (ShanDate.isWannPhoo(md)) {
-            sb.append(" ၊ ").append("ဝၼ်းၾူး");
+            sb.append("ဝၼ်းၾူး").append("၊ ");
         }
         if (ShanDate.isWannNao(md)) {
-            sb.append(" ၊ ").append("ဝၼ်းၼဝ်ႈ");
+            sb.append("ဝၼ်းၼဝ်ႈ").append("၊ ");
         }
-        if (ShanDate.isWannHarmWannKyan(ld, md)) sb.append(" ၊ ").append("ဝၼ်းႁၢမ်း");
-        if (ShanDate.isWannYut(md)) sb.append(" ၊ ").append("ဝၼ်းယုတ်ႈ");
-        if (ShanDate.isWannKyamLone(md)) sb.append(" ၊ ").append("ဝၼ်းၵျၢမ်းလူင်");
-        sb.append("\nႁူဝ်ၼၵႃး ").append(ShanDate.getHoNagaa(md));
+        if (ShanDate.isWannHarmWannKyan(ld, md)) sb.append("ဝၼ်းႁၢမ်း").append("၊ ");
+        if (ShanDate.isWannYut(md)) sb.append("ဝၼ်းယုတ်ႈ").append("၊ ");
+        if (ShanDate.isWannKyamLone(md)) sb.append("ဝၼ်းၵျၢမ်းလူင်").append("၊ ");
+        if (sb.toString().trim().endsWith("၊")){
+            sb.replace(sb.length() - 2, sb.length(), "။");
+        }
 
+        sb.append("\n").append("ႁူဝ်ၼၵႃး ").append(ShanDate.getHoNagaa(md)).append("။\n");
+        if (getMePeeInt(ld.toEpochDay()) == 2 || getMePeeInt(ld.toEpochDay()) == 7) sb.append("ဝၼ်းၵၢတ်ႇမိူင်း").append("၊ ");
+        if (AstroConverter.convert(md).isSabbath()) sb.append(AstroConverter.convert(md).getSabbath()).append("၊ ");
+        if (sb.toString().trim().endsWith("၊")){
+            sb.replace(sb.length() - 2, sb.length(), "။");
+        }
 
         return sb.toString();
     }

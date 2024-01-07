@@ -7,9 +7,9 @@
     <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/HolidayCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/HolidayCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/LanguageCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/LanguageCatalog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/ShanDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/ShanDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -381,7 +381,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704612835535</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Update Shan translation!">
+      <option name="closed" value="true" />
+      <created>1704628938146</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1704628938146</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -404,24 +412,16 @@
     <MESSAGE value="Implemented &quot;Select Date by DatePicker.&quot;&#10;Implemented by adding dpDate global variable." />
     <MESSAGE value="Re-design Main UI." />
     <MESSAGE value="Implemented other days!&#10;Re-design UI to be able to have more date detail!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented other days!&#10;Re-design UI to be able to have more date detail!" />
+    <MESSAGE value="Update Shan translation!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Shan translation!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java</url>
-          <line>202</line>
-          <properties class="it.saimao.shancalendar.controllers.HelloController" method="setSelectedCellBackground">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java</url>
-          <line>155</line>
-          <option name="timeStamp" value="22" />
+          <url>file://$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/HolidayCalculator.java</url>
+          <line>425</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
