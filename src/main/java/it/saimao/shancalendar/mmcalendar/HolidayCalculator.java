@@ -231,6 +231,8 @@ public final class HolidayCalculator {
 
         if ((wd.getYear() <= 2017) && (wd.getMonth() == 1) && (wd.getDay() == 1)) {
             holiday.add("New Year Day");
+        } else if ((wd.getYear() > 1945) && wd.getMonth() == 2 && wd.getDay() == 7) {
+            holiday.add("Shan National Day");
         } else if ((wd.getYear() >= 1915) && (wd.getMonth() == 2) && (wd.getDay() == 13)) {
             holiday.add("G. Aung San BD");
         } else if ((wd.getYear() >= 1969) && (wd.getMonth() == 2) && (wd.getDay() == 14)) {
@@ -426,6 +428,14 @@ public final class HolidayCalculator {
         StringBuilder sb = new StringBuilder();
         for (String holiday : getHoliday(selectedMyanmarDate)) {
             String value = LanguageCatalog.getInstance().translate(holiday);
+            // Do not want to make Shan special days localized
+            if (value == null) value = holiday;
+            sb.append(value).append("၊ ");
+
+        }
+        for (String holiday : getAnniversary(selectedMyanmarDate)) {
+            String value = LanguageCatalog.getInstance().translate(holiday);
+            // Do not want to make Shan special days localized
             if (value == null) value = holiday;
             sb.append(value).append("၊ ");
 
