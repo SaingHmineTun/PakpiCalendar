@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="">
+    <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="Added holidays and Shan special days!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/HolidayCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/HolidayCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/LanguageCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/LanguageCatalog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/MyanmarDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/MyanmarDate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +52,8 @@
     &quot;last_opened_file_path&quot;: &quot;D:/IntelliJ_Projects/shan-calendar/src/main/resources/css&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -395,7 +397,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704634025032</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added holidays and Shan special days!">
+      <option name="closed" value="true" />
+      <created>1704636199225</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1704636199225</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -422,15 +432,8 @@
     <MESSAGE value="Added holidays and Shan special days!" />
     <option name="LAST_COMMIT_MESSAGE" value="Added holidays and Shan special days!" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/HolidayCalculator.java</url>
-          <line>427</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

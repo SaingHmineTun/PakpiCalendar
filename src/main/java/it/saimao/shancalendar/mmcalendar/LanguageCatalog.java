@@ -188,7 +188,7 @@ public class LanguageCatalog {
 		shan.put("December", "တီႇသိၼ်ႇပိူဝ်ႇ");
 		shan.put("First Waso", "လိူၼ်ပႅတ်ႇ");
 		shan.put("Second Waso", "လိူၼ်ပႅတ်ႇသွၼ်ႉ");
-		shan.put("Tagu", "လိူၼ်ႁႃႈတၢမ်းႁူဝ်");
+		shan.put("Tagu", "လိူၼ်ႁႃႈ");
 		shan.put("Late Tagu", "လိူၼ်ႁႃႈတၢမ်းႁၢင်");
 		shan.put("Kason", "လိူၼ်ႁူၵ်း");
 		shan.put("Late Kason", "လိုၼ်းလိူၼ်ႁူၵ်း");
@@ -208,8 +208,8 @@ public class LanguageCatalog {
 		shan.put("new moon", "လပ်း");
 		shan.put("shan Year", "ပီႊတႆး");
 		shan.put("Ku", "ၼီႈ");
-		shan.put("Late", "လိုၼ်း");
-		shan.put("Second", "တု");
+		shan.put("Late", "Late");
+		shan.put("Second", "Second");
 		shan.put("Sunday", "ဢႃးတိတ်ႉ");
 		shan.put("Monday", "ၸၼ်");
 		shan.put("Tuesday", "ဢင်းၵၢၼ်း");

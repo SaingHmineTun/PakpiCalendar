@@ -94,6 +94,7 @@ public class HelloController implements Initializable {
         StringBuilder sb = new StringBuilder();
         sb.append(HolidayCalculator.toString(selectedMyanmarDate));
         sb.append(selectedMyanmarDate.getMonthName()).append(" ");
+        sb.append(selectedMyanmarDate.getMonthType()).append(" ");
         sb.append(selectedMyanmarDate.getMoonPhase()).append(" ");
         sb.append(selectedMyanmarDate.getFortnightDay()).append(" ");
         sb.append(selectedMyanmarDate.getMoonPhraseInt() == 0 ? " ဝၼ်း" : "").append(selectedMyanmarDate.getMoonPhraseInt() == 2 ? " ၶမ်ႈ" : "").append("၊ ");

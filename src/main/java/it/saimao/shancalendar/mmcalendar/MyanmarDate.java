@@ -169,10 +169,11 @@ public class MyanmarDate implements Serializable, Cloneable, Comparable<MyanmarD
 		StringBuilder stringBuilder = new StringBuilder();
 		if (monthType > 0) {
 			stringBuilder.append(languageCatalog.translate("Late"));
+			stringBuilder.append(" ");
 		}
-
 		if (yearType > 0 && mmonth == 4) {
 			stringBuilder.append(languageCatalog.translate("Second"));
+			stringBuilder.append(" ");
 		}
 
 		return stringBuilder.toString();
@@ -191,7 +192,10 @@ public class MyanmarDate implements Serializable, Cloneable, Comparable<MyanmarD
 	}
 
 	public String getMonthName(LanguageCatalog languageCatalog) {
-		return getMnt() + languageCatalog.translate(MMA[this.mmonth]);
+//		String monthName = getMnt() + languageCatalog.translate(MMA[this.mmonth]);
+		String monthName = languageCatalog.translate(getMnt() + MMA[this.mmonth]);
+		System.out.println("Month name : " + monthName);
+		return monthName;
 	}
 
 	/**
