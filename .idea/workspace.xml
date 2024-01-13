@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="Added holidays and Shan special days!">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/LanguageCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/LanguageCatalog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/MyanmarDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/MyanmarDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +26,13 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -75,7 +79,7 @@
       <recent name="it.saimao.shancalendar.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HelloApplication">
+  <component name="RunManager" selected="JUnit.ShanDateTest">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Zulu\zulu-20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -102,22 +106,6 @@
       <option name="PACKAGE_NAME" value="it.saimao.shancalendar.mmcalendar" />
       <option name="MAIN_CLASS_NAME" value="it.saimao.shancalendar.mmcalendar.ShanDateTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShanDateTest.getPeeMurng" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shancalendar" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.saimao.shancalendar.mmcalendar.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.saimao.shancalendar.mmcalendar" />
-      <option name="MAIN_CLASS_NAME" value="it.saimao.shancalendar.mmcalendar.ShanDateTest" />
-      <option name="METHOD_NAME" value="getPeeMurng" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -154,13 +142,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="it.saimao.shancalendar in shancalendar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shancalendar" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.saimao.shancalendar.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.saimao.shancalendar" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.ShanDateTest" />
+        <item itemvalue="JUnit.it.saimao.shancalendar in shancalendar" />
+        <item itemvalue="Application.HelloApplication" />
         <item itemvalue="JUnit.ShanDateTest.testPeeHtam" />
         <item itemvalue="JUnit.ShanDateTest.getPeeMurngKhe" />
-        <item itemvalue="JUnit.ShanDateTest.getPeeMurng" />
       </list>
     </recent_temporary>
   </component>
