@@ -9,12 +9,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class ShanCalendarApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
         Rectangle2D screenSize = Screen.getPrimary().getVisualBounds();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ShanCalendarApplication.class.getResource("/views/shan-calendar-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Shan Calendar");
         stage.setScene(scene);

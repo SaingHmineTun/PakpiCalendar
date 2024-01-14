@@ -1,14 +1,14 @@
 @font-face {
-    font-family: 'NamTeng 2020';
-    src: url('../fonts/namteng.ttf');
+    font-family: 'GHK TaungGyi';
+    src: url('../fonts/GHKTaungGyi.ttf');
 }
 
 .root {
-    -fx-font-family: 'NamTeng 2020';
-    -fx-primary-color: #007bff;
+    -fx-font-family: 'GHK TaungGyi';
+    -fx-primary-color: #1e3a57;
     -fx-success-color: #28a745;
     -fx-danger-color: #c30010;
-    -fx-background-color: rgb(250, 208, 170);
+    -fx-background-color: #DDD;
 }
 
 .fs-x-big {
@@ -37,15 +37,15 @@
 
 .cell {
     -fx-background-color: #f8f9fa;
-    -fx-border-color: #999;
-    -fx-border-width: 0px 1px 1px 0px;
+    -fx-border-color: #1E3A57;
+    -fx-border-width: 1px;
     -fx-padding: 5px;
 }
 
 .cell-title {
     -fx-background-color: -fx-primary-color;
+    -fx-background-radius: 0px 10px 0px 10px;
     -fx-text-fill: white;
-    -fx-background-radius: 0px;
 }
 
 .bt-lurn-tai {
@@ -64,7 +64,7 @@
 }
 
 .c-success {
-    -fx-text-fill: -fx-success-color;
+    -fx-text-fill: -fx-primary-color;
 }
 
 .c-shan-day {
@@ -72,7 +72,41 @@
 }
 
 .desc {
-    -fx-background-color: #9BA5C9;
+    -fx-background-color: #FFFFFF;
     -fx-background-radius: 5px;
-    -fx-text-fill: #000;
+    -fx-background-radius: 10px;
+}
+
+#btn-next {
+    -fx-background-image: url('../images/next.png');
+    -fx-background-size: 35px 35px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 5em;
+}
+
+#btn-prev {
+    -fx-background-image: url('../images/prev.png');
+    -fx-background-size: 35px 35px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 5em;
+}
+
+#full-moon {
+    -fx-background-image: url('../images/full_moon.png');
+    -fx-background-size: 60px 60px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#new-moon {
+    -fx-background-image: url('../images/new_moon.png');
+    -fx-background-size: 60px 60px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
 }

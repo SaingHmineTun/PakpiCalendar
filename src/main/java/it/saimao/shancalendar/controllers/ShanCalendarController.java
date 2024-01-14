@@ -14,7 +14,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class ShanCalendarController implements Initializable {
 
     @FXML
     private HBox row0;
@@ -68,9 +68,9 @@ public class HelloController implements Initializable {
         for (int i = 0; i < 10; i++) {
             Button btHeader = (Button) row0.getChildren().get(i);
             btHeader.setText(ShanDate.mePee[i]);
-//            if (i % 5 == 0) {
-//                btHeader.setStyle("-fx-background-color: #c30010;");
-//            }
+            if (i % 5 == 0) {
+                btHeader.setStyle("-fx-background-color: #420C09;");
+            }
         }
     }
 
@@ -94,7 +94,6 @@ public class HelloController implements Initializable {
         StringBuilder sb = new StringBuilder();
         sb.append(HolidayCalculator.toString(selectedMyanmarDate));
         sb.append(selectedMyanmarDate.getMonthName()).append(" ");
-        sb.append(selectedMyanmarDate.getMonthType()).append(" ");
         sb.append(selectedMyanmarDate.getMoonPhase()).append(" ");
         sb.append(selectedMyanmarDate.getFortnightDay()).append(" ");
         sb.append(selectedMyanmarDate.getMoonPhraseInt() == 0 ? " ဝၼ်း" : "").append(selectedMyanmarDate.getMoonPhraseInt() == 2 ? " ၶမ်ႈ" : "").append("၊ ");
@@ -134,8 +133,8 @@ public class HelloController implements Initializable {
                 } else {
                     // row 4
                     vBox = (VBox) row4.getChildren().get(index);
-                }
 
+                }
                 if (totalMonthDay >= monthLength) {
                     vBox.setVisible(false);
                 }
@@ -170,7 +169,12 @@ public class HelloController implements Initializable {
                     } else if (ld.isEqual(firstDayOfMonth)) {
                         selectDate(vBox);
                     } else if (ShanDate.getMePeeInt(ld.toEpochDay()) % 5 == 0) {
-                        vBox.setStyle("-fx-background-color: #d0b6b6");
+                        vBox.setStyle(
+                                "-fx-background-color: #420C0955; " +
+                                        "-fx-border-color: #420C09;" +
+                                        "-fx-border-width: 1px;"
+                        );
+//                        shanDay.setTextFill(Color.valueOf("#420C09"));
                     } else {
                         vBox.setStyle("-fx-background-color: white");
                     }
@@ -178,13 +182,16 @@ public class HelloController implements Initializable {
                     // Decorate cell label
                     if (md.getMoonPhraseInt() == 1) {
                         // full moon
-                        shanDay.setTextFill(Color.rgb(255, 79, 29));
+//                        shanDay.setTextFill(Color.rgb(255, 255, 29));
+                        vBox.setId("full-moon");
                     } else if (md.getMoonPhraseInt() == 3) {
                         // new moon
-                        shanDay.setTextFill(Color.rgb(68, 62, 103));
+                        shanDay.setTextFill(Color.WHITE);
+                        vBox.setId("new-moon");
                     } else {
                         // normal day
-                        shanDay.setTextFill(Color.rgb(13, 164, 164));
+                        shanDay.setTextFill(Color.valueOf("#1E3A57"));
+                        vBox.setId("");
                     }
                 }
 
@@ -217,13 +224,13 @@ public class HelloController implements Initializable {
         if (prevSelectedDate != null) {
             LocalDate localDate = (LocalDate) prevSelectedDate.getUserData();
             if (localDate.isEqual(LocalDate.now()))
-                prevSelectedDate.setStyle("-fx-background-color: #9BA5C9");
+                prevSelectedDate.setStyle("-fx-background-color: #FFD70055");
             else if (ShanDate.getMePeeInt(localDate.toEpochDay()) % 5 == 0) {
-                prevSelectedDate.setStyle("-fx-background-color: #d0b6b6");
+                prevSelectedDate.setStyle("-fx-background-color: #420C0955;");
             } else
                 prevSelectedDate.setStyle("-fx-background-color: white");
         }
-        vb.setStyle("-fx-background-color: #abd4a4;");
+        vb.setStyle("-fx-background-color: #1E3A5755;");
         prevSelectedDate = vb;
     }
 
