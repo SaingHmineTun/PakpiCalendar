@@ -3,6 +3,12 @@
     src: url('../fonts/GHKTaungGyi.ttf');
 }
 
+@font-face {
+    font-family: 'A J Kunheing 6';
+    src: url('../fonts/AJ_Kunheing6.ttf');
+}
+
+
 .root {
     -fx-font-family: 'GHK TaungGyi';
     -fx-primary-color: #1e3a57;
@@ -49,6 +55,7 @@
 }
 
 .bt-lurn-tai {
+    -fx-font-family: 'A J Kunheing 6';
     -fx-background-color: transparent;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;

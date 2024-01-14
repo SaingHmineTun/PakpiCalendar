@@ -35,7 +35,7 @@ public class ShanCalendarController implements Initializable {
     private Button lbMonth;
 
     @FXML
-    private Label lbYear, lbDetail, lbDesc;
+    private Label lbYear, lbBuddhistYear, lbDetail, lbDesc;
 
     @FXML
     private Button btPrev, btNext;
@@ -80,11 +80,14 @@ public class ShanCalendarController implements Initializable {
                 getFirstDayOfMonth().getMonth() + " - " + getFirstDayOfMonth().plusMonths(1).getMonth()
         );
         lbMonth.setText(selectedMyanmarDate.getMonthName());
-        lbYear.setText(
+        lbBuddhistYear.setText(
                 "ပီႊတႆး - " + selectedMyanmarDate.getShanYear() + " ၼီႈ" +
                         "\nပီႊမိူင်း - " + ShanDate.getPeeMurng(selectedMyanmarDate.getShanYearInt()) +
                         "\nပီႊထမ်း - " + ShanDate.getPeeHtam(selectedDate.getYear())
         );
+        lbYear.setText("ပီႊသႃႇသၼႃႇ - " + selectedMyanmarDate.getBuddhistEra() + "\n" +
+                "ပီႊၵေႃးၸႃႇ - " + selectedMyanmarDate.getYear() + "\n" +
+                "ပီႊၶရိတ်ႉ - " + selectedDate.getYear());
         lbDesc.setText(description());
 
 
@@ -224,7 +227,7 @@ public class ShanCalendarController implements Initializable {
         if (prevSelectedDate != null) {
             LocalDate localDate = (LocalDate) prevSelectedDate.getUserData();
             if (localDate.isEqual(LocalDate.now()))
-                prevSelectedDate.setStyle("-fx-background-color: #FFD70055");
+                prevSelectedDate.setStyle("-fx-background-color: #28a74555");
             else if (ShanDate.getMePeeInt(localDate.toEpochDay()) % 5 == 0) {
                 prevSelectedDate.setStyle("-fx-background-color: #420C0955;");
             } else
