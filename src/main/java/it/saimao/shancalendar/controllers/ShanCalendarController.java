@@ -88,9 +88,9 @@ public class ShanCalendarController implements Initializable {
                         "\nပီႊမိူင်း - " + ShanDate.getPeeMurng(selectedMyanmarDate.getShanYearInt()) +
                         "\nပီႊထမ်း - " + ShanDate.getPeeHtam(selectedDate.getYear())
         );
-        lbYear.setText("ပီႊသႃႇသၼႃႇ - " + selectedMyanmarDate.getBuddhistEra() + "\n" +
-                "ပီႊၵေႃးၸႃႇ - " + selectedMyanmarDate.getYear() + "\n" +
-                "ပီႊၶရိတ်ႉ - " + NumberToStringUtil.convert(selectedDate.getYear(), LanguageCatalog.getInstance()));
+        lbYear.setText(LanguageCatalog.getInstance().translate("Sasana Year") + " - " + selectedMyanmarDate.getBuddhistEra() + "\n" +
+                LanguageCatalog.getInstance().translate("Myanmar Year") + " - " + selectedMyanmarDate.getYear() + "\n" +
+                        LanguageCatalog.getInstance().translate("English Year") + " - " + NumberToStringUtil.convert(selectedDate.getYear(), LanguageCatalog.getInstance()));
         String description = description();
         String holiday = HolidayCalculator.toString(selectedMyanmarDate);
         if (!holiday.isEmpty()) {

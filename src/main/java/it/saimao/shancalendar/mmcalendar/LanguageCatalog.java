@@ -73,6 +73,7 @@ public class LanguageCatalog {
 		myanmar.put("full moon", "\u101C\u1015\u103C\u100A\u103A\u1037");
 		myanmar.put("new moon", "\u101C\u1000\u103D\u101A\u103A");
 		myanmar.put("Myanmar Year", "\u1019\u103C\u1014\u103A\u1019\u102C\u1014\u103E\u1005\u103A");
+		myanmar.put("English Year", "ခရစ်နှစ်");
 		myanmar.put("Ku", "\u1001\u102F");
 		myanmar.put("Late", "\u1014\u103E\u1031\u102C\u1004\u103A\u1038");
 		myanmar.put("Second", "\u1012\u102F");
@@ -227,6 +228,7 @@ public class LanguageCatalog {
 		shan.put("Pyathada", "ဝၼ်းပျၢတ်ႈ");
 		shan.put("New Year Day", "ပီႊမႂ်ႇလုမ်ႇၾႃႉ");
 		shan.put("Myanmar Year", "ပီႊၵေႃးၸႃႇ");
+		shan.put("English Year", "ပီႊၶရိတ်ႉ");
 		shan.put("Independence Day", "ဝၼ်းၵွၼ်းၶေႃ");
 		shan.put("Union Day", "ဝၼ်းမိူင်းႁူမ်ႈတုမ်ႊ");
 		shan.put("Peasants Day", "ဝၼ်းၵူၼ်းႁႆႊၵူၼ်းၼႃး");
