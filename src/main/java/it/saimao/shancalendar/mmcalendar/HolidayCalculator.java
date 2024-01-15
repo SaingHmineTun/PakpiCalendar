@@ -70,29 +70,24 @@ public final class HolidayCalculator {
         return holiday;
     }
 
+    /**
+     * These are Shan specific special days!
+     * @param md
+     * @return
+     */
     static List<String> shanSpecialDays(MyanmarDate md) {
         List<String> shanSpecialDays = new ArrayList<>();
         int shanMonth = md.getShanMonth();
-        if (shanMonth == 1 && md.getMonthDay() == 1) {
-            shanSpecialDays.add("ဝၼ်းပီႊမႂ်ႇတႆး");
-        } else if (shanMonth == 2 && md.getMoonPhrase() == 2 && md.getFortnightDayInt() == 14) {
+        if (shanMonth == 2 && md.getMoonPhrase() == 2 && md.getFortnightDayInt() == 14) {
             shanSpecialDays.add("ဝၼ်းလူႇၾႆးသုမ်လူဝ်");
         } else if (shanMonth == 3 && md.getMoonPhrase() == 1) {
             shanSpecialDays.add("ပွႆးလိူၼ်သၢမ်မူၼ်း");
         } else if (shanMonth == 3 && md.getMoonPhrase() == 2 && md.getFortnightDayInt() == 3) {
             shanSpecialDays.add("ဝၼ်းဢူဝ်ႈပဵမ်ႇသၢမ်လေႃး");
-        } else if (shanMonth == 4 && md.getMoonPhrase() == 1) {
-            shanSpecialDays.add("ပွႆးလိူၼ်သီႇမူၼ်း");
         } else if (shanMonth == 6 && md.getMoonPhrase() == 1) {
             shanSpecialDays.add("ဝၼ်းပုတ်ႉထၸဝ်ႈ");
-        } else if (shanMonth == 8 && md.getMoonPhrase() == 1) {
-            shanSpecialDays.add("ဝၼ်းထမ်ႇမၸၵ်ႉၵ (ၶဝ်ႈဝႃႇ)");
-        } else if (shanMonth == 11 && md.getMoonPhrase() == 1) {
-            shanSpecialDays.add("ဝၼ်းဢၽိထမ်ႇမႃႇ (ဢွၵ်ႇဝႃႇ)");
         } else if (shanMonth == 11 && md.getMoonPhrase() == 2 && md.getFortnightDayInt() == 8) {
             shanSpecialDays.add("ပွႆးသၢဝ်းသၢမ်");
-        } else if (shanMonth == 12 && md.getMoonPhrase() == 1) {
-            shanSpecialDays.add("ပွႆးၵႆႈတဵၼ်းႁဵင်");
         } else if (shanMonth == 12 && md.getMoonPhrase() == 3) {
             shanSpecialDays.add("ႁပ်ႉၸဵင်");
         }

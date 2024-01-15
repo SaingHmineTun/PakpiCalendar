@@ -35,7 +35,10 @@ public class ShanCalendarController implements Initializable {
     private Button lbMonth;
 
     @FXML
-    private Label lbYear, lbBuddhistYear, lbDetail, lbDesc;
+    private Label lbYear, lbBuddhistYear, lbDetail, lbHoliday;
+
+    @FXML
+    private Label lbDesc;
 
     @FXML
     private Button btPrev, btNext;
@@ -87,15 +90,24 @@ public class ShanCalendarController implements Initializable {
         );
         lbYear.setText("ပီႊသႃႇသၼႃႇ - " + selectedMyanmarDate.getBuddhistEra() + "\n" +
                 "ပီႊၵေႃးၸႃႇ - " + selectedMyanmarDate.getYear() + "\n" +
-                "ပီႊၶရိတ်ႉ - " +  NumberToStringUtil.convert(selectedDate.getYear(), LanguageCatalog.getInstance()));
-        lbDesc.setText(description());
+                "ပီႊၶရိတ်ႉ - " + NumberToStringUtil.convert(selectedDate.getYear(), LanguageCatalog.getInstance()));
+        String description = description();
+        String holiday = HolidayCalculator.toString(selectedMyanmarDate);
+        if (!holiday.isEmpty()) {
+            lbHoliday.setText(holiday);
+            lbHoliday.setVisible(true);
+            lbHoliday.setManaged(true);
+        } else {
+            lbHoliday.setVisible(false);
+            lbHoliday.setManaged(false);
+        }
+        lbDesc.setText(description);
 
 
     }
 
     private String description() {
         StringBuilder sb = new StringBuilder();
-        sb.append(HolidayCalculator.toString(selectedMyanmarDate));
         sb.append(selectedMyanmarDate.getMonthName()).append(" ");
         sb.append(selectedMyanmarDate.getMoonPhase()).append(" ");
         sb.append(selectedMyanmarDate.getFortnightDay()).append(" ");
@@ -165,10 +177,12 @@ public class ShanCalendarController implements Initializable {
 
                     // Decorate Cell : Selecting cell
                     if (ld.isEqual(LocalDate.now())) {
-                        selectDate(vBox);
+                        if (dpDate == null)
+                            selectDate(vBox);
+                        else
+                            vBox.setStyle("-fx-background-color: #28a74555");
                     } else if (dpDate != null && ld.isEqual(dpDate)) {
                         selectDate(vBox);
-                        dpDate = null;
                     } else if (ld.isEqual(firstDayOfMonth)) {
                         selectDate(vBox);
                     } else if (ShanDate.getMePeeInt(ld.toEpochDay()) % 5 == 0) {
@@ -202,6 +216,7 @@ public class ShanCalendarController implements Initializable {
             }
 
         }
+        dpDate = null;
     }
 
     VBox prevSelectedDate = null;

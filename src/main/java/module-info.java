@@ -1,6 +1,7 @@
 module it.saimao.shancalendar {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.web;
 
 
     exports it.saimao.shancalendar.applications;
