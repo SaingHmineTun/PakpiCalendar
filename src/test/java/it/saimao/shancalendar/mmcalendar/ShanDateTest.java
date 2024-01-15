@@ -20,4 +20,15 @@ class ShanDateTest {
         assertEquals("တဝ်ႇသၼ်(မိင်ႈလိင်း)", ShanDate.getPeeHtam(1992));
         assertEquals("ၵၢပ်ႇသီ(မိင်ႈငိူၵ်ႈ)", ShanDate.getPeeHtam(2024));
     }
+
+    @Test
+    void testHarakunConstant() {
+        assertEquals(204556, ShanDate.getHarakunConstant(1358));
+    }
+
+    @Test
+    void testNewYearLukWann() {
+        assertEquals(3, ShanDate.getNewYearDayLukWann(1358));
+    }
+
 }

@@ -78,6 +78,13 @@
     -fx-text-fill: rgb(1, 8, 115);
 }
 
+.lb-eng-month {
+
+    -fx-font-family: 'A J Kunheing 6';
+    -fx-font-size: 24px;
+
+}
+
 .desc {
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 5px;
@@ -116,4 +123,44 @@
     -fx-background-size: 60px 60px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
+}
+
+.date-picker {
+    -fx-background-color: white;
+    -fx-border-width: 1px;
+    -fx-border-color: -fx-primary-color;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 5px;
+}
+
+.date-picker .date-cell {
+    -fx-text-fill: -fx-primary-color;
+}
+
+.date-picker .date-cell:hover {
+    -fx-background-color: #1E3A5755;
+}
+
+.date-picker .date-cell.selected {
+    -fx-background-color: #1E3A5755;
+}
+
+.date-picker .today {
+    -fx-background-color: #28a74555;
+}
+
+
+.date-picker > .text-field {
+    -fx-text-fill: -fx-primary-color;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.date-picker > .arrow-button {
+    -fx-background-color: white;
+}
+
+.date-picker-popup {
+    -fx-base: -fx-primary-color;
+    -fx-mark-highlight-color: white;
 }

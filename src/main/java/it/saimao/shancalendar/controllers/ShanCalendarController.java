@@ -87,7 +87,7 @@ public class ShanCalendarController implements Initializable {
         );
         lbYear.setText("ပီႊသႃႇသၼႃႇ - " + selectedMyanmarDate.getBuddhistEra() + "\n" +
                 "ပီႊၵေႃးၸႃႇ - " + selectedMyanmarDate.getYear() + "\n" +
-                "ပီႊၶရိတ်ႉ - " + selectedDate.getYear());
+                "ပီႊၶရိတ်ႉ - " +  NumberToStringUtil.convert(selectedDate.getYear(), LanguageCatalog.getInstance()));
         lbDesc.setText(description());
 
 

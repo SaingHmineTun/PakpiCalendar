@@ -721,5 +721,21 @@ public class ShanDate {
         return mePee[--mePeeInt];
     }
 
+    public static int getHarakunConstant(int myanmarYear) {
+        int a = myanmarYear - 798;
+        int b = a * 292207;
+        int c = b + 8759;
+        int d = c / 800;
+        int e = d + 1;
+        return e;
+    }
+
+    // Only applicable for Burmese Year
+    public static int getNewYearDayLukWann(int myanmarYear) {
+        int a = getHarakunConstant(myanmarYear) + 1;
+        int lukWannInt = a % 7;
+        return lukWannInt;
+    }
+
 
 }
