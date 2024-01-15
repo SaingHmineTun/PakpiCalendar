@@ -1,4 +1,4 @@
-package it.saimao.pakpi.applications;
+package it.saimao.pakpi;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +16,7 @@ public class ShanCalendarApplication extends Application {
         Rectangle2D screenSize = Screen.getPrimary().getVisualBounds();
         FXMLLoader fxmlLoader = new FXMLLoader(ShanCalendarApplication.class.getResource("/views/shan-calendar-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Shan Calendar");
+        stage.setTitle("Pakpi Calendar");
         stage.setScene(scene);
 
         stage.setX(screenSize.getMinX());

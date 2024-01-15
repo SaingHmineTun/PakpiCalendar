@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="pakpi:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/pakpi_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/applications/ShanCalendarApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/ShanCalendarApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,21 +55,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Gluon/shan-calendar/src/main/resources/fonts&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/IntelliJ_Projects",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Gluon\shan-calendar\src\main\resources\fonts" />
@@ -74,6 +84,9 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="it.saimao.pakpi" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="it.saimao.shancalendar.mmcalendar" />
       <recent name="it.saimao.shancalendar.utils" />
@@ -83,11 +96,11 @@
     <configuration name="ShanCalendarApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Zulu\zulu-20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="it.saimao.pakpi.applications.ShanCalendarApplication" />
-      <module name="shancalendar" />
+      <option name="MAIN_CLASS_NAME" value="it.saimao.pakpi.ShanCalendarApplication" />
+      <module name="pakpi" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="it.saimao.pakpi.applications.*" />
+          <option name="PATTERN" value="it.saimao.pakpi.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -188,6 +201,13 @@
       <option name="USE_PATTERN" value="false" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.ShanCalendarApplication" />
+      <item itemvalue="JUnit.it.saimao.pakpi in shancalendar" />
+      <item itemvalue="JUnit.ShanDateTest" />
+      <item itemvalue="JUnit.ShanDateTest.testHarakunConstant" />
+      <item itemvalue="JUnit.ShanDateTest.testNewYearLukWann" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ShanCalendarApplication" />
@@ -495,11 +515,18 @@
       <option name="project" value="LOCAL" />
       <updated>1705324277829</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Change project name to Pakpi">
+      <option name="closed" value="true" />
+      <created>1705325093122</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1705325093123</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add description button at the bottom." />
     <MESSAGE value="Add ShanDate.java&#10;Implemented wannTai, wannTun, wannPyaat, hoNagaa." />
     <MESSAGE value="Implemented wannMwe, wannPheeKin" />
     <MESSAGE value="Implemented WannJum (ဝၼ်းၸူမ်), WannPhoo (ဝၼ်းၽူး)" />
@@ -524,22 +551,23 @@
     <MESSAGE value="Update Date Field UI" />
     <MESSAGE value="Update Shan Data" />
     <MESSAGE value="Fixed : Sasana year and Shan year do not show correctly!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed : Sasana year and Shan year do not show correctly!" />
+    <MESSAGE value="Change project name to Pakpi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change project name to Pakpi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/ShanDate.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/ShanDate.java</url>
           <line>723</line>
-          <properties class="it.saimao.shancalendar.mmcalendar.ShanDate" method="getHarakunConstant">
+          <properties class="it.saimao.pakpi.mmcalendar.ShanDate" method="getHarakunConstant">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/ShanCalendarController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/it/saimao/pakpi/controllers/ShanCalendarController.java</url>
           <line>183</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
