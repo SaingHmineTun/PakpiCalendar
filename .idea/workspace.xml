@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/ShanCalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/controllers/ShanCalendarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/LanguageCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/LanguageCatalog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/MyanmarDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/shancalendar/mmcalendar/MyanmarDate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,11 +83,11 @@
     <configuration name="ShanCalendarApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Zulu\zulu-20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="it.saimao.shancalendar.applications.ShanCalendarApplication" />
+      <option name="MAIN_CLASS_NAME" value="it.saimao.pakpi.applications.ShanCalendarApplication" />
       <module name="shancalendar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="it.saimao.shancalendar.applications.*" />
+          <option name="PATTERN" value="it.saimao.pakpi.applications.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -102,12 +99,12 @@
       <module name="shancalendar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="it.saimao.shancalendar.mmcalendar.*" />
+          <option name="PATTERN" value="it.saimao.pakpi.mmcalendar.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="it.saimao.shancalendar.mmcalendar" />
-      <option name="MAIN_CLASS_NAME" value="it.saimao.shancalendar.mmcalendar.ShanDateTest" />
+      <option name="MAIN_CLASS_NAME" value="it.saimao.pakpi.mmcalendar.ShanDateTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -117,12 +114,12 @@
       <module name="shancalendar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="it.saimao.shancalendar.mmcalendar.*" />
+          <option name="PATTERN" value="it.saimao.pakpi.mmcalendar.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="it.saimao.shancalendar.mmcalendar" />
-      <option name="MAIN_CLASS_NAME" value="it.saimao.shancalendar.mmcalendar.ShanDateTest" />
+      <option name="MAIN_CLASS_NAME" value="it.saimao.pakpi.mmcalendar.ShanDateTest" />
       <option name="METHOD_NAME" value="testHarakunConstant" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -133,31 +130,63 @@
       <module name="shancalendar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="it.saimao.shancalendar.mmcalendar.*" />
+          <option name="PATTERN" value="it.saimao.pakpi.mmcalendar.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="it.saimao.shancalendar.mmcalendar" />
-      <option name="MAIN_CLASS_NAME" value="it.saimao.shancalendar.mmcalendar.ShanDateTest" />
+      <option name="MAIN_CLASS_NAME" value="it.saimao.pakpi.mmcalendar.ShanDateTest" />
       <option name="METHOD_NAME" value="testNewYearLukWann" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="it.saimao.shancalendar in shancalendar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="it.saimao.pakpi in shancalendar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shancalendar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="it.saimao.shancalendar.*" />
+          <option name="PATTERN" value="it.saimao.pakpi.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="it.saimao.shancalendar" />
+      <option name="PACKAGE_NAME" value="it.saimao.pakpi" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Autodetect">
+      <module name="shancalendar" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="shancalendar" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
@@ -165,7 +194,7 @@
         <item itemvalue="JUnit.ShanDateTest.testNewYearLukWann" />
         <item itemvalue="JUnit.ShanDateTest.testHarakunConstant" />
         <item itemvalue="JUnit.ShanDateTest" />
-        <item itemvalue="JUnit.it.saimao.shancalendar in shancalendar" />
+        <item itemvalue="JUnit.it.saimao.pakpi in shancalendar" />
       </list>
     </recent_temporary>
   </component>
@@ -458,11 +487,18 @@
       <option name="project" value="LOCAL" />
       <updated>1705320580412</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Fixed : Sasana year and Shan year do not show correctly!">
+      <option name="closed" value="true" />
+      <created>1705324277829</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1705324277829</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit" />
     <MESSAGE value="Add description button at the bottom." />
     <MESSAGE value="Add ShanDate.java&#10;Implemented wannTai, wannTun, wannPyaat, hoNagaa." />
     <MESSAGE value="Implemented wannMwe, wannPheeKin" />
@@ -487,7 +523,8 @@
     <MESSAGE value="Revamp Design" />
     <MESSAGE value="Update Date Field UI" />
     <MESSAGE value="Update Shan Data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Shan Data" />
+    <MESSAGE value="Fixed : Sasana year and Shan year do not show correctly!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed : Sasana year and Shan year do not show correctly!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

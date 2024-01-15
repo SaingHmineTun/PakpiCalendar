@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>it.saimao</groupId>
-    <artifactId>shancalendar</artifactId>
+    <artifactId>pakpi</artifactId>
     <version>1.0</version>
-    <name>shancalendar</name>
+    <name>Pakpi</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -68,7 +68,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>it.saimao.shancalendar/it.saimao.shancalendar.applications.ShanCalendarApplication</mainClass>
+                            <mainClass>it.saimao.shancalendar/it.saimao.pakpi.applications.ShanCalendarApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

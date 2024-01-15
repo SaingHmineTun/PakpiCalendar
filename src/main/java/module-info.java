@@ -4,8 +4,8 @@ module it.saimao.shancalendar {
     requires javafx.web;
 
 
-    exports it.saimao.shancalendar.applications;
-    opens it.saimao.shancalendar.applications to javafx.fxml;
-    exports it.saimao.shancalendar.controllers;
-    opens it.saimao.shancalendar.controllers to javafx.fxml;
+    exports it.saimao.pakpi.applications;
+    opens it.saimao.pakpi.applications to javafx.fxml;
+    exports it.saimao.pakpi.controllers;
+    opens it.saimao.pakpi.controllers to javafx.fxml;
 }
