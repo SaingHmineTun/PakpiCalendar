@@ -1571,7 +1571,7 @@
       </VBox>
    </right>
    <bottom>
-      <Label alignment="CENTER" text="ၶူင်သၢင်ႈဢႅပ်း - ၸၢႆးမၢဝ်း ၊ ႁႅၼ်းထၢင်ႇ - ၸၢႆးသီတႆးဢွင်ႇၵျေႃႇ" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" text="ၶူင်သၢင်ႈ - ၸၢႆးမၢဝ်း ၊ ႁႅၼ်းထၢင်ႇ - ၸၢႆးသီတႆးဢွင်ႇၵျေႃႇ" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" top="10.0" />
          </BorderPane.margin>

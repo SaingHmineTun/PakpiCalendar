@@ -4,14 +4,18 @@ import it.saimao.pakpi.mmcalendar.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.util.Callback;
+import javafx.util.StringConverter;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class ShanCalendarController implements Initializable {
@@ -60,11 +64,33 @@ public class ShanCalendarController implements Initializable {
         btNext.setOnAction(event -> gotoNextMonth());
         btPrev.setOnAction(event -> gotoPrevMonth());
 
-        dpSelected.setOnHidden(event -> gotoSelectedDate());
-        selectedDate = LocalDate.now();
 
+        customizeDatePicker();
         createCalendarHeader();
         createCalendar();
+    }
+
+    private void customizeDatePicker() {
+
+        dpSelected.setOnHidden(event -> gotoSelectedDate());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        dpSelected.setConverter(new StringConverter<>() {
+            @Override
+            public String toString(LocalDate object) {
+                if (object != null)
+                    return formatter.format(object);
+                else
+                    return "";
+            }
+
+            @Override
+            public LocalDate fromString(String string) {
+                if (string != null && !string.isEmpty())
+                    return LocalDate.parse(string, formatter);
+                return null;
+            }
+        });
+        selectedDate = LocalDate.now();
     }
 
     private void createCalendarHeader() {
@@ -90,7 +116,7 @@ public class ShanCalendarController implements Initializable {
         );
         lbYear.setText(LanguageCatalog.getInstance().translate("Sasana Year") + " - " + selectedMyanmarDate.getBuddhistEra() + "\n" +
                 LanguageCatalog.getInstance().translate("Myanmar Year") + " - " + selectedMyanmarDate.getYear() + "\n" +
-                        LanguageCatalog.getInstance().translate("English Year") + " - " + NumberToStringUtil.convert(selectedDate.getYear(), LanguageCatalog.getInstance()));
+                LanguageCatalog.getInstance().translate("English Year") + " - " + NumberToStringUtil.convert(selectedDate.getYear(), LanguageCatalog.getInstance()));
         String description = description();
         String holiday = HolidayCalculator.toString(selectedMyanmarDate);
         if (!holiday.isEmpty()) {

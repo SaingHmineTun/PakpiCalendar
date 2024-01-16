@@ -149,6 +149,10 @@
     -fx-background-color: #28a74555;
 }
 
+.date-picker .week-end {
+    -fx-background-color: red;
+}
+
 
 .date-picker > .text-field {
     -fx-text-fill: -fx-primary-color;
