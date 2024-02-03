@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -24,6 +25,7 @@ public class ShanCalendarApplication extends Application {
         stage.setWidth(screenSize.getWidth());
         stage.setHeight(screenSize.getHeight());
         stage.setMaximized(true);
+        stage.getIcons().add(new Image(getClass().getResource("/images/pakpi.jpg").toExternalForm()));
         stage.show();
     }
 
