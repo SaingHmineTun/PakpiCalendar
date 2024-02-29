@@ -2,22 +2,17 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="pakpi:jar" />
+      <artifact name="shan-calendar:jar" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="Added Image Logo">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/utils/Perc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="Fixed: လိူၼ်ႁႃႈတၢမ်းႁၢင် -&gt; လိူၼ်ႁႃႈ&#10;Fixed: ပွႆး -&gt; ပွၺ်း">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/pakpi_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/controllers/ShanCalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/controllers/ShanCalendarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/HolidayCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/HolidayCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/LanguageCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/LanguageCatalog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/shan-calendar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/shan-calendar-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,9 +61,10 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "zulu-20",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/IntelliJ_Projects/shan-calendar/src/main/java/it/saimao/pakpi/utils",
-    "project.structure.last.edited": "Libraries",
+    "last_opened_file_path": "D:/IntelliJ_Projects/shan-calendar",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager"
@@ -133,7 +129,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Zulu\zulu-20" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="it.saimao.pakpi.ShanCalendarApplication" />
-      <module name="shancalendar" />
+      <module name="pakpi" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="it.saimao.pakpi.*" />
@@ -550,11 +546,18 @@
       <option name="project" value="LOCAL" />
       <updated>1706956540356</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Fixed: လိူၼ်ႁႃႈတၢမ်းႁၢင် -&gt; လိူၼ်ႁႃႈ&#10;Fixed: ပွႆး -&gt; ပွၺ်း">
+      <option name="closed" value="true" />
+      <created>1709189662271</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1709189662271</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented WannJum (ဝၼ်းၸူမ်), WannPhoo (ဝၼ်းၽူး)" />
     <MESSAGE value="Implemented MweLone (မူၺ်ႉလူင်)" />
     <MESSAGE value="Implemented WannNao (ဝၼ်းၼဝ်ႈ)" />
     <MESSAGE value="Implemented all features requested by C Tai." />
@@ -579,7 +582,8 @@
     <MESSAGE value="Change project name to Pakpi" />
     <MESSAGE value="Released version 1.0" />
     <MESSAGE value="Added Image Logo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Image Logo" />
+    <MESSAGE value="Fixed: လိူၼ်ႁႃႈတၢမ်းႁၢင် -&gt; လိူၼ်ႁႃႈ&#10;Fixed: ပွႆး -&gt; ပွၺ်း" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed: လိူၼ်ႁႃႈတၢမ်းႁၢင် -&gt; လိူၼ်ႁႃႈ&#10;Fixed: ပွႆး -&gt; ပွၺ်း" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
