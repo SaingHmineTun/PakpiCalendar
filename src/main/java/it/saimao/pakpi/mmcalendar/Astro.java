@@ -2,454 +2,691 @@ package it.saimao.pakpi.mmcalendar;
 
 import java.io.Serializable;
 
+import static it.saimao.pakpi.mmcalendar.AstroKernel.*;
+
+
 /**
  * Astrological information
- * 
- * @author <a href="mailto:chanmratekoko.dev@gmail.com">Chan Mrate Ko Ko</a>
- * 
- * @version 1.0.2
- * @since 1.0
+ * <p>
+ * Note : All fields have default package visibility, ensuring that the specific
+ * numbers are not necessary for external use.
+ * This design facilitates testing in batch tests while maintaining the desired
+ * level of encapsulation.
+ * </p>
  *
+ * @author <a href="mailto:chanmratekoko.dev@gmail.com">Chan Mrate Ko Ko</a>
+ * @version 2.0.0
+ * @since 1.0
  */
-public class Astro implements Serializable, Cloneable {
-
-	private static final long serialVersionUID = 704868696259464344L;
-
-	int sabbath; // ဥပုသ်နေ့
-	int sabbatheve; // အဖိတ်နေ့
-	int yatyaza; // ရက်ရာဇာ
-	int pyathada; // ပြဿဒါး
-	int thamanyo; // ဿမညို
-	int amyeittasote; // အမြိတ်တဆုတ်
-	int warameittugyi; // ဝါရမိတ် ဒုကြီး
-	int warameittunge; // ဝါရမိတ် ဒုငယ်
-	int yatpote; // ရက်ပုပ်
-	int thamaphyu; // ဿမဖြူ
-	int nagapor; // နဂါးပေါ်
-	int yatyotema; // ရက်ယုတ်မာ
-	int mahayatkyan; // မဟာရက်ကြမ်း
-	int shanyat; // ရှမ်းရက်
-	/* 0 = west, 1 = north, 2 = east, 3 = south */
-	int nagahle; // နဂါးလှည့်
-	/* 0 = Binga, 1 = Atun, 2 = Yaza, 3 = Adipati, 4 = Marana, 5 = Thike, 6 = Puti */
-	int mahabote; // မဟာဘုတ်
-	/* 0 = orc, 1 = elf, 2 = human */
-	int nakhat; // နက္ခတ်
-	//{"ပုဿနှစ်","မာခနှစ်","ဖ္လကိုန်သံဝစ္ဆိုဝ်ရနှစ်","စယ်နှစ်",
-			//"ပိသျက်နှစ်","စိဿနှစ်","အာသတ်နှစ်","သရဝန်နှစ်",
-			//"ဘဒ္ဒြသံဝစ္ဆုံရ်နှစ်","အာသိန်နှစ်","ကြတိုက်နှစ်","မြိက္ကသိုဝ်နှစ်"}
-	int yearName; // နှစ်
-
-	protected Astro() {
-	}	
-
-	/**
-	 * 
-	 * @return [ if greater 0 is Yatyaza ]
-	 */
-	public int getYatyaza() {
-		return yatyaza;
-	}
-
-	/**
-	 * 
-	 * @return [ 0 = none ,  1 = Pyathada , 2 = Afternoon Pyathada]
-	 */
-	public int getPyathada() {
-		return pyathada;
-	}
-
-	/**
-	 * 
-	 * @return String ["Yatyaza", "Pyathada" or "Afternoon Pyathada" or None ""]
-	 * 		Output String Depend On Default LanguageCatalog on Config
-	 */
-	public String getAstroligicalDay() {
-		return getAstroligicalDay(LanguageCatalog.getInstance());
-	}
-
-	/**
-	 * 
-	 * @param languageCatalog LanguageCatalog
-	 * @return String ["Yatyaza", "Pyathada" or Afternoon Pyathada or None ""]
-	 * 		Output String Depend On LanguageCatalog
-	 */
-	public String getAstroligicalDay(LanguageCatalog languageCatalog) {
-		StringBuilder stringBuilder = new StringBuilder();
-		if (yatyaza > 0) {
-			stringBuilder.append(languageCatalog.translate("Yatyaza"));
-		}
-		if (pyathada == 1) {
-			stringBuilder.append(languageCatalog.translate("Pyathada"));
-		} else if (pyathada == 2) {
-			stringBuilder.append(languageCatalog.translate("Afternoon Pyathada"));
-		}
-		return stringBuilder.toString();
-	}
-
-	public boolean isSabbath() {
-		return (sabbath > 0) || (sabbatheve > 0);
-	}
-
-	public String getSabbath() {
-		return getSabbath(LanguageCatalog.getInstance());
-	}
-
-	/**
-	 * 
-	 * @param languageCatalog LanguageCatalog
-	 * @return String ["Sabbath" , "Sabbath Eve" or none "" ]
-	 * 		Output String Depend On LanguageCatalog
-	 * 		{Calculation depend on sabbath or sabbatheve}
-	 */
-	public String getSabbath(LanguageCatalog languageCatalog) {
-		StringBuilder stringBuilder = new StringBuilder();
-		if (sabbath > 0) {
-			stringBuilder.append(languageCatalog.translate("Sabbath"));
-		} else if (sabbatheve > 0) {
-			stringBuilder.append(languageCatalog.translate("Sabbath Eve"));
-		}
-		return stringBuilder.toString();
-	}
-
-	public boolean isThamanyo() {
-		return (thamanyo > 0);
-	}
+public class Astro implements Serializable {
+
+    private static final long serialVersionUID = 704868696259464344L;
+
+    final int sabbath;
+    final int yatyaza;
+    final int pyathada;
+    final int thamanyo;
+    final int amyeittasote;
+    final int warameittugyi;
+    final int warameittunge;
+    final int yatpote;
+    final int thamaphyu;
+    final int nagapor;
+    final int yatyotema;
+    final int mahayatkyan;
+    final int shanyat;
+    /* 0 = west, 1 = north, 2 = east, 3 = south */
+    final int nagahle;
+    /* 0 = Binga, 1 = Atun, 2 = Yaza, 3 = Adipati, 4 = Marana, 5 = Thike, 6 = Puti */
+    final int mahabote;
+    /* 0 = orc, 1 = elf, 2 = human */
+    final int nakhat;
+
+    /**
+     * "ပုဿနှစ်","မာခနှစ်","ဖ္လကိုန်သံဝစ္ဆိုဝ်ရနှစ်","စယ်နှစ်",
+     * "ပိသျက်နှစ်","စိဿနှစ်","အာသတ်နှစ်","သရဝန်နှစ်",
+     * "ဘဒ္ဒြသံဝစ္ဆုံရ်နှစ်","အာသိန်နှစ်","ကြတိုက်နှစ်","မြိက္ကသိုဝ်နှစ်"
+     */
+    final int yearName;
+
+    /**
+     * Parameter constructor
+     *
+     * @param sabbath       sabbath
+     * @param yatyaza       yatyaza
+     * @param pyathada      pyathada
+     * @param thamanyo      thamanyo
+     * @param amyeittasote  amyeittasote
+     * @param warameittugyi warameittugyi
+     * @param warameittunge warameittunge
+     * @param yatpote       yatpote
+     * @param thamaphyu     thamaphyu
+     * @param nagapor       nagapor
+     * @param yatyotema     yatyotema
+     * @param mahayatkyan   mahayatkyan
+     * @param shanyat       shanyat
+     * @param nagahle       nagahle
+     * @param mahabote      mahabote
+     * @param nakhat        nakhat
+     * @param yearName      yearName
+     */
+    private Astro(int sabbath, int yatyaza, int pyathada, int thamanyo,
+                  int amyeittasote, int warameittugyi, int warameittunge,
+                  int yatpote, int thamaphyu, int nagapor, int yatyotema,
+                  int mahayatkyan, int shanyat, int nagahle, int mahabote,
+                  int nakhat, int yearName) {
+        this.sabbath = sabbath;
+        this.yatyaza = yatyaza;
+        this.pyathada = pyathada;
+        this.thamanyo = thamanyo;
+        this.amyeittasote = amyeittasote;
+        this.warameittugyi = warameittugyi;
+        this.warameittunge = warameittunge;
+        this.yatpote = yatpote;
+        this.thamaphyu = thamaphyu;
+        this.nagapor = nagapor;
+        this.yatyotema = yatyotema;
+        this.mahayatkyan = mahayatkyan;
+        this.shanyat = shanyat;
+        /* 0=west, 1=north, 2=east, 3=south */
+        this.nagahle = nagahle;
+        /* 0=Binga, 1=Atun, 2=Yaza, 3=Adipati, 4=Marana, 5=Thike, 6=Puti */
+        this.mahabote = mahabote;
+        this.nakhat = nakhat;
+        this.yearName = yearName;
+    }
+
+    /**
+     * Myanmar Date to Astro
+     *
+     * @param myanmarDate {@link MyanmarDate}
+     * @return {@link Astro}
+     */
+    public static Astro of(MyanmarDate myanmarDate) {
+
+        int myear = myanmarDate.getYearValue();
+        int yearType = myanmarDate.getYearType();
+        int mmonth = myanmarDate.getMonth();
+        int monthDay = myanmarDate.getDayOfMonth();
+        int weekDay = myanmarDate.getWeekDayValue();
+
+        return new Astro(
+                calculateSabbath(yearType, mmonth, monthDay),
+                calculateYatyaza(mmonth, weekDay),
+                calculatePyathada(mmonth, weekDay),
+                calculateThamanyo(mmonth, weekDay),
+                calculateAmyeittasote(monthDay, weekDay),
+                calculateWarameittugyi(monthDay, weekDay),
+                calculateWarameittunge(monthDay, weekDay),
+                calculateYatpote(monthDay, weekDay),
+                calculateThamaphyu(monthDay, weekDay),
+                calculateNagapor(monthDay, weekDay),
+                calculateYatyotema(mmonth, monthDay),
+                calculateMahayatkyan(mmonth, monthDay),
+                calculateShanyat(mmonth, monthDay),
+                calculateNagahle(mmonth),
+                calculateMahabote(myear, weekDay),
+                calculateNakhat(myear),
+                calculateYearName(myear)
+        );
+    }
+
+    /**
+     * @return true if the day is Yatyaza
+     */
+    public boolean isYatyaza() {
+        // if greater 0 is Yatyaza
+        return yatyaza > 0;
+    }
+
+    /**
+     * @return Yatyaza or none
+     */
+    public String getYatyaza() {
+        return getYatyaza(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @param language Language
+     * @return Yatyaza or none
+     */
+    public String getYatyaza(Language language) {
+        return isYatyaza() ? LanguageTranslator.translate("Yatyaza", language) : "";
+    }
+
+    /**
+     * @return true if Pyathada or Afternoon Pyathada
+     */
+    public boolean isPyathada() {
+        //  0 = none ,  1 = Pyathada , 2 = Afternoon Pyathada
+        return pyathada > 0;
+    }
+
+
+    /**
+     * @return Pyathada or Afternoon Pyathada or none
+     */
+    public String getPyathada() {
+        return getPyathada(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @param language Language
+     * @return Pyathada or Afternoon Pyathada or none
+     */
+    public String getPyathada(Language language) {
+        StringBuilder stringBuilder = new StringBuilder();
+        if (pyathada == 1) {
+            stringBuilder.append(LanguageTranslator.translate("Pyathada", language));
+        } else if (pyathada == 2) {
+            stringBuilder.append(LanguageTranslator.translate("Afternoon", language));
+            stringBuilder.append(" ");
+            stringBuilder.append(LanguageTranslator.translate("Pyathada", language));
+        }
+        return stringBuilder.toString();
+    }
+
+    /**
+     * @return String ["Yatyaza", "Pyathada" or "Afternoon Pyathada" or None ""]
+     * Output String Depend On Default Language on Config
+     */
+    public String getAstrologicalDay() {
+        return getAstrologicalDay(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @param language Language
+     * @return String ["Yatyaza", "Pyathada" or Afternoon Pyathada or None ""]
+     * Output String Depend On Language
+     */
+    public String getAstrologicalDay(Language language) {
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append(getYatyaza(language));
+
+        if (isYatyaza() && isPyathada()) {
+            stringBuilder.append("၊ ");
+        }
+
+        stringBuilder.append(getPyathada(language));
+
+        return stringBuilder.toString();
+    }
+
+    public boolean isSabbath() {
+        return sabbath > 0;
+    }
+
+    public String getSabbath() {
+        return getSabbath(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @param language {@link Language}
+     * @return ["Sabbath" , "Sabbath Eve" or none "" ]
+     * Output String Depend On Language
+     * {Calculation depend on sabbath or sabbatheve}
+     */
+    public String getSabbath(Language language) {
+        StringBuilder stringBuilder = new StringBuilder();
+        if (sabbath == 1) {
+            stringBuilder.append(LanguageTranslator.translate("Sabbath", language));
+        } else if (sabbath == 2) {
+            stringBuilder.append(LanguageTranslator.translate("Sabbath Eve", language));
+        }
+        return stringBuilder.toString();
+    }
+
+    public boolean isThamanyo() {
+        return thamanyo > 0;
+    }
+
+    /**
+     * @return Thamanyo or Empty
+     */
+    public String getThamanyo() {
+        return getThamanyo(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @param language Language
+     * @return Thamanyo or Empty
+     */
+    public String getThamanyo(Language language) {
+        return isThamanyo() ? LanguageTranslator.translate("Thamanyo", language) : "";
+    }
+
+    public boolean isAmyeittasote() {
+        return amyeittasote > 0;
+    }
+
+    /**
+     * @return Amyeittasote or Empty
+     */
+    public String getAmyeittasote() {
+        return getAmyeittasote(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @param language Language
+     * @return Amyeittasote or Empty
+     */
+    public String getAmyeittasote(Language language) {
+        return isAmyeittasote() ? LanguageTranslator.translate("Amyeittasote", language) : "";
+    }
+
+    public boolean isWarameittugyi() {
+        return warameittugyi > 0;
+    }
+
+    /**
+     * @return Warameittugyi or Empty
+     */
+    public String getWarameittugyi() {
+        return getWarameittugyi(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @param language Language
+     * @return Warameittugyi or Empty
+     */
+    public String getWarameittugyi(Language language) {
+        return isWarameittugyi() ? LanguageTranslator.translate("Warameittugyi", language) : "";
+    }
+
+    public boolean isWarameittunge() {
+        return warameittunge > 0;
+    }
+
+    /**
+     * @return Warameittunge or Empty
+     */
+    public String getWarameittunge() {
+        return getWarameittunge(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @param language Language
+     * @return Warameittunge or Empty
+     */
+    public String getWarameittunge(Language language) {
+        return isWarameittunge() ? LanguageTranslator.translate("Warameittunge", language) : "";
+    }
+
+    public boolean isYatpote() {
+        return yatpote > 0;
+    }
+
+    /**
+     * @return Yatpote or Empty
+     */
+    public String getYatpote() {
+        return getYatpote(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @param language Language
+     * @return Yatpote or Empty
+     */
+    public String getYatpote(Language language) {
+        return isYatpote() ? LanguageTranslator.translate("Yatpote", language) : "";
+    }
+
+    public boolean isThamaphyu() {
+        return thamaphyu > 0;
+    }
+
+    /**
+     * @return Thamaphyu or Empty
+     */
+    public String getThamaphyu() {
+        return getThamaphyu(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @param language Language
+     * @return Thamaphyu or Empty
+     */
+    public String getThamaphyu(Language language) {
+        return isThamaphyu() ? LanguageTranslator.translate("Thamaphyu", language) : "";
+    }
+
+    public boolean isNagapor() {
+        return nagapor > 0;
+    }
+
+    /**
+     * @return Nagapor or Empty
+     */
+    public String getNagapor() {
+        return getNagapor(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @param language Language
+     * @return Nagapor or Empty
+     */
+    public String getNagapor(Language language) {
+        return isNagapor() ? LanguageTranslator.translate("Nagapor", language) : "";
+    }
+
+    public boolean isYatyotema() {
+        return yatyotema > 0;
+    }
+
+    /**
+     * @return Yatyotema or Empty
+     */
+    public String getYatyotema() {
+        return getYatyotema(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @param language Language
+     * @return Yatyotema or Empty
+     */
+    public String getYatyotema(Language language) {
+        return isYatyotema() ? LanguageTranslator.translate("Yatyotema", language) : "";
+    }
+
+    public boolean isMahayatkyan() {
+        return mahayatkyan > 0;
+    }
+
+    /**
+     * @return Mahayatkyan or Empty
+     */
+    public String getMahayatkyan() {
+        return getMahayatkyan(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @param language Language
+     * @return Mahayatkyan or Empty
+     */
+    public String getMahayatkyan(Language language) {
+        return isMahayatkyan() ? LanguageTranslator.translate("Mahayatkyan", language) : "";
+    }
+
+    public boolean isShanyat() {
+        return shanyat > 0;
+    }
+
+    /**
+     * @return Shanyat or Empty
+     */
+    public String getShanyat() {
+        return getShanyat(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @param language Language
+     * @return Shanyat or Empty
+     */
+    public String getShanyat(Language language) {
+        return isShanyat() ? LanguageTranslator.translate("Shanyat", language) : "";
+    }
+
+    public String getNagahle() {
+        return getNagahle(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @return 0=west, 1=north, 2=east, 3=south
+     */
+    public int getNagahleValue() {
+        return nagahle;
+    }
+
+    public String getNagahle(Language language) {
+        String[] na = new String[]{"West", "North", "East", "South"};
+        return LanguageTranslator.translate(na[nagahle], language);
+    }
+
+    public String getMahabote() {
+        return getMahabote(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @return 0=Binga, 1=Atun, 2=Yaza, 3=Adipati, 4= Marana, 5=Thike, 6=Puti
+     */
+    public int getMahaboteValue() {
+        return mahabote;
+    }
+
+    public String getMahabote(Language language) {
+        String[] pa = new String[]{"Binga", "Atun", "Yaza", "Adipati", "Marana", "Thike", "Puti"};
+        return LanguageTranslator.translate(pa[mahabote], language);
+    }
+
+    public String getNakhat() {
+        return getNakhat(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @return 0 = orc, 1 = elf, 2=human
+     */
+    public int getNakhatValue() {
+        return nakhat;
+    }
+
+    /**
+     * @param language Language
+     * @return String [ "Ogre" or "Elf" or "Human"]
+     */
+    public String getNakhat(Language language) {
+        String[] nk = {"Ogre", "Elf", "Human"};
+        return LanguageTranslator.translate(nk[nakhat], language);
+    }
+
+    /**
+     * @return String Myanmar Year Name
+     */
+    public String getYearName() {
+        return getYearName(Config.getInstance().getLanguage());
+    }
+
+    /**
+     * @param language Language
+     * @return String Myanmar Year Name
+     */
+    public String getYearName(Language language) {
+        String[] yna = {"Hpusha", "Magha", "Phalguni", "Chitra",
+                "Visakha", "Jyeshtha", "Ashadha", "Sravana",
+                "Bhadrapaha", "Asvini", "Krittika", "Mrigasiras"};
+        return LanguageTranslator.translate(yna[yearName], language);
+    }
+
+    @Override
+    public String toString() {
+        return toString(Config.getInstance().getLanguage());
+    }
+
+    public String toString(Language language) {
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append(getAstrologicalDay());
+
+        if (isSabbath()) {
+            stringBuilder
+                    .append(language.getPunctuationMark())
+                    .append(getSabbath(language));
+        }
+
+        if (isThamanyo()) {
+            stringBuilder
+                    .append(" ")
+                    .append(language.getPunctuationMark())
+                    .append(getThamanyo(language));
+        }
+
+        if (isThamaphyu()) {
+            stringBuilder
+                    .append(" ")
+                    .append(language.getPunctuationMark())
+                    .append(getThamaphyu(language));
+        }
+
+        if (isAmyeittasote()) {
+            stringBuilder
+                    .append(" ")
+                    .append(language.getPunctuationMark())
+                    .append(getAmyeittasote(language));
+        }
+
+        if (isWarameittugyi()) {
+            stringBuilder
+                    .append(" ")
+                    .append(language.getPunctuationMark())
+                    .append(getWarameittugyi(language));
+        }
+
+        if (isWarameittunge()) {
+            stringBuilder
+                    .append(" ")
+                    .append(language.getPunctuationMark())
+                    .append(getWarameittunge(language));
+        }
+
+        if (isYatpote()) {
+            stringBuilder
+                    .append(" ")
+                    .append(language.getPunctuationMark())
+                    .append(getYatpote(language));
+        }
+
+        if (isNagapor()) {
+            stringBuilder
+                    .append(" ")
+                    .append(language.getPunctuationMark())
+                    .append(getNagapor());
+        }
+
+        if (isYatyotema()) {
+            stringBuilder.append(" ")
+                    .append(language.getPunctuationMark())
+                    .append(getYatyotema(language));
+        }
+
+        if (isMahayatkyan()) {
+            stringBuilder.append(" ")
+                    .append(language.getPunctuationMark())
+                    .append(getMahayatkyan(language));
+        }
+
+        if (isShanyat()) {
+            stringBuilder
+                    .append(" ")
+                    .append(language.getPunctuationMark())
+                    .append(getShanyat(language));
+        }
+
+
+        stringBuilder
+                .append(" ")
+                .append(language.getPunctuationMark())
+                .append(LanguageTranslator.translate("Naga", language))
+                .append(" ")
+                .append(LanguageTranslator.translate("Head", language))
+                .append(" ")
+                .append(getNagahle(language))
+                .append(" ")
+                .append(LanguageTranslator.translate("Facing", language));
+
+        stringBuilder
+                .append(" ")
+                .append(language.getPunctuationMark());
+
+        stringBuilder
+                .append(getMahabote(language))
+                .append(LanguageTranslator.translate("Born", language));
+
+        stringBuilder
+                .append(" ")
+                .append(language.getPunctuationMark());
+
+        stringBuilder
+                .append(getNakhat(language))
+                .append(" ")
+                .append(LanguageTranslator.translate("Nakhat", language));
+
+        stringBuilder
+                .append(" ")
+                .append(language.getPunctuationMark());
+
+        stringBuilder.append(getYearName());
+
+        return stringBuilder.toString();
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + amyeittasote;
+        result = prime * result + mahabote;
+        result = prime * result + mahayatkyan;
+        result = prime * result + nagahle;
+        result = prime * result + nagapor;
+        result = prime * result + nakhat;
+        result = prime * result + pyathada;
+        result = prime * result + sabbath;
+        result = prime * result + shanyat;
+        result = prime * result + thamanyo;
+        result = prime * result + thamaphyu;
+        result = prime * result + warameittugyi;
+        result = prime * result + warameittunge;
+        result = prime * result + yatpote;
+        result = prime * result + yatyaza;
+        result = prime * result + yatyotema;
+        result = prime * result + yearName;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Astro other = (Astro) obj;
+        if (amyeittasote != other.amyeittasote)
+            return false;
+        if (mahabote != other.mahabote)
+            return false;
+        if (mahayatkyan != other.mahayatkyan)
+            return false;
+        if (nagahle != other.nagahle)
+            return false;
+        if (nagapor != other.nagapor)
+            return false;
+        if (nakhat != other.nakhat)
+            return false;
+        if (pyathada != other.pyathada)
+            return false;
+        if (sabbath != other.sabbath)
+            return false;
+        if (shanyat != other.shanyat)
+            return false;
+        if (thamanyo != other.thamanyo)
+            return false;
+        if (thamaphyu != other.thamaphyu)
+            return false;
+        if (warameittugyi != other.warameittugyi)
+            return false;
+        if (warameittunge != other.warameittunge)
+            return false;
+        if (yatpote != other.yatpote)
+            return false;
+        if (yatyaza != other.yatyaza)
+            return false;
+        if (yatyotema != other.yatyotema)
+            return false;
+        return yearName == other.yearName;
+    }
 
-	public String getThamanyo() {
-		return getThamanyo(LanguageCatalog.getInstance());
-	}
-
-	public String getThamanyo(LanguageCatalog languageCatalog) {
-		return isThamanyo() ? languageCatalog.translate("Thamanyo") : "";
-	}
-
-	public boolean isAmyeittasote() {
-		return (amyeittasote > 0);
-	}
-
-	public String getAmyeittasote() {
-		return getAmyeittasote(LanguageCatalog.getInstance());
-	}
-
-	public String getAmyeittasote(LanguageCatalog languageCatalog) {
-		return isAmyeittasote() ? languageCatalog.translate("Amyeittasote") : "";
-	}
-
-	public boolean isWarameittugyi() {
-		return (warameittugyi > 0);
-	}
-
-	public String getWarameittugyi() {
-		return getWarameittugyi(LanguageCatalog.getInstance());
-	}
-
-	public String getWarameittugyi(LanguageCatalog languageCatalog) {
-		return isWarameittugyi() ? languageCatalog.translate("Warameittugyi") : "";
-	}
-
-	public boolean isWarameittunge() {
-		return (warameittunge > 0);
-	}
-
-	public String getWarameittunge() {
-		return getWarameittunge(LanguageCatalog.getInstance());
-	}
-
-	public String getWarameittunge(LanguageCatalog languageCatalog) {
-		return isWarameittunge() ? languageCatalog.translate("Warameittunge") : "";
-	}
-
-	public boolean isYatpote() {
-		return (yatpote > 0);
-	}
-
-	public String getYatpote() {
-		return getYatpote(LanguageCatalog.getInstance());
-	}
-
-	public String getYatpote(LanguageCatalog languageCatalog) {
-		return isYatpote() ? languageCatalog.translate("Yatpote") : "";
-	}
-
-	public boolean isThamaphyu() {
-		return (thamaphyu > 0);
-	}
-
-	public String getThamaphyu() {
-		return getThamaphyu(LanguageCatalog.getInstance());
-	}
-
-	public String getThamaphyu(LanguageCatalog languageCatalog) {
-		return isThamaphyu() ? languageCatalog.translate("Thamaphyu") : "";
-	}
-
-	public boolean isNagapor() {
-		return (nagapor > 0);
-	}
-
-	public String getNagapor() {
-		return getNagapor(LanguageCatalog.getInstance());
-	}
-
-	public String getNagapor(LanguageCatalog languageCatalog) {
-		return isNagapor() ? languageCatalog.translate("Nagapor") : "";
-	}
-
-	public boolean isYatyotema() {
-		return (yatyotema > 0);
-	}
-
-	public String getYatyotema() {
-		return getYatyotema(LanguageCatalog.getInstance());
-	}
-
-	public String getYatyotema(LanguageCatalog languageCatalog) {
-		return isYatyotema() ? languageCatalog.translate("Yatyotema") : "";
-	}
-
-	public boolean isMahayatkyan() {
-		return (mahayatkyan > 0);
-	}
-
-	public String getMahayatkyan() {
-		return getMahayatkyan(LanguageCatalog.getInstance());
-	}
-
-	public String getMahayatkyan(LanguageCatalog languageCatalog) {
-		return isMahayatkyan() ? languageCatalog.translate("Mahayatkyan") : "";
-	}
-
-	public boolean isShanyat() {
-		return (shanyat > 0);
-	}
-
-	public String getShanyat() {
-		return getShanyat(LanguageCatalog.getInstance());
-	}
-
-	public String getShanyat(LanguageCatalog languageCatalog) {
-		return isShanyat() ? languageCatalog.translate("Shanyat") : "";
-	}
-
-	public String getNagahle() {
-		return getNagahle(LanguageCatalog.getInstance());
-	}
-
-	/**
-	 * 
-	 * @return 0=west, 1=north, 2=east, 3=south
-	 */
-	public int getNagahleInt() {
-		return nagahle;
-	}
-
-	public String getNagahle(LanguageCatalog languageCatalog) {
-		String[] na = new String[] { "West", "North", "East", "South" };
-		return languageCatalog.translate(na[(int) nagahle]);
-	}
-
-	public String getMahabote() {
-		return getMahabote(LanguageCatalog.getInstance());
-	}
-
-	/**
-	 * 
-	 * @return 0=Binga, 1=Atun, 2=Yaza, 3=Adipati, 4= Marana, 5=Thike, 6=Puti
-	 */
-	public int getMahaboteInt() {
-		return mahabote;
-	}
-
-	public String getMahabote(LanguageCatalog languageCatalog) {
-		String[] pa = new String[] { "Binga", "Atun", "Yaza", "Adipati", "Marana", "Thike", "Puti" };
-		return languageCatalog.translate(pa[(int) mahabote]);
-	}
-
-	public String getNakhat() {
-		return getNakhat(LanguageCatalog.getInstance());
-	}
-
-	/**
-	 * 
-	 * @return 0 = orc, 1 = elf, 2=human
-	 */
-	public int getNakhatInt() {
-		return nakhat;
-	}
-
-	/**
-	 * 
-	 * @param languageCatalog LanguageCatalog
-	 * @return String [ "Orc" or "Elf" or "Human"]
-	 */
-	public String getNakhat(LanguageCatalog languageCatalog) {
-		String[] nk = new String[] { "Orc", "Elf", "Human" };
-		return languageCatalog.translate(nk[(int) nakhat]);
-	}
-	
-	/**
-	 * 
-	 * @return String Myanmar Year Name
-	 */
-	public String getYearName(){		
-		String[] yearNames = new String[] {"\u1015\u102F\u103F\u1014\u103E\u1005\u103A","\u1019\u102C\u1001\u1014\u103E\u1005\u103A","\u1016\u1039\u101C\u1000\u102D\u102F\u1014\u103A\u101E\u1036\u101D\u1005\u1039\u1006\u102D\u102F\u101D\u103A\u101B\u1014\u103E\u1005\u103A","\u1005\u101A\u103A\u1014\u103E\u1005\u103A",
-				"\u1015\u102D\u101E\u103B\u1000\u103A\u1014\u103E\u1005\u103A","\u1005\u102D\u103F\u1014\u103E\u1005\u103A","\u1021\u102C\u101E\u1010\u103A\u1014\u103E\u1005\u103A","\u101E\u101B\u101D\u1014\u103A\u1014\u103E\u1005\u103A",
-				"\u1018\u1012\u1039\u1012\u103C\u101E\u1036\u101D\u1005\u1039\u1006\u102F\u1036\u101B\u103A\u1014\u103E\u1005\u103A","\u1021\u102C\u101E\u102D\u1014\u103A\u1014\u103E\u1005\u103A","\u1000\u103C\u1010\u102D\u102F\u1000\u103A\u1014\u103E\u1005\u103A","\u1019\u103C\u102D\u1000\u1039\u1000\u101E\u102D\u102F\u101D\u103A\u1014\u103E\u1005\u103A"};
-		return yearNames[yearName];
-	}
-
-	@Override
-	public String toString() {
-		return toString(LanguageCatalog.getInstance());
-	}
-
-	public String toString(LanguageCatalog languageCatalog) {
-		StringBuilder stringBuilder = new StringBuilder();
-
-		stringBuilder.append(getAstroligicalDay());
-
-		if (isSabbath()) {
-			stringBuilder.append(languageCatalog.getLanguage().getComma() + " ");
-			stringBuilder.append(getSabbath(languageCatalog));
-		}
-
-		if (isThamanyo()) {
-			stringBuilder.append(" " + languageCatalog.getLanguage().getComma() + " ");
-			stringBuilder.append(getThamanyo(languageCatalog));
-		}
-
-		if (isThamaphyu()) {
-			stringBuilder.append(" " + languageCatalog.getLanguage().getComma() + " ");
-			stringBuilder.append(getThamaphyu(languageCatalog));
-		}
-
-		if (isAmyeittasote()) {
-			stringBuilder.append(" " + languageCatalog.getLanguage().getComma() + " ");
-			stringBuilder.append(getAmyeittasote(languageCatalog));
-		}
-
-		if (isWarameittugyi()) {
-			stringBuilder.append(" " + languageCatalog.getLanguage().getComma() + " ");
-			stringBuilder.append(getWarameittugyi(languageCatalog));
-		}
-
-		if (isWarameittunge()) {
-			stringBuilder.append(" " + languageCatalog.getLanguage().getComma() + " ");
-			stringBuilder.append(getWarameittunge(languageCatalog));
-		}
-
-		if (isYatpote()) {
-			stringBuilder.append(" " + languageCatalog.getLanguage().getComma() + " ");
-			stringBuilder.append(getYatpote(languageCatalog));
-		}
-
-		if (isNagapor()) {
-			stringBuilder.append(" " + languageCatalog.getLanguage().getComma() + " ");
-			stringBuilder.append(getNagapor());
-		}
-
-		if (isYatyotema()) {
-			stringBuilder.append(" " + languageCatalog.getLanguage().getComma() + " ");
-			stringBuilder.append(getYatyotema(languageCatalog));
-		}
-
-		if (isMahayatkyan()) {
-			stringBuilder.append(" " + languageCatalog.getLanguage().getComma() + " ");
-			stringBuilder.append(getMahayatkyan(languageCatalog));
-		}
-
-		if (isShanyat()) {
-			stringBuilder.append(" ").append(languageCatalog.getLanguage().getComma()).append(" ");
-			stringBuilder.append(getShanyat(languageCatalog));
-		}
-
-
-		stringBuilder.append("၊ ႁူဝ်ၼၵႃး ဝၢႆႇ").append(getNagahle(languageCatalog));
-//		stringBuilder.append("နဂါးခေါင်း" + getNagahle(languageCatalog) + "သို့လှည့်သည်။");
-		stringBuilder.append(" ").append(languageCatalog.getLanguage().getComma()).append(" ");
-//		stringBuilder.append(getMahabote(languageCatalog) + "ဖွား");
-		stringBuilder.append(getMahabote(languageCatalog)).append("ဖွား");
-		stringBuilder.append(" ").append(languageCatalog.getLanguage().getComma()).append(" ");
-		stringBuilder.append(getNakhat(languageCatalog)).append("နက္ခတ်");
-
-		stringBuilder.append(" ").append(languageCatalog.getLanguage().getComma()).append(" ");
-		stringBuilder.append(getYearName());
-		
-		return stringBuilder.toString();
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + amyeittasote;
-		result = prime * result + mahabote;
-		result = prime * result + mahayatkyan;
-		result = prime * result + nagahle;
-		result = prime * result + nagapor;
-		result = prime * result + nakhat;
-		result = prime * result + pyathada;
-		result = prime * result + sabbath;
-		result = prime * result + sabbatheve;
-		result = prime * result + shanyat;
-		result = prime * result + thamanyo;
-		result = prime * result + thamaphyu;
-		result = prime * result + warameittugyi;
-		result = prime * result + warameittunge;
-		result = prime * result + yatpote;
-		result = prime * result + yatyaza;
-		result = prime * result + yatyotema;
-		result = prime * result + yearName;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Astro other = (Astro) obj;
-		if (amyeittasote != other.amyeittasote)
-			return false;
-		if (mahabote != other.mahabote)
-			return false;
-		if (mahayatkyan != other.mahayatkyan)
-			return false;
-		if (nagahle != other.nagahle)
-			return false;
-		if (nagapor != other.nagapor)
-			return false;
-		if (nakhat != other.nakhat)
-			return false;
-		if (pyathada != other.pyathada)
-			return false;
-		if (sabbath != other.sabbath)
-			return false;
-		if (sabbatheve != other.sabbatheve)
-			return false;
-		if (shanyat != other.shanyat)
-			return false;
-		if (thamanyo != other.thamanyo)
-			return false;
-		if (thamaphyu != other.thamaphyu)
-			return false;
-		if (warameittugyi != other.warameittugyi)
-			return false;
-		if (warameittunge != other.warameittunge)
-			return false;
-		if (yatpote != other.yatpote)
-			return false;
-		if (yatyaza != other.yatyaza)
-			return false;
-		if (yatyotema != other.yatyotema)
-			return false;
-		if (yearName != other.yearName)
-			return false;
-		return true;
-	}
-	
 }

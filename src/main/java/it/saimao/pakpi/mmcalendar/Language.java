@@ -1,35 +1,63 @@
 package it.saimao.pakpi.mmcalendar;
 
+
 /**
- * Language that support for Output
- * 
- * @author <a href="mailto:chanmratekoko.dev@gmail.com">Chan Mrate Ko Ko</a>
- * 
- * @version 1.0
- *
+ * Representing different languages and their corresponding punctuation marks.
  */
 public enum Language {
-	
-	MYANMAR("\u104a\u200b", "\u104b\u200b"), 
-	SHAN("\u104a\u200b", "\u104b\u200b"),
-	ENGLISH(",\u0020", "."),
-	MON("\u104a\u200b",	"\u104b\u200b"), 
-	ZAWGYI("\u104a\u200b", "\u104b\u200b");
 
-	private String comma;
+    ENGLISH(0, ", ", "."),
+    MYANMAR(1, "၊ ", "။ "),
+    ZAWGYI(2, "၊ ", "။ "),
+    MON(3, "၊ ", "။ "),
+    TAI(4, "၊ ", "။ "),
+    KAREN(5, "၊ ", "။ ");
 
-	private String period;
+    private final int languageIndex;
 
-	Language(String comma, String period) {
-		this.comma = comma;
-		this.period = period;
-	}
+    private final String punctuationMark;
 
-	public String getComma() {
-		return this.comma;
-	}
+    private final String punctuation;
 
-	public String getPeriod() {
-		return this.period;
-	}
+    /**
+     * Constructor for the Language enum.
+     *
+     * @param languageIndex   The index of the language.
+     * @param punctuationMark The punctuation mark used in the language for separation.
+     * @param punctuation     The punctuation mark used in the language for ending a sentence.
+     */
+    Language(int languageIndex, String punctuationMark, String punctuation) {
+        this.languageIndex = languageIndex;
+        this.punctuationMark = punctuationMark;
+        this.punctuation = punctuation;
+    }
+
+
+    /**
+     * Get the index of the language.
+     *
+     * @return The language index.
+     */
+    public int getLanguageIndex() {
+        return languageIndex;
+    }
+
+    /**
+     * Get the punctuation mark used for separation in the language.
+     *
+     * @return The punctuation mark for separation.
+     */
+    public String getPunctuationMark() {
+        return this.punctuationMark;
+    }
+
+    /**
+     * Get the punctuation mark used for ending a sentence in the language.
+     *
+     * @return The punctuation mark for ending a sentence.
+     */
+    public String getPunctuation() {
+        return this.punctuation;
+    }
+
 }
