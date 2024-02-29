@@ -1,6 +1,7 @@
 package it.saimao.pakpi.controllers;
 
 import it.saimao.pakpi.mmcalendar.*;
+import it.saimao.pakpi.utils.Perc;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -14,6 +15,7 @@ import javafx.util.Callback;
 import javafx.util.StringConverter;
 
 import java.net.URL;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -49,8 +51,10 @@ public class ShanCalendarController implements Initializable {
 
     @FXML
     private DatePicker dpSelected;
-    LocalDate selectedDate, dpDate;
-    MyanmarDate selectedMyanmarDate;
+    @FXML
+    private VBox rightBox;
+    private LocalDate selectedDate, dpDate;
+    private MyanmarDate selectedMyanmarDate;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -65,9 +69,14 @@ public class ShanCalendarController implements Initializable {
         btPrev.setOnAction(event -> gotoPrevMonth());
 
 
+        adjustSize();
         customizeDatePicker();
         createCalendarHeader();
         createCalendar();
+    }
+
+    private void adjustSize() {
+        rightBox.setPrefWidth(Perc.getDynamicPixel(300));
     }
 
     private void customizeDatePicker() {
@@ -108,7 +117,7 @@ public class ShanCalendarController implements Initializable {
         lbDetail.setText(
                 getFirstDayOfMonth().getMonth() + " - " + getFirstDayOfMonth().plusMonths(1).getMonth()
         );
-        lbMonth.setText(selectedMyanmarDate.getMonthName());
+        lbMonth.setText(selectedMyanmarDate.getMonthName().replaceAll("တၢမ်းႁၢင်", ""));
         lbBuddhistYear.setText(
                 "ပီႊတႆး - " + selectedMyanmarDate.getShanYear() + " ၼီႈ" +
                         "\nပီႊမိူင်း - " + ShanDate.getPeeMurng(selectedMyanmarDate.getShanYearInt()) +
@@ -217,7 +226,6 @@ public class ShanCalendarController implements Initializable {
                                         "-fx-border-color: #420C09;" +
                                         "-fx-border-width: 1px;"
                         );
-//                        shanDay.setTextFill(Color.valueOf("#420C09"));
                     } else {
                         vBox.setStyle("-fx-background-color: white");
                     }
@@ -233,9 +241,16 @@ public class ShanCalendarController implements Initializable {
                         vBox.setId("new-moon");
                     } else {
                         // normal day
-                        shanDay.setTextFill(Color.valueOf("#1E3A57"));
                         vBox.setId("");
                     }
+
+                    // Decorate English Date Label
+                    if (HolidayCalculator.isHoliday(md)/* || ld.getDayOfWeek() == DayOfWeek.SATURDAY || ld.getDayOfWeek() == DayOfWeek.SUNDAY*/) {
+                        shanDay.setTextFill(Color.valueOf("#630C09"));
+                    } else {
+                        shanDay.setTextFill(Color.valueOf("#1E3A57"));
+                    }
+
                 }
 
                 totalMonthDay++;
@@ -295,7 +310,7 @@ public class ShanCalendarController implements Initializable {
         if (selectedDate.equals(LocalDate.now())) {
             selectedDate = selectedDate.plusDays(selectedMyanmarDate.getMonthLength() - selectedMyanmarDate.getMonthDay()).plusDays(1);
         } else {
-            selectedDate = selectedDate.plusDays(selectedMyanmarDate.getMonthLength());
+            selectedDate = selectedDate.plusDays(selectedMyanmarDate.getMonthLength() - selectedMyanmarDate.getMonthDay() + 1);
         }
         createCalendar();
     }
@@ -311,6 +326,7 @@ public class ShanCalendarController implements Initializable {
 
     public LocalDate getFirstDayOfMonth() {
         MyanmarDate myanmarDate = MyanmarDateConverter.convert(selectedDate.getYear(), selectedDate.getMonthValue(), selectedDate.getDayOfMonth());
+
         return selectedDate.minusDays(myanmarDate.getMonthDay() - 1);
     }
 }

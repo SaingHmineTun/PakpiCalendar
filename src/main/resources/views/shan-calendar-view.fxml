@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<BorderPane stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.saimao.pakpi.controllers.ShanCalendarController">
+<BorderPane stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.saimao.pakpi.controllers.ShanCalendarController">
    <center>
       <HBox stylesheets="@../css/style.css">
          <children>
@@ -46,7 +42,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER">
+                  <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
                      <children>
                         <Button id="btn-prev" fx:id="btPrev" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="Prev">
                            <HBox.margin>
@@ -55,7 +51,7 @@
                         </Button>
                         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox fx:id="row0" prefHeight="50.0" prefWidth="200.0" spacing="5.0">
+                              <HBox fx:id="row0" prefWidth="200.0" spacing="5.0">
                                  <children>
                                     <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="500.0" text="ၼိုင်ႈ" HBox.hgrow="ALWAYS">
                                        <styleClass>
@@ -122,7 +118,7 @@
                                     <Insets bottom="5.0" />
                                  </VBox.margin>
                               </HBox>
-                              <HBox fx:id="row1" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                              <HBox fx:id="row1" prefWidth="200.0" spacing="5.0">
                                  <children>
                                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell" HBox.hgrow="ALWAYS">
                                        <children>
@@ -469,7 +465,7 @@
                                     <Insets bottom="5.0" />
                                  </padding>
                               </HBox>
-                              <HBox fx:id="row2" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                              <HBox fx:id="row2" prefWidth="200.0" spacing="5.0">
                                  <children>
                                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell" HBox.hgrow="ALWAYS">
                                        <children>
@@ -816,7 +812,7 @@
                                     <Insets bottom="5.0" />
                                  </padding>
                               </HBox>
-                              <HBox fx:id="row3" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                              <HBox fx:id="row3" prefWidth="200.0" spacing="5.0">
                                  <children>
                                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell" HBox.hgrow="ALWAYS">
                                        <children>
@@ -1163,7 +1159,7 @@
                                     <Insets bottom="5.0" />
                                  </padding>
                               </HBox>
-                              <HBox fx:id="row4" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                              <HBox fx:id="row4" prefWidth="200.0" spacing="5.0">
                                  <children>
                                     <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="500.0" styleClass="cell" HBox.hgrow="ALWAYS">
                                        <children>
@@ -1525,9 +1521,9 @@
       </HBox>
    </center>
    <right>
-      <VBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="300.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="rightBox" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="130.0" spacing="10.0">
+            <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" spacing="10.0">
                <children>
                   <Label fx:id="lbDetail" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefWidth="150.0" text="လိူၼ်ဢၢင်းၵိတ်ႈ">
                      <styleClass>
@@ -1537,7 +1533,7 @@
                   <DatePicker fx:id="dpSelected" editable="false" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" promptText="Select Date" styleClass="fs-small" />
                </children>
                <VBox.margin>
-                  <Insets />
+                  <Insets bottom="20.0" top="20.0" />
                </VBox.margin>
             </VBox>
             <VBox styleClass="desc" VBox.vgrow="ALWAYS">

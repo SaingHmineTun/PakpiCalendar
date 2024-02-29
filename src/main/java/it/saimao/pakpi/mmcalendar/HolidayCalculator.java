@@ -72,6 +72,7 @@ public final class HolidayCalculator {
 
     /**
      * These are Shan specific special days!
+     *
      * @param md
      * @return
      */
@@ -81,13 +82,13 @@ public final class HolidayCalculator {
         if (shanMonth == 2 && md.getMoonPhrase() == 2 && md.getFortnightDayInt() == 14) {
             shanSpecialDays.add("ဝၼ်းလူႇၾႆးသုမ်လူဝ်");
         } else if (shanMonth == 3 && md.getMoonPhrase() == 1) {
-            shanSpecialDays.add("ပွႆးလိူၼ်သၢမ်မူၼ်း");
+            shanSpecialDays.add("ပွၺ်းလိူၼ်သၢမ်မူၼ်း");
         } else if (shanMonth == 3 && md.getMoonPhrase() == 2 && md.getFortnightDayInt() == 3) {
             shanSpecialDays.add("ဝၼ်းဢူဝ်ႈပဵမ်ႇသၢမ်လေႃး");
         } else if (shanMonth == 6 && md.getMoonPhrase() == 1) {
             shanSpecialDays.add("ဝၼ်းပုတ်ႉထၸဝ်ႈ");
         } else if (shanMonth == 11 && md.getMoonPhrase() == 2 && md.getFortnightDayInt() == 8) {
-            shanSpecialDays.add("ပွႆးသၢဝ်းသၢမ်");
+            shanSpecialDays.add("ပွၺ်းသၢဝ်းသၢမ်");
         } else if (shanMonth == 12 && md.getMoonPhrase() == 3) {
             shanSpecialDays.add("ႁပ်ႉၸဵင်");
         }
@@ -383,7 +384,24 @@ public final class HolidayCalculator {
      * @return boolean
      */
     public static boolean isHoliday(MyanmarDate myanmarDate) {
-        return getHoliday(myanmarDate).size() > 0 ? true : false;
+        WesternDate westernDate = WesternDateConverter.convert(myanmarDate.jd, Config.get().getCalendarType());
+        // Office Off
+        List<String> hde = englishHoliday(westernDate.getYear(), westernDate.getMonth(), westernDate.getDay());
+        if (!hde.isEmpty()) return true;
+
+        List<String> hdm = myanmarHoliday(myanmarDate.myear, myanmarDate.mmonth, myanmarDate.monthDay,
+                myanmarDate.moonPhase);
+        if (!hdm.isEmpty()) return true;
+
+        List<String> ssd = shanSpecialDays(myanmarDate);
+        if (!ssd.isEmpty()) return true;
+
+        List<String> hdt = thingyan(myanmarDate.jd, myanmarDate.myear, myanmarDate.monthType);
+        if (!hdt.isEmpty()) return true;
+
+        List<String> hdo = otherHolidays(myanmarDate.jd); // Diwali Eid
+        return !hdo.isEmpty();
+
     }
 
     /**

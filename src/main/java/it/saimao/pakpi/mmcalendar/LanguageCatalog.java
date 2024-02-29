@@ -243,13 +243,13 @@ public class LanguageCatalog {
 		shan.put("National Day", "ဝၼ်းၶိူဝ်းမိူင်း");
 		shan.put("Shan National Day", "ဝၼ်းၶိူဝ်းတႆး");
 		shan.put("Karen New Year Day", "ဝၼ်းပီႊမႂ်ႇယၢင်း");
-		shan.put("Tabaung Pwe", "ပွႆးလိူၼ်သီႇမူၼ်း");
+		shan.put("Tabaung Pwe", "ပွၺ်းလိူၼ်သီႇမူၼ်း");
 		shan.put("Thingyan Akyo", "ပၢင်းၽြႃးၶဝ်ႈၵူင်းသွၼ်း");
 		shan.put("Thingyan Akya", "သၢင်းၵျၢၼ်ႇတူၵ်း");
 		shan.put("Thingyan Akyat", "ဝၼ်းၼဝ်ႈ");
 		shan.put("Thingyan Atat", "သၢင်းၵျၢၼ်ႇၶိုၼ်ႈ");
 		shan.put("Myanmar New Year Day", "ပီႊမႂ်ႇသၢင်းၵျၢၼ်ႇ");
-		shan.put("Amyeittasote", "အမြိတ္တစုတ်"); // TODO
+		shan.put("Amyeittasote", "ဢမဵတ်ႉတသူၵ်ႉ"); // TODO
 		shan.put("Warameittugyi", "ဝၼ်းမူၺ်ႉလူင်");
 		shan.put("Warameittunge", "မူၺ်ႉဢႅၼ်");
 		shan.put("Thamaphyu", "သမားဖြူ");
@@ -278,8 +278,8 @@ public class LanguageCatalog {
 		shan.put("Mahathamaya Day", "ဝၼ်းမႁႃႇၻမယ");
 		shan.put("Garudhamma Day", "ဝၼ်းၷရုထမ်ႇမ");
 		shan.put("Metta Day", "ဝၼ်းမဵတ်ႉတႃႇ");
-		shan.put("Taungpyone Pwe", "ပွႆးတွင်ႇပျူင်း");
-		shan.put("Yadanagu Pwe", "ပွႆးထမ်ႈရတၼႃႉ");
+		shan.put("Taungpyone Pwe", "ပွၺ်းတွင်ႇပျူင်း");
+		shan.put("Yadanagu Pwe", "ပွၺ်းထမ်ႈရတၼႃႉ");
 		shan.put("Authors Day", "ဝၼ်းၽူႈတႅမ်ႈလိၵ်ႈ");
 		shan.put("World Teachers Day", "ဝၼ်းမေႃသွၼ်");
 		shan.put("Holiday", "ဝၼ်းပိၵ်ႉလုမ်း");
@@ -287,7 +287,7 @@ public class LanguageCatalog {
 		shan.put("Easter", "ဝၼ်းဢိတ်ႇသတႃႇ");
 		shan.put("Good Friday", "ဝၼ်းလီဝၼ်းၽတ်း");
 
-		shan.put("West", "ၽၢႆႇဝၼ်းတူၵ်");
+		shan.put("West", "ၽၢႆႇဝၼ်းတူၵ်း");
 		shan.put("North", "ၽၢႆႇႁွင်ႇ");
 		shan.put("East", "ၽၢႆႇဝၼ်းဢွၵ်ႇ");
 		shan.put("South", "ၽၢႆႇၸၢၼ်း");

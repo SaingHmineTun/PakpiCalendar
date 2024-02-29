@@ -9,10 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/pakpi.jpg" afterDir="false" />
+    <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="Added Image Logo">
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/utils/Perc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/ShanCalendarApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/ShanCalendarApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/controllers/ShanCalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/controllers/ShanCalendarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/HolidayCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/HolidayCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/LanguageCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/LanguageCatalog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/shan-calendar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/shan-calendar-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +66,8 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/IntelliJ_Projects/shan-calendar/src/main/resources/images",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/IntelliJ_Projects/shan-calendar/src/main/java/it/saimao/pakpi/utils",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -70,11 +76,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IntelliJ_Projects\shan-calendar\src\main\java\it\saimao\pakpi\utils" />
+      <recent name="D:\IntelliJ_Projects\shan-calendar\src\main\resources\images" />
       <recent name="D:\Gluon\shan-calendar\src\main\resources\fonts" />
       <recent name="D:\Gluon\shan-calendar\src\main\resources\images" />
       <recent name="D:\IntelliJ_Projects\shan-calendar\src\main\resources\css" />
-      <recent name="D:\IntelliJ_Projects\shan-calendar\src\main\resources\assets" />
-      <recent name="D:\IntelliJ_Projects\shan-calendar\src\main\resources\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\IntelliJ_Projects\shan-calendar\src\main\resources\views" />
@@ -536,11 +542,18 @@
       <option name="project" value="LOCAL" />
       <updated>1705327243404</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Added Image Logo">
+      <option name="closed" value="true" />
+      <created>1706956540356</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1706956540356</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented wannMwe, wannPheeKin" />
     <MESSAGE value="Implemented WannJum (ဝၼ်းၸူမ်), WannPhoo (ဝၼ်းၽူး)" />
     <MESSAGE value="Implemented MweLone (မူၺ်ႉလူင်)" />
     <MESSAGE value="Implemented WannNao (ဝၼ်းၼဝ်ႈ)" />
@@ -565,7 +578,8 @@
     <MESSAGE value="Fixed : Sasana year and Shan year do not show correctly!" />
     <MESSAGE value="Change project name to Pakpi" />
     <MESSAGE value="Released version 1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Released version 1.0" />
+    <MESSAGE value="Added Image Logo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Image Logo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -581,7 +595,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/it/saimao/pakpi/controllers/ShanCalendarController.java</url>
-          <line>209</line>
+          <line>218</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

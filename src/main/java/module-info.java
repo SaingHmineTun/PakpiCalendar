@@ -1,6 +1,7 @@
 module it.saimao.pakpi {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     exports it.saimao.pakpi.controllers;
