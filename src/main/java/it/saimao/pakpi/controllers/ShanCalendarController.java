@@ -118,7 +118,7 @@ public class ShanCalendarController implements Initializable {
         lbDetail.setText(
                 getFirstDayOfMonth().getMonth() + " - " + getFirstDayOfMonth().plusMonths(1).getMonth()
         );
-        lbMonth.setText("လိူၼ်" + selectedMyanmarDate.getMonthName().replaceAll("ဝၢႆး", ""));
+        lbMonth.setText(ShanDate.translate(selectedMyanmarDate.getMonthName(Language.ENGLISH)));
         lbBuddhistYear.setText(
                 "ပီႊတႆး - " + shanDate.getShanYear() + " ၼီႈ" +
                         "\nပီႊမိူင်း - " + ShanDate.getPeeMurng(shanDate.getShanYearValue()) +
@@ -126,7 +126,7 @@ public class ShanCalendarController implements Initializable {
         );
         lbYear.setText(ShanDate.translate("Sasana Year") + " - " + selectedMyanmarDate.getBuddhistEra() + "\n" +
                 ShanDate.translate("Myanmar Year") + " - " + selectedMyanmarDate.getYear() + "\n" +
-                ShanDate.translate("English Year") + " - " + ShanDate.translate(selectedDate.getYear() + ""));
+                ShanDate.translate("English Year") + " - " + selectedDate.getYear());
         var description = description();
         var holidays = ShanDate.getHolidays(selectedMyanmarDate);
         String holiday = "";
@@ -154,10 +154,15 @@ public class ShanCalendarController implements Initializable {
 
     private String description() {
         StringBuilder sb = new StringBuilder();
-        sb.append(selectedMyanmarDate.getMonthName()).append(" ");
-        sb.append(selectedMyanmarDate.getMoonPhase()).append(" ");
-        sb.append(selectedMyanmarDate.getFortnightDay()).append(" ");
-        sb.append(selectedMyanmarDate.getMoonPhaseValue() == 0 ? " ဝၼ်း" : "").append(selectedMyanmarDate.getMoonPhaseValue() == 2 ? " ၶမ်ႈ" : "").append("၊ ");
+        sb.append(ShanDate.translate(selectedMyanmarDate.getMonthName(Language.ENGLISH))).append(" ");
+        if (selectedMyanmarDate.getMoonPhaseValue() == 1 || selectedMyanmarDate.getMoonPhaseValue() == 3) {
+            sb.append(selectedMyanmarDate.getMoonPhase()).append("၊ ");
+        } else {
+            sb.append(selectedMyanmarDate.getMoonPhase()).append(" ");
+            sb.append(selectedMyanmarDate.getFortnightDay()).append(" ");
+            sb.append(selectedMyanmarDate.getMoonPhaseValue() == 0 ? " ဝၼ်း" : "").append(selectedMyanmarDate.getMoonPhaseValue() == 2 ? " ၶမ်ႈ" : "").append("၊ ");
+
+        }
         sb.append("ဝၼ်း").append(ShanDate.getWannTai60(selectedDate.toEpochDay())).append("၊ ");
         sb.append("ဝၼ်း").append(selectedMyanmarDate.getWeekDay()).append("။\n");
         sb.append(ShanDate.toString(selectedDate, selectedMyanmarDate));
@@ -167,7 +172,7 @@ public class ShanCalendarController implements Initializable {
 
     private void createCalendar() {
 
-        clearCalendarView();
+        resetCalendarView();
 
         LocalDate firstDayOfMonth = getFirstDayOfMonth();
         MyanmarDate firstDayOfMonthMM = MyanmarDate.of(firstDayOfMonth);
@@ -214,7 +219,7 @@ public class ShanCalendarController implements Initializable {
                     lukWann.setText(md.getWeekDay());
                     // Shan Day - ဝၼ်းတႆး
                     Label shanDay = (Label) vBox.getChildren().get(1);
-                    shanDay.setText("" + md.getDayOfMonth());
+                    shanDay.setText(LanguageTranslator.translate(md.getDayOfMonth(), Language.TAI));
                     // Wann Luk Pee - ဝၼ်းလုၵ်ႈပီႊ (ၸႂ်ႉ၊ ပဝ်ႉ၊ ယီး)
                     Label wannLukPee = (Label) vBox.getChildren().get(2);
                     wannLukPee.setText(ShanDate.getLukPee(ld.toEpochDay()));
@@ -304,11 +309,19 @@ public class ShanCalendarController implements Initializable {
         prevSelectedDate = vb;
     }
 
-    private void clearCalendarView() {
-        row1.getChildren().forEach(node -> node.setVisible(true));
-        row2.getChildren().forEach(node -> node.setVisible(true));
-        row3.getChildren().forEach(node -> node.setVisible(true));
-        row4.getChildren().forEach(node -> node.setVisible(true));
+    private void resetCalendarView() {
+        row1.getChildren().forEach(node -> {
+            if (!node.isVisible()) node.setVisible(true);
+        });
+        row2.getChildren().forEach(node -> {
+            if (!node.isVisible()) node.setVisible(true);
+        });
+        row3.getChildren().forEach(node -> {
+            if (!node.isVisible()) node.setVisible(true);
+        });
+        row4.getChildren().forEach(node -> {
+            if (!node.isVisible()) node.setVisible(true);
+        });
     }
 
 

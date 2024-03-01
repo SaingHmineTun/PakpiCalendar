@@ -1,5 +1,7 @@
 package it.saimao.pakpi.utils;
 
+
+
 import it.saimao.pakpi.mmcalendar.*;
 
 import java.time.LocalDate;
@@ -24,11 +26,11 @@ public class ShanDate {
     }
 
     public static int getMePeeInt(long epochDay) {
-        return (int) ((epochDay + 7) % 10);
+        return (int) ((Math.abs(epochDay) + 7) % 10);
     }
 
     public static int getLukPeeInt(long epochDay) {
-        return (int) (epochDay + 5) % 12;
+        return (int) (Math.abs(epochDay) + 5) % 12;
     }
 
     public static String getWannTai60(long epochDay) {
@@ -698,7 +700,7 @@ public class ShanDate {
 
         sb.append("\n").append("ႁူဝ်ၼၵႃး ").append(ShanDate.getHoNagaa(md)).append("။\n");
         if (getMePeeInt(ld.toEpochDay()) == 2 || getMePeeInt(ld.toEpochDay()) == 7) sb.append("ဝၼ်းၵၢတ်ႇမိူင်း").append("၊ ");
-        if (Astro.of(md).isSabbath()) sb.append(Astro.of(md).getSabbath()).append("၊ ");
+        if (Astro.of(md).isSabbath()) sb.append("ဝၼ်း").append(Astro.of(md).getSabbath()).append("၊ ");
         if (sb.toString().trim().endsWith("၊")){
             sb.replace(sb.length() - 2, sb.length(), "။");
         }
@@ -814,7 +816,7 @@ public class ShanDate {
         return shan.get(day);
     }
 
-    private static Map<String, String> shan;
+    private static final Map<String, String> shan;
     static {
         shan = new HashMap<>();
         // shan
@@ -862,8 +864,8 @@ public class ShanDate {
         shan.put("new moon", "လပ်း");
         shan.put("shan Year", "ပီႊတႆး");
         shan.put("Ku", "ၼီႈ");
-        shan.put("Late", "Late");
-        shan.put("Second", "Second");
+        shan.put("Late", "ဝၢႆး");
+        shan.put("Second", "တု");
         shan.put("Sunday", "ဢႃးတိတ်ႉ");
         shan.put("Monday", "ၸၼ်");
         shan.put("Tuesday", "ဢင်းၵၢၼ်း");
@@ -889,10 +891,10 @@ public class ShanDate {
         shan.put("Labour Day", "ဝၼ်းၵူၼ်းၵၢၼ်");
         shan.put("Martyrs Day", "ဝၼ်းၵူၼ်းငၢၼ်");
         shan.put("Christmas Day", "ၶရိတ့်ၸမၢတ်ႉ");
-        shan.put("Buddha Day", "ပွႆးႁူတ်ႉၼမ်ႉငဝ်ႈႁႆး");
-        shan.put("Start of Buddhist Lent", "ဝၼ်းထမ်ႇမၸၵ်ႉၵ (ၶဝ်ႈဝႃႇ)");
-        shan.put("End of Buddhist Lent", "ဝၼ်းဢၽိထမ်ႇမႃႇ (ဢွၵ်ႇဝႃႇ)");
-        shan.put("Tazaungdaing", "ပွႆးၵႆႈတဵၼ်းႁဵင်");
+        shan.put("Buddha Day", "ပွၺ်းႁူတ်ႉၼမ်ႉငဝ်ႈႁႆး");
+        shan.put("Start of Buddhist Lent", "ဝၼ်းထမ်ႇမၸၵ်ႉၵ(ၶဝ်ႈဝႃႇ)");
+        shan.put("End of Buddhist Lent", "ဝၼ်းဢၽိထမ်ႇမႃႇ(ဢွၵ်ႇဝႃႇ)");
+        shan.put("Tazaungdaing", "ပွၺ်းတႆႈတဵၼ်းႁဵင်");
         shan.put("National Day", "ဝၼ်းၶိူဝ်းမိူင်း");
         shan.put("Shan National Day", "ဝၼ်းၶိူဝ်းတႆး");
         shan.put("Karen New Year Day", "ဝၼ်းပီႊမႂ်ႇယၢင်း");
@@ -920,7 +922,7 @@ public class ShanDate {
         shan.put("Earth Day", "ဝၼ်းလုမ်ႈၾႃႉ");
         shan.put("April Fools Day", "ဝၼ်းဢေပရေႇၵူၼ်းယွင်ႇ");
         shan.put("Red Cross Day", "ကြက်ခြေနီနေ့");
-        shan.put("United Nations Day", "ကုလသမ္မဂ္ဂနေ့");
+        shan.put("United Nations Day", "ဝၼ်းၵုလသမၵ");
         shan.put("Halloween", "ဝၼ်းၽီၽဵတ်ႇ");
         shan.put("Shan New Year Day", "ဝၼ်းပီႊမႂ်ႇတႆး");
         shan.put("Mothers Day", "ဝၼ်းမႄႈ");

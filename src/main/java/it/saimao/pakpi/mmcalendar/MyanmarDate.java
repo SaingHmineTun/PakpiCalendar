@@ -317,7 +317,20 @@ public class MyanmarDate implements Serializable {
 
     //-----------------------------------------------------------------------
     public String getBuddhistEra(Language language) {
-        return LanguageTranslator.translate(myear + 1182.0, language);
+        return LanguageTranslator.translate(getBuddhistEraValue(), language);
+    }
+
+    private int getBuddhistEraValue() {
+        if (mmonth == 1) {
+            if (monthType == 0) {
+                return myear + 1181;
+            } else
+                return myear + 1182;
+        }
+        if (mmonth == 2 && monthDay < 16) {
+            return myear + 1181;
+        }
+        return myear + 1182;
     }
 
     public String getBuddhistEra() {
@@ -344,10 +357,6 @@ public class MyanmarDate implements Serializable {
                                  CalendarType calendarType, double sg) {
         double julianDayNumber = WesternDateKernel.westernToJulian(year, month, day, hour, minute, second, calendarType, sg);
         return of(julianDayNumber);
-    }
-
-    public int getBuddhistEraValue() {
-        return myear + 1182;
     }
 
     public String getYear(Language language) {

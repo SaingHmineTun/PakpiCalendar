@@ -9,41 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="Fixed: လိူၼ်ႁႃႈတၢမ်းႁၢင် -&gt; လိူၼ်ႁႃႈ&#10;Fixed: ပွႆး -&gt; ပွၺ်း">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/LanguageTranslator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/MyanmarCalendarKernel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/MyanmarThingyanDateTime.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/MyanmarYearConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/util/ObjectBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="Migrated to mmcalendar 1.0.8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/controllers/ShanCalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/controllers/ShanCalendarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/Astro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/Astro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/AstroConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/AstroKernel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/AstroKernel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/BinarySearchUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/BinarySearchUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/CalendarType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/CalendarType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/Era.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/HolidayCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/HolidayCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/Language.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/Language.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/LanguageCatalog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/LanguageTranslator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/LanguageTranslator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/MyanmarDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/MyanmarDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/MyanmarDateConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/MyanmarDateFormat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/MyanmarDateFormat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/MyanmarDateKernel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/MyanmarDateKernel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/MyanmarMonths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/MyanmarMonths.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/NumberToStringUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/ShanDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/utils/ShanDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/Thingyan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/Thingyan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/ThingyanCalculator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/WesternDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/WesternDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/WesternDateConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/WesternDateKernel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/WesternDateKernel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/it/saimao/pakpi/mmcalendar/ShanDateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/saimao/pakpi/mmcalendar/ShanDateTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/utils/ShanDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/utils/ShanDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/utils/WannTai60Def.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/utils/WannTai60Def.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,6 +82,10 @@
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -276,7 +252,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1704076870898</updated>
-      <workItem from="1709207774955" duration="6823000" />
+      <workItem from="1709207774955" duration="6897000" />
+      <workItem from="1709257933472" duration="6866000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -598,14 +575,21 @@
       <option name="project" value="LOCAL" />
       <updated>1709189662271</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Migrated to mmcalendar 1.0.8">
+      <option name="closed" value="true" />
+      <created>1709214671927</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1709214671927</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented MweLone (မူၺ်ႉလူင်)" />
     <MESSAGE value="Implemented WannNao (ဝၼ်းၼဝ်ႈ)" />
     <MESSAGE value="Implemented all features requested by C Tai." />
     <MESSAGE value="Fixed bug in next and prev month!" />
@@ -630,7 +614,8 @@
     <MESSAGE value="Released version 1.0" />
     <MESSAGE value="Added Image Logo" />
     <MESSAGE value="Fixed: လိူၼ်ႁႃႈတၢမ်းႁၢင် -&gt; လိူၼ်ႁႃႈ&#10;Fixed: ပွႆး -&gt; ပွၺ်း" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed: လိူၼ်ႁႃႈတၢမ်းႁၢင် -&gt; လိူၼ်ႁႃႈ&#10;Fixed: ပွႆး -&gt; ပွၺ်း" />
+    <MESSAGE value="Migrated to mmcalendar 1.0.8" />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrated to mmcalendar 1.0.8" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -638,16 +623,11 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/ShanDate.java</url>
           <line>723</line>
-          <properties class="it.saimao.pakpi.mmcalendar.ShanDate" method="getHarakunConstant">
+          <properties class="it.saimao.pakpi.mmcalendar.ShanDate">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/it/saimao/pakpi/controllers/ShanCalendarController.java</url>
-          <line>229</line>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
