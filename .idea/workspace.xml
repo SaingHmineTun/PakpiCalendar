@@ -9,13 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="Migrated to mmcalendar 1.0.8">
+    <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="Migration in progress!">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/search.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/controllers/ShanCalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/controllers/ShanCalendarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/LanguageTranslator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/LanguageTranslator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/MyanmarDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/MyanmarDate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/utils/ShanDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/utils/ShanDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/utils/WannTai60Def.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/utils/WannTai60Def.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/shan-calendar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/shan-calendar-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +71,7 @@
     "git-widget-placeholder": "version1.0.8",
     "jdk.selected.JAVA_MODULE": "zulu-20",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/JavaProjects/PakpiCalendar/src/main/java/it/saimao/pakpi",
+    "last_opened_file_path": "D:/JavaProjects/PakpiCalendar/src/main/resources/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -90,11 +90,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaProjects\PakpiCalendar\src\main\resources\images" />
       <recent name="D:\JavaProjects\PakpiCalendar\src\main\java\it\saimao\pakpi" />
       <recent name="D:\JavaProjects\PakpiCalendar\src\main\java\it\saimao\pakpi\utils" />
       <recent name="D:\IntelliJ_Projects\shan-calendar\src\main\java\it\saimao\pakpi\utils" />
       <recent name="D:\IntelliJ_Projects\shan-calendar\src\main\resources\images" />
-      <recent name="D:\Gluon\shan-calendar\src\main\resources\fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\IntelliJ_Projects\shan-calendar\src\main\resources\views" />
@@ -253,7 +253,8 @@
       <option name="presentableId" value="Default" />
       <updated>1704076870898</updated>
       <workItem from="1709207774955" duration="6897000" />
-      <workItem from="1709257933472" duration="6866000" />
+      <workItem from="1709257933472" duration="7007000" />
+      <workItem from="1709347006586" duration="4774000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -583,14 +584,21 @@
       <option name="project" value="LOCAL" />
       <updated>1709214671927</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Migration in progress!">
+      <option name="closed" value="true" />
+      <created>1709264876093</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1709264876093</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented WannNao (ဝၼ်းၼဝ်ႈ)" />
     <MESSAGE value="Implemented all features requested by C Tai." />
     <MESSAGE value="Fixed bug in next and prev month!" />
     <MESSAGE value="Fixed : Do not display Shan year correctly!" />
@@ -615,7 +623,8 @@
     <MESSAGE value="Added Image Logo" />
     <MESSAGE value="Fixed: လိူၼ်ႁႃႈတၢမ်းႁၢင် -&gt; လိူၼ်ႁႃႈ&#10;Fixed: ပွႆး -&gt; ပွၺ်း" />
     <MESSAGE value="Migrated to mmcalendar 1.0.8" />
-    <option name="LAST_COMMIT_MESSAGE" value="Migrated to mmcalendar 1.0.8" />
+    <MESSAGE value="Migration in progress!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Migration in progress!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -629,6 +638,10 @@
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

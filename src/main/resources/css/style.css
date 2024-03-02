@@ -12,6 +12,7 @@
 .root {
     -fx-font-family: 'GHK TaungGyi';
     -fx-primary-color: #1e3a57;
+    -fx-primary-color-hover: #1e3a5799;
     -fx-success-color: #28a745;
     -fx-danger-color: #c30010;
     -fx-background-color: #DDD;
@@ -167,4 +168,14 @@
 .date-picker-popup {
     -fx-base: -fx-primary-color;
     -fx-mark-highlight-color: white;
+}
+
+#search-button {
+    -fx-background-color: -fx-primary-color;
+    -fx-background-radius: 10px 10px 10px 10px;
+    -fx-text-fill: white;
+}
+
+#search-button:hover {
+    -fx-background-color: -fx-primary-color-hover;
 }

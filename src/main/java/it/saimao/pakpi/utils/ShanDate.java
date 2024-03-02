@@ -732,11 +732,11 @@ public class ShanDate {
     }
 
     private static String getLukPeeByInt(int lukPeeInt) {
-        return lukPee[--lukPeeInt];
+        return lukPee[lukPeeInt - 1];
     }
 
     private static String getMePeeByInt(int mePeeInt) {
-        return mePee[--mePeeInt];
+        return mePee[mePeeInt - 1];
     }
 
     public static int getHarakunConstant(int myanmarYear) {
@@ -744,8 +744,7 @@ public class ShanDate {
         int b = a * 292207;
         int c = b + 8759;
         int d = c / 800;
-        int e = d + 1;
-        return e;
+        return d + 1;
     }
 
     // Only applicable for Burmese Year

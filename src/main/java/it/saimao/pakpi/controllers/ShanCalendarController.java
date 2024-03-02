@@ -47,7 +47,7 @@ public class ShanCalendarController implements Initializable {
     private Label lbDesc;
 
     @FXML
-    private Button btPrev, btNext;
+    private Button btPrev, btNext, btSearch;
 
     @FXML
     private DatePicker dpSelected;
@@ -81,7 +81,14 @@ public class ShanCalendarController implements Initializable {
 
     private void customizeDatePicker() {
 
-        dpSelected.setOnHidden(event -> gotoSelectedDate());
+        dpSelected.setOnHidden(event -> {
+            gotoSelectedDate();
+        });
+
+        btSearch.setOnAction(event -> {
+            gotoSelectedDate();
+        });
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         dpSelected.setConverter(new StringConverter<>() {
             @Override
@@ -341,6 +348,8 @@ public class ShanCalendarController implements Initializable {
 
 
     private void gotoSelectedDate() {
+        System.out.println("Go to selected date");
+        System.out.println(dpSelected.getValue().isEqual(selectedDate));
         if (!dpSelected.getValue().isEqual(selectedDate)) {
             selectedDate = dpSelected.getValue();
             dpDate = selectedDate;
