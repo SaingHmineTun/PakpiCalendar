@@ -6,6 +6,8 @@ module it.saimao.pakpi {
 
     exports it.saimao.pakpi.controllers;
     opens it.saimao.pakpi.controllers to javafx.fxml;
+    exports it.saimao.pakpi.mmcalendar;
+    opens it.saimao.pakpi.mmcalendar to javafx.fxml;
     exports it.saimao.pakpi;
     opens it.saimao.pakpi to javafx.fxml;
 }

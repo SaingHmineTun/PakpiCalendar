@@ -2,23 +2,23 @@ package it.saimao.pakpi.controllers;
 
 import it.saimao.pakpi.mmcalendar.*;
 import it.saimao.pakpi.utils.Perc;
+import it.saimao.pakpi.utils.ShanDate;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.util.Callback;
 import javafx.util.StringConverter;
 
 import java.net.URL;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class ShanCalendarController implements Initializable {
 
@@ -47,7 +47,7 @@ public class ShanCalendarController implements Initializable {
     private Label lbDesc;
 
     @FXML
-    private Button btPrev, btNext;
+    private Button btPrev, btNext, btSearch;
 
     @FXML
     private DatePicker dpSelected;
@@ -62,7 +62,7 @@ public class ShanCalendarController implements Initializable {
         Config.initDefault(
                 new Config.Builder()
                         .setCalendarType(CalendarType.ENGLISH)
-                        .setLanguage(Language.SHAN)
+                        .setLanguage(Language.TAI)
                         .build());
 
         btNext.setOnAction(event -> gotoNextMonth());
@@ -81,7 +81,14 @@ public class ShanCalendarController implements Initializable {
 
     private void customizeDatePicker() {
 
-        dpSelected.setOnHidden(event -> gotoSelectedDate());
+        dpSelected.setOnHidden(event -> {
+            gotoSelectedDate();
+        });
+
+        btSearch.setOnAction(event -> {
+            gotoSelectedDate();
+        });
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         dpSelected.setConverter(new StringConverter<>() {
             @Override
@@ -113,21 +120,32 @@ public class ShanCalendarController implements Initializable {
     }
 
     private void setDateDetail() {
+        ShanDate shanDate = new ShanDate(selectedMyanmarDate);
         dpSelected.setValue(selectedDate);
         lbDetail.setText(
                 getFirstDayOfMonth().getMonth() + " - " + getFirstDayOfMonth().plusMonths(1).getMonth()
         );
-        lbMonth.setText(selectedMyanmarDate.getMonthName().replaceAll("တၢမ်းႁၢင်", ""));
+        lbMonth.setText(ShanDate.translate(selectedMyanmarDate.getMonthName(Language.ENGLISH)));
         lbBuddhistYear.setText(
-                "ပီႊတႆး - " + selectedMyanmarDate.getShanYear() + " ၼီႈ" +
-                        "\nပီႊမိူင်း - " + ShanDate.getPeeMurng(selectedMyanmarDate.getShanYearInt()) +
+                "ပီႊတႆး - " + shanDate.getShanYear() + " ၼီႈ" +
+                        "\nပီႊမိူင်း - " + ShanDate.getPeeMurng(shanDate.getShanYearValue()) +
                         "\nပီႊထမ်း - " + ShanDate.getPeeHtam(selectedDate.getYear())
         );
-        lbYear.setText(LanguageCatalog.getInstance().translate("Sasana Year") + " - " + selectedMyanmarDate.getBuddhistEra() + "\n" +
-                LanguageCatalog.getInstance().translate("Myanmar Year") + " - " + selectedMyanmarDate.getYear() + "\n" +
-                LanguageCatalog.getInstance().translate("English Year") + " - " + NumberToStringUtil.convert(selectedDate.getYear(), LanguageCatalog.getInstance()));
-        String description = description();
-        String holiday = HolidayCalculator.toString(selectedMyanmarDate);
+        lbYear.setText(ShanDate.translate("Sasana Year") + " - " + selectedMyanmarDate.getBuddhistEra() + "\n" +
+                ShanDate.translate("Myanmar Year") + " - " + selectedMyanmarDate.getYear() + "\n" +
+                ShanDate.translate("English Year") + " - " + selectedDate.getYear());
+        var description = description();
+        var holidays = ShanDate.getHolidays(selectedMyanmarDate);
+        String holiday = "";
+        if (!holidays.isEmpty()) {
+            holiday = holidays.stream()
+                    .map(n -> {
+                        var str = ShanDate.translate(n);
+                        return str == null ? n : str;
+                    })
+                    .collect(Collectors.joining(","));
+        }
+
         if (!holiday.isEmpty()) {
             lbHoliday.setText(holiday);
             lbHoliday.setVisible(true);
@@ -143,10 +161,15 @@ public class ShanCalendarController implements Initializable {
 
     private String description() {
         StringBuilder sb = new StringBuilder();
-        sb.append(selectedMyanmarDate.getMonthName()).append(" ");
-        sb.append(selectedMyanmarDate.getMoonPhase()).append(" ");
-        sb.append(selectedMyanmarDate.getFortnightDay()).append(" ");
-        sb.append(selectedMyanmarDate.getMoonPhraseInt() == 0 ? " ဝၼ်း" : "").append(selectedMyanmarDate.getMoonPhraseInt() == 2 ? " ၶမ်ႈ" : "").append("၊ ");
+        sb.append(ShanDate.translate(selectedMyanmarDate.getMonthName(Language.ENGLISH))).append(" ");
+        if (selectedMyanmarDate.getMoonPhaseValue() == 1 || selectedMyanmarDate.getMoonPhaseValue() == 3) {
+            sb.append(selectedMyanmarDate.getMoonPhase()).append("၊ ");
+        } else {
+            sb.append(selectedMyanmarDate.getMoonPhase()).append(" ");
+            sb.append(selectedMyanmarDate.getFortnightDay()).append(" ");
+            sb.append(selectedMyanmarDate.getMoonPhaseValue() == 0 ? " ဝၼ်း" : "").append(selectedMyanmarDate.getMoonPhaseValue() == 2 ? " ၶမ်ႈ" : "").append("၊ ");
+
+        }
         sb.append("ဝၼ်း").append(ShanDate.getWannTai60(selectedDate.toEpochDay())).append("၊ ");
         sb.append("ဝၼ်း").append(selectedMyanmarDate.getWeekDay()).append("။\n");
         sb.append(ShanDate.toString(selectedDate, selectedMyanmarDate));
@@ -156,11 +179,11 @@ public class ShanCalendarController implements Initializable {
 
     private void createCalendar() {
 
-        clearCalendarView();
+        resetCalendarView();
 
         LocalDate firstDayOfMonth = getFirstDayOfMonth();
-        MyanmarDate firstDayOfMonthMM = MyanmarDateConverter.convert(firstDayOfMonth.getYear(), firstDayOfMonth.getMonthValue(), firstDayOfMonth.getDayOfMonth());
-        int monthLength = firstDayOfMonthMM.getMonthLength();
+        MyanmarDate firstDayOfMonthMM = MyanmarDate.of(firstDayOfMonth);
+        int monthLength = firstDayOfMonthMM.lengthOfMonth();
         int dayToHide = ShanDate.getMePeeInt(firstDayOfMonth.toEpochDay());
         int totalMonthDay = 0;
 
@@ -192,7 +215,7 @@ public class ShanCalendarController implements Initializable {
                 if (vBox.isVisible()) {
                     // Set Date Cell Data
                     LocalDate ld = firstDayOfMonth.plusDays(totalMonthDay);
-                    MyanmarDate md = MyanmarDateConverter.convert(ld.getYear(), ld.getMonthValue(), ld.getDayOfMonth());
+                    MyanmarDate md = MyanmarDate.of(ld);
 
                     HBox hb = (HBox) vBox.getChildren().get(0);
                     // English Day - ဝၼ်းဢၢင်းၵိတ်ႈ
@@ -203,7 +226,7 @@ public class ShanCalendarController implements Initializable {
                     lukWann.setText(md.getWeekDay());
                     // Shan Day - ဝၼ်းတႆး
                     Label shanDay = (Label) vBox.getChildren().get(1);
-                    shanDay.setText(md.getMonthDay(LanguageCatalog.getInstance()));
+                    shanDay.setText(LanguageTranslator.translate(md.getDayOfMonth(), Language.TAI));
                     // Wann Luk Pee - ဝၼ်းလုၵ်ႈပီႊ (ၸႂ်ႉ၊ ပဝ်ႉ၊ ယီး)
                     Label wannLukPee = (Label) vBox.getChildren().get(2);
                     wannLukPee.setText(ShanDate.getLukPee(ld.toEpochDay()));
@@ -231,11 +254,11 @@ public class ShanCalendarController implements Initializable {
                     }
 
                     // Decorate cell label
-                    if (md.getMoonPhraseInt() == 1) {
+                    if (md.getMoonPhaseValue() == 1) {
                         // full moon
 //                        shanDay.setTextFill(Color.rgb(255, 255, 29));
                         vBox.setId("full-moon");
-                    } else if (md.getMoonPhraseInt() == 3) {
+                    } else if (md.getMoonPhaseValue() == 3) {
                         // new moon
                         shanDay.setTextFill(Color.WHITE);
                         vBox.setId("new-moon");
@@ -245,7 +268,7 @@ public class ShanCalendarController implements Initializable {
                     }
 
                     // Decorate English Date Label
-                    if (HolidayCalculator.isHoliday(md)/* || ld.getDayOfWeek() == DayOfWeek.SATURDAY || ld.getDayOfWeek() == DayOfWeek.SUNDAY*/) {
+                    if (ShanDate.isHoliday(md)/* || ld.getDayOfWeek() == DayOfWeek.SATURDAY || ld.getDayOfWeek() == DayOfWeek.SUNDAY*/) {
                         shanDay.setTextFill(Color.valueOf("#630C09"));
                     } else {
                         shanDay.setTextFill(Color.valueOf("#1E3A57"));
@@ -269,7 +292,7 @@ public class ShanCalendarController implements Initializable {
 
     private void selectDate(VBox vb) {
         selectedDate = (LocalDate) vb.getUserData();
-        selectedMyanmarDate = MyanmarDateConverter.convert(selectedDate.getYear(), selectedDate.getMonthValue(), selectedDate.getDayOfMonth());
+        selectedMyanmarDate = MyanmarDate.of(selectedDate);
         setSelectedCellBackground(vb);
         setDateDetail();
 
@@ -293,30 +316,40 @@ public class ShanCalendarController implements Initializable {
         prevSelectedDate = vb;
     }
 
-    private void clearCalendarView() {
-        row1.getChildren().forEach(node -> node.setVisible(true));
-        row2.getChildren().forEach(node -> node.setVisible(true));
-        row3.getChildren().forEach(node -> node.setVisible(true));
-        row4.getChildren().forEach(node -> node.setVisible(true));
+    private void resetCalendarView() {
+        row1.getChildren().forEach(node -> {
+            if (!node.isVisible()) node.setVisible(true);
+        });
+        row2.getChildren().forEach(node -> {
+            if (!node.isVisible()) node.setVisible(true);
+        });
+        row3.getChildren().forEach(node -> {
+            if (!node.isVisible()) node.setVisible(true);
+        });
+        row4.getChildren().forEach(node -> {
+            if (!node.isVisible()) node.setVisible(true);
+        });
     }
 
 
     private void gotoPrevMonth() {
-        selectedDate = selectedDate.minusDays(selectedMyanmarDate.getMonthDay());
+        selectedDate = selectedDate.minusDays(selectedMyanmarDate.getDayOfMonth());
         createCalendar();
     }
 
     private void gotoNextMonth() {
         if (selectedDate.equals(LocalDate.now())) {
-            selectedDate = selectedDate.plusDays(selectedMyanmarDate.getMonthLength() - selectedMyanmarDate.getMonthDay()).plusDays(1);
+            selectedDate = selectedDate.plusDays(selectedMyanmarDate.lengthOfMonth() - selectedMyanmarDate.getDayOfMonth()).plusDays(1);
         } else {
-            selectedDate = selectedDate.plusDays(selectedMyanmarDate.getMonthLength() - selectedMyanmarDate.getMonthDay() + 1);
+            selectedDate = selectedDate.plusDays(selectedMyanmarDate.lengthOfMonth() - selectedMyanmarDate.getDayOfMonth() + 1);
         }
         createCalendar();
     }
 
 
     private void gotoSelectedDate() {
+        System.out.println("Go to selected date");
+        System.out.println(dpSelected.getValue().isEqual(selectedDate));
         if (!dpSelected.getValue().isEqual(selectedDate)) {
             selectedDate = dpSelected.getValue();
             dpDate = selectedDate;
@@ -325,8 +358,8 @@ public class ShanCalendarController implements Initializable {
     }
 
     public LocalDate getFirstDayOfMonth() {
-        MyanmarDate myanmarDate = MyanmarDateConverter.convert(selectedDate.getYear(), selectedDate.getMonthValue(), selectedDate.getDayOfMonth());
+        MyanmarDate myanmarDate = MyanmarDate.of(selectedDate);
 
-        return selectedDate.minusDays(myanmarDate.getMonthDay() - 1);
+        return selectedDate.minusDays(myanmarDate.getDayOfMonth() - 1);
     }
 }

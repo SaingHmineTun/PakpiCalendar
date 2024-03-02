@@ -3,9 +3,10 @@
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.saimao.pakpi.controllers.ShanCalendarController">
+<BorderPane stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.saimao.pakpi.controllers.ShanCalendarController">
    <center>
       <HBox stylesheets="@../css/style.css">
          <children>
@@ -1530,7 +1531,20 @@
                         <String fx:value="lb-eng-month" />
                         <String fx:value="c-primary" />
                      </styleClass></Label>
-                  <DatePicker fx:id="dpSelected" editable="false" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" promptText="Select Date" styleClass="fs-small" />
+                  <HBox spacing="10.0">
+                     <children>
+                        <DatePicker fx:id="dpSelected" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" promptText="Select Date" styleClass="fs-small" />
+                        <Button id="search-button" fx:id="btSearch" contentDisplay="GRAPHIC_ONLY" maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="Search">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/search.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
                <VBox.margin>
                   <Insets bottom="20.0" top="20.0" />

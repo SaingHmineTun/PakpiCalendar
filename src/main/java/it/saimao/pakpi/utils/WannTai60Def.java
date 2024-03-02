@@ -4,7 +4,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class WannTai60Def {
-    private InputStream is;
+    private final InputStream is;
 
     public WannTai60Def() {
         is = getClass().getResourceAsStream("/assets/wann_tai_60.csv");
