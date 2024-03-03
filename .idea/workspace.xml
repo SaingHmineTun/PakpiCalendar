@@ -9,12 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="Make date picker selectable to when to go">
+    <list default="true" id="dc5fc953-af5e-4e22-bb59-1756f30c384f" name="Changes" comment="Rename package name to Pakpi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/controllers/ShanCalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/controllers/ShanCalendarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/LanguageTranslator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/mmcalendar/LanguageTranslator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/utils/ShanDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/saimao/pakpi/utils/ShanDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/pakpi-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/pakpi-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,35 +59,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ShanCalendarApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShanDateTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;zulu-20&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/JavaProjects/PakpiCalendar/src/main/resources/images&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.PakpiApplication.executor": "Run",
+    "Application.ShanCalendarApplication.executor": "Run",
+    "JUnit.ShanDateTest (1).executor": "Run",
+    "Maven.pakpi [clean].executor": "Run",
+    "Maven.pakpi [package].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "zulu-20",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/JavaProjects/PakpiCalendar/src/main/resources/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: [
+  "keyToStringList": {
+    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\JavaProjects\PakpiCalendar\src\main\resources\images" />
@@ -256,6 +259,8 @@
       <workItem from="1709207774955" duration="6897000" />
       <workItem from="1709257933472" duration="7007000" />
       <workItem from="1709347006586" duration="4774000" />
+      <workItem from="1709429611907" duration="639000" />
+      <workItem from="1709438782554" duration="663000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -593,14 +598,21 @@
       <option name="project" value="LOCAL" />
       <updated>1709264876093</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Rename package name to Pakpi">
+      <option name="closed" value="true" />
+      <created>1709429906867</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1709429906867</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented all features requested by C Tai." />
     <MESSAGE value="Fixed bug in next and prev month!" />
     <MESSAGE value="Fixed : Do not display Shan year correctly!" />
     <MESSAGE value="Added : WannTai60Def and it's corresponding test file!" />
@@ -625,7 +637,8 @@
     <MESSAGE value="Fixed: လိူၼ်ႁႃႈတၢမ်းႁၢင် -&gt; လိူၼ်ႁႃႈ&#10;Fixed: ပွႆး -&gt; ပွၺ်း" />
     <MESSAGE value="Migrated to mmcalendar 1.0.8" />
     <MESSAGE value="Migration in progress!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Migration in progress!" />
+    <MESSAGE value="Rename package name to Pakpi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename package name to Pakpi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

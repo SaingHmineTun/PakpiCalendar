@@ -32,12 +32,6 @@
             <artifactId>richtextfx</artifactId>
             <version>0.11.2</version>
         </dependency>
-        <!-- Add Calendar Dependency -->
-<!--        <dependency>-->
-<!--            <groupId>com.github.chanmratekoko</groupId>-->
-<!--            <artifactId>myanmar-calendar</artifactId>-->
-<!--            <version>1.0.8.RELEASE</version>-->
-<!--        </dependency>-->
 
 
         <dependency>
@@ -64,6 +58,18 @@
                     <source>20</source>
                     <target>20</target>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version><configuration>
+                <archive>
+                    <manifest>
+                        <mainClass>it.saimao.pakpi.PakpiApplication</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
             </plugin>
             <plugin>
                 <groupId>org.openjfx</groupId>
