@@ -10,12 +10,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ShanCalendarApplication extends Application {
+public class PakpiApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
         Rectangle2D screenSize = Screen.getPrimary().getVisualBounds();
-        FXMLLoader fxmlLoader = new FXMLLoader(ShanCalendarApplication.class.getResource("/views/shan-calendar-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(PakpiApplication.class.getResource("/views/pakpi-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Pakpi Calendar");
         stage.setScene(scene);

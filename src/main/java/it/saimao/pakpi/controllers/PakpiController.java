@@ -20,7 +20,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class ShanCalendarController implements Initializable {
+public class PakpiController implements Initializable {
 
     @FXML
     private HBox row0;
@@ -93,8 +93,9 @@ public class ShanCalendarController implements Initializable {
         dpSelected.setConverter(new StringConverter<>() {
             @Override
             public String toString(LocalDate object) {
-                if (object != null)
+                if (object != null) {
                     return formatter.format(object);
+                }
                 else
                     return "";
             }
@@ -133,7 +134,7 @@ public class ShanCalendarController implements Initializable {
         );
         lbYear.setText(ShanDate.translate("Sasana Year") + " - " + selectedMyanmarDate.getBuddhistEra() + "\n" +
                 ShanDate.translate("Myanmar Year") + " - " + selectedMyanmarDate.getYear() + "\n" +
-                ShanDate.translate("English Year") + " - " + selectedDate.getYear());
+                ShanDate.translate("English Year") + " - " + (selectedDate.getYear() < 0 ? (Math.abs(selectedDate.getYear()) + 1) + " BC" : selectedDate.getYear()));
         var description = description();
         var holidays = ShanDate.getHolidays(selectedMyanmarDate);
         String holiday = "";
@@ -348,8 +349,6 @@ public class ShanCalendarController implements Initializable {
 
 
     private void gotoSelectedDate() {
-        System.out.println("Go to selected date");
-        System.out.println(dpSelected.getValue().isEqual(selectedDate));
         if (!dpSelected.getValue().isEqual(selectedDate)) {
             selectedDate = dpSelected.getValue();
             dpDate = selectedDate;

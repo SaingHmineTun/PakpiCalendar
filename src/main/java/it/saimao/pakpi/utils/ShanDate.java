@@ -711,12 +711,22 @@ public class ShanDate {
     // လၵ်းၼီႈပီႊမိူင်း ( ဢမ်ႇၸႂ်ပီႊၶေႇ )
     // 2109 - ၵတ်းသႂ်ႉ(ငူး)
     public static String getPeeMurng(int shanYear) {
+        if (shanYear < 0) shanYear = Math.abs(shanYear);
         int year = shanYear - 3;
+        if (year < 0) year = Math.abs(year);
         int mePeeInt = year % 10; // မိင်ႈမႄႈပီႊ - ဢဝ်တူဝ်လိုၼ်း
         String mingMePee = getMePeeByInt(mePeeInt);
         int lukPeeInt = year % 12;
         String mingLukPee = getLukPeeByInt(lukPeeInt);
-        return mingMePee + mingLukPee + "(မိင်ႈ" + lukPeeDef[--lukPeeInt] + ")";
+        return mingMePee + mingLukPee + "(မိင်ႈ" + getLukPeeDef(lukPeeInt) + ")";
+    }
+
+    private static String getLukPeeDef(int lukPeeInt) {
+        if (lukPeeInt == 0) lukPeeInt = 12;
+        if (lukPeeInt > 0 && lukPeeInt <= 12)
+            return lukPeeDef[lukPeeInt - 1];
+        throw new IllegalArgumentException("Luk Pee Int is not between 1 and 12: " + lukPeeInt);
+
     }
 
     // ပီႊထမ်း
@@ -724,6 +734,7 @@ public class ShanDate {
     // 1992 - လိင်း
     // 2001 - ငူး
     public static String getPeeHtam(int engYear) {
+        if (engYear < 0) engYear = Math.abs(engYear);
         int lukPeeRemainder = (engYear % 12) - 4;
         if (lukPeeRemainder < 0) lukPeeRemainder = 12 + lukPeeRemainder;
         int mePeeRemain = (engYear % 10) - 4;
@@ -732,11 +743,18 @@ public class ShanDate {
     }
 
     private static String getLukPeeByInt(int lukPeeInt) {
-        return lukPee[lukPeeInt - 1];
+        if (lukPeeInt == 0) lukPeeInt = 12;
+        if (lukPeeInt > 0 && lukPeeInt <= 12)
+            return lukPee[lukPeeInt - 1];
+        throw new IllegalArgumentException("Luk Pee Int is not between 1 and 12: " + lukPeeInt);
     }
 
     private static String getMePeeByInt(int mePeeInt) {
-        return mePee[mePeeInt - 1];
+        if (mePeeInt == 0) mePeeInt = 10;
+        if (mePeeInt > 0 && mePeeInt <= 10)
+            return mePee[mePeeInt - 1];
+        throw new IllegalArgumentException("Me Pee Int is not between 1 and 12: " + mePeeInt);
+
     }
 
     public static int getHarakunConstant(int myanmarYear) {
